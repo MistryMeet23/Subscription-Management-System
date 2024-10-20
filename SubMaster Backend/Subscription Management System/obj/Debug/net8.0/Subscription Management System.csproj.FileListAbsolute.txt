@@ -1,0 +1,33 @@
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\appsettings.Development.json
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\appsettings.json
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Subscription Management System.exe
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Subscription Management System.deps.json
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Subscription Management System.runtimeconfig.json
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Subscription Management System.dll
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Subscription Management System.pdb
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscription Management System.csproj.AssemblyReference.cache
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscription Management System.GeneratedMSBuildEditorConfig.editorconfig
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscription Management System.AssemblyInfoInputs.cache
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscription Management System.AssemblyInfo.cs
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscription Management System.csproj.CoreCompileInputs.cache
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscription Management System.MvcApplicationPartsAssemblyInfo.cs
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscription Management System.MvcApplicationPartsAssemblyInfo.cache
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscription Management System.sourcelink.json
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\staticwebassets.build.json
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\staticwebassets.development.json
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\staticwebassets\msbuild.Subscription Management System.Microsoft.AspNetCore.StaticWebAssets.props
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\staticwebassets\msbuild.build.Subscription Management System.props
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Subscription Management System.props
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Subscription Management System.props
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\staticwebassets.pack.json
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\scopedcss\bundle\Subscription Management System.styles.css
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscrip.35748E9A.Up2Date
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscription Management System.dll
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\refint\Subscription Management System.dll
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscription Management System.pdb
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscription Management System.genruntimeconfig.cache
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\ref\Subscription Management System.dll
