@@ -4,11 +4,11 @@ namespace Subscription_Management_System.Model
 {
     public class SubscriptionHistory
     {
-        [Required]
+        [Key, Required]
         public int HistoryId { get; set; }
 
         [Required]
-        public int PlanId { get; set; }
+        public virtual VendorSubscriptionPlans VendorSubscriptionPlans { get; set; }
 
         [Required]
         public string? ChangeType { get; set; } = "Upgraded, Canceled";

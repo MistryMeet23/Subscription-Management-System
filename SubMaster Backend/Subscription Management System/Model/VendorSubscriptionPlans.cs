@@ -4,11 +4,11 @@ namespace Subscription_Management_System.Model
 {
     public class VendorSubscriptionPlans
     {
-        [Required]
+        [Key,Required]
         public int PlanId { get; set; }
 
         [Required]
-        public int VendorId { get; set; }
+        public virtual Vendor Vendor { get; set; }
 
         [Required]
         public string? PlanName { get; set; }

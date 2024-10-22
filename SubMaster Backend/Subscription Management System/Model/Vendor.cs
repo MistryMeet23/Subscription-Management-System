@@ -4,11 +4,11 @@ namespace Subscription_Management_System.Model
 {
     public class Vendor
     {
-        [Required]
+        [Key, Required]
         public int VendorId { get; set; }
 
         [Required]
-        public int RoleId { get; set; }
+        public virtual UserRoles UserRoles { get; set; }
 
         [Required]
         public string? BusinessName { get; set; }

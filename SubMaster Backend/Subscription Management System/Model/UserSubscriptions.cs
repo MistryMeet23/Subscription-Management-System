@@ -4,14 +4,14 @@ namespace Subscription_Management_System.Model
 {
     public class UserSubscriptions
     {
-        [Required]
+        [Key, Required]
         public int SubscriptionId { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public virtual User User { get; set; }
 
         [Required]
-        public int PlanId { get; set; }
+        public virtual VendorSubscriptionPlans VendorSubscriptionPlans { get; set; }
 
         public DateTime StartDate { get; set; }
 
