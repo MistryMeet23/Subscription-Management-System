@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Subscription_Management_System.Model
 {
@@ -8,7 +9,10 @@ namespace Subscription_Management_System.Model
         public int NotificationId { get; set; }
 
         [Required]
-        public virtual User User { get; set; }
+        public int UserId { get; set; }
+
+        [JsonIgnore]
+        public virtual User? User { get; set; }
 
         [Required]
         public string? NotificationType { get; set; }
@@ -17,16 +21,17 @@ namespace Subscription_Management_System.Model
         public string? Message { get; set; }
 
         [Required]
-        public string? Status { get; set; } = "Unread, Read, Archived";
+        public string Status { get; set; } = "Unread"; 
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public DateTime UpdatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
         [Required]
         public string? Subject { get; set; }
 
         [Required]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")] 
         public string? Email { get; set; }
     }
 }

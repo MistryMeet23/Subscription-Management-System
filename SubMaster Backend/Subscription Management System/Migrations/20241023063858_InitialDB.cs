@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Subscription_Management_System.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDb : Migration
+    public partial class InitialDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace Subscription_Management_System.Migrations
                 {
                     RoleId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    RoleName = table.Column<string>(type: "text", nullable: false)
+                    RoleName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,24 +33,23 @@ namespace Subscription_Management_System.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
-                    Password = table.Column<string>(type: "text", nullable: false),
-                    UserRolesRoleId = table.Column<int>(type: "integer", nullable: false),
-                    Status = table.Column<string>(type: "text", nullable: true),
+                    Password = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    PhoneNumber = table.Column<int>(type: "integer", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
                     UserPic = table.Column<string>(type: "text", nullable: true),
-                    DOB = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    DOB = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    RoleId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.UserId);
                     table.ForeignKey(
-                        name: "FK_Users_UserRoles_UserRolesRoleId",
-                        column: x => x.UserRolesRoleId,
+                        name: "FK_Users_UserRoles_RoleId",
+                        column: x => x.RoleId,
                         principalTable: "UserRoles",
-                        principalColumn: "RoleId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "RoleId");
                 });
 
             migrationBuilder.CreateTable(
@@ -59,12 +58,13 @@ namespace Subscription_Management_System.Migrations
                 {
                     VendorId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserRolesRoleId = table.Column<int>(type: "integer", nullable: false),
-                    BusinessName = table.Column<string>(type: "text", nullable: false),
-                    BusinessDescription = table.Column<string>(type: "text", nullable: false),
-                    PhoneNumber = table.Column<int>(type: "integer", nullable: false),
+                    UserRoleId = table.Column<int>(type: "integer", nullable: false),
+                    UserRolesRoleId = table.Column<int>(type: "integer", nullable: true),
+                    BusinessName = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    BusinessDescription = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
                     Website = table.Column<string>(type: "text", nullable: true),
-                    Sociallinks = table.Column<string>(type: "text", nullable: true),
+                    SocialLinks = table.Column<string>(type: "text", nullable: true),
                     LogoUrl = table.Column<string>(type: "text", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
@@ -76,8 +76,7 @@ namespace Subscription_Management_System.Migrations
                         name: "FK_Vendors_UserRoles_UserRolesRoleId",
                         column: x => x.UserRolesRoleId,
                         principalTable: "UserRoles",
-                        principalColumn: "RoleId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "RoleId");
                 });
 
             migrationBuilder.CreateTable(
@@ -107,14 +106,14 @@ namespace Subscription_Management_System.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "VendorsSubscriptionPlans",
+                name: "VendorSubscriptionPlans",
                 columns: table => new
                 {
                     PlanId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     VendorId = table.Column<int>(type: "integer", nullable: false),
-                    PlanName = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false),
+                    PlanName = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
                     Price = table.Column<decimal>(type: "numeric", nullable: false),
                     DurationOfDays = table.Column<int>(type: "integer", nullable: false),
                     Features = table.Column<string>(type: "text", nullable: false),
@@ -124,9 +123,9 @@ namespace Subscription_Management_System.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_VendorsSubscriptionPlans", x => x.PlanId);
+                    table.PrimaryKey("PK_VendorSubscriptionPlans", x => x.PlanId);
                     table.ForeignKey(
-                        name: "FK_VendorsSubscriptionPlans_Vendors_VendorId",
+                        name: "FK_VendorSubscriptionPlans_Vendors_VendorId",
                         column: x => x.VendorId,
                         principalTable: "Vendors",
                         principalColumn: "VendorId",
@@ -139,11 +138,11 @@ namespace Subscription_Management_System.Migrations
                 {
                     FeedbackId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    VendorSubscriptionPlansPlanId = table.Column<int>(type: "integer", nullable: false),
+                    VendorSubscriptionPlanId = table.Column<int>(type: "integer", nullable: false),
                     FeedbackText = table.Column<string>(type: "text", nullable: true),
                     Rating = table.Column<int>(type: "integer", nullable: false),
-                    SubmittedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    SubmittedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UserId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -152,12 +151,11 @@ namespace Subscription_Management_System.Migrations
                         name: "FK_Feedbacks_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "UserId");
                     table.ForeignKey(
-                        name: "FK_Feedbacks_VendorsSubscriptionPlans_VendorSubscriptionPlansP~",
-                        column: x => x.VendorSubscriptionPlansPlanId,
-                        principalTable: "VendorsSubscriptionPlans",
+                        name: "FK_Feedbacks_VendorSubscriptionPlans_VendorSubscriptionPlanId",
+                        column: x => x.VendorSubscriptionPlanId,
+                        principalTable: "VendorSubscriptionPlans",
                         principalColumn: "PlanId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -169,7 +167,7 @@ namespace Subscription_Management_System.Migrations
                     PaymentId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserId = table.Column<int>(type: "integer", nullable: false),
-                    VendorSubscriptionPlansPlanId = table.Column<int>(type: "integer", nullable: false),
+                    VendorSubscriptionPlanId = table.Column<int>(type: "integer", nullable: false),
                     Amount = table.Column<decimal>(type: "numeric", nullable: false),
                     PaymentDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     PaymentMethod = table.Column<string>(type: "text", nullable: true),
@@ -186,15 +184,15 @@ namespace Subscription_Management_System.Migrations
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Payments_VendorsSubscriptionPlans_VendorSubscriptionPlansPl~",
-                        column: x => x.VendorSubscriptionPlansPlanId,
-                        principalTable: "VendorsSubscriptionPlans",
+                        name: "FK_Payments_VendorSubscriptionPlans_VendorSubscriptionPlanId",
+                        column: x => x.VendorSubscriptionPlanId,
+                        principalTable: "VendorSubscriptionPlans",
                         principalColumn: "PlanId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProvidedPromotions",
+                name: "Promotions",
                 columns: table => new
                 {
                     PromotionId = table.Column<int>(type: "integer", nullable: false)
@@ -203,27 +201,28 @@ namespace Subscription_Management_System.Migrations
                     Discount = table.Column<decimal>(type: "numeric", nullable: false),
                     StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Usagelimit = table.Column<int>(type: "integer", nullable: false),
-                    VendorSubscriptionPlansPlanId = table.Column<int>(type: "integer", nullable: false)
+                    UsageLimit = table.Column<int>(type: "integer", nullable: false),
+                    VendorSubscriptionPlanId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProvidedPromotions", x => x.PromotionId);
+                    table.PrimaryKey("PK_Promotions", x => x.PromotionId);
                     table.ForeignKey(
-                        name: "FK_ProvidedPromotions_VendorsSubscriptionPlans_VendorSubscript~",
-                        column: x => x.VendorSubscriptionPlansPlanId,
-                        principalTable: "VendorsSubscriptionPlans",
+                        name: "FK_Promotions_VendorSubscriptionPlans_VendorSubscriptionPlanId",
+                        column: x => x.VendorSubscriptionPlanId,
+                        principalTable: "VendorSubscriptionPlans",
                         principalColumn: "PlanId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "SubscriptionHistory",
+                name: "SubscriptionHistories",
                 columns: table => new
                 {
                     HistoryId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    VendorSubscriptionPlansPlanId = table.Column<int>(type: "integer", nullable: false),
+                    VendorSubscriptionPlanId = table.Column<int>(type: "integer", nullable: false),
+                    VendorSubscriptionPlansPlanId = table.Column<int>(type: "integer", nullable: true),
                     ChangeType = table.Column<string>(type: "text", nullable: false),
                     OldValue = table.Column<string>(type: "text", nullable: false),
                     NewValue = table.Column<string>(type: "text", nullable: false),
@@ -231,13 +230,12 @@ namespace Subscription_Management_System.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SubscriptionHistory", x => x.HistoryId);
+                    table.PrimaryKey("PK_SubscriptionHistories", x => x.HistoryId);
                     table.ForeignKey(
-                        name: "FK_SubscriptionHistory_VendorsSubscriptionPlans_VendorSubscrip~",
+                        name: "FK_SubscriptionHistories_VendorSubscriptionPlans_VendorSubscri~",
                         column: x => x.VendorSubscriptionPlansPlanId,
-                        principalTable: "VendorsSubscriptionPlans",
-                        principalColumn: "PlanId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalTable: "VendorSubscriptionPlans",
+                        principalColumn: "PlanId");
                 });
 
             migrationBuilder.CreateTable(
@@ -247,7 +245,7 @@ namespace Subscription_Management_System.Migrations
                     SubscriptionId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserId = table.Column<int>(type: "integer", nullable: false),
-                    VendorSubscriptionPlansPlanId = table.Column<int>(type: "integer", nullable: false),
+                    VendorSubscriptionPlanId = table.Column<int>(type: "integer", nullable: false),
                     StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Status = table.Column<string>(type: "text", nullable: false),
@@ -267,9 +265,9 @@ namespace Subscription_Management_System.Migrations
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserSubscriptions_VendorsSubscriptionPlans_VendorSubscripti~",
-                        column: x => x.VendorSubscriptionPlansPlanId,
-                        principalTable: "VendorsSubscriptionPlans",
+                        name: "FK_UserSubscriptions_VendorSubscriptionPlans_VendorSubscriptio~",
+                        column: x => x.VendorSubscriptionPlanId,
+                        principalTable: "VendorSubscriptionPlans",
                         principalColumn: "PlanId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -280,7 +278,7 @@ namespace Subscription_Management_System.Migrations
                 {
                     InvoiceId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    PaymentsPaymentId = table.Column<int>(type: "integer", nullable: false),
+                    PaymentId = table.Column<int>(type: "integer", nullable: true),
                     InvoiceNumber = table.Column<int>(type: "integer", nullable: false),
                     IssueDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     DueDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -290,11 +288,10 @@ namespace Subscription_Management_System.Migrations
                 {
                     table.PrimaryKey("PK_Invoices", x => x.InvoiceId);
                     table.ForeignKey(
-                        name: "FK_Invoices_Payments_PaymentsPaymentId",
-                        column: x => x.PaymentsPaymentId,
+                        name: "FK_Invoices_Payments_PaymentId",
+                        column: x => x.PaymentId,
                         principalTable: "Payments",
-                        principalColumn: "PaymentId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "PaymentId");
                 });
 
             migrationBuilder.CreateIndex(
@@ -303,14 +300,14 @@ namespace Subscription_Management_System.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Feedbacks_VendorSubscriptionPlansPlanId",
+                name: "IX_Feedbacks_VendorSubscriptionPlanId",
                 table: "Feedbacks",
-                column: "VendorSubscriptionPlansPlanId");
+                column: "VendorSubscriptionPlanId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Invoices_PaymentsPaymentId",
+                name: "IX_Invoices_PaymentId",
                 table: "Invoices",
-                column: "PaymentsPaymentId");
+                column: "PaymentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Notifications_UserId",
@@ -323,24 +320,24 @@ namespace Subscription_Management_System.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Payments_VendorSubscriptionPlansPlanId",
+                name: "IX_Payments_VendorSubscriptionPlanId",
                 table: "Payments",
+                column: "VendorSubscriptionPlanId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Promotions_VendorSubscriptionPlanId",
+                table: "Promotions",
+                column: "VendorSubscriptionPlanId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SubscriptionHistories_VendorSubscriptionPlansPlanId",
+                table: "SubscriptionHistories",
                 column: "VendorSubscriptionPlansPlanId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProvidedPromotions_VendorSubscriptionPlansPlanId",
-                table: "ProvidedPromotions",
-                column: "VendorSubscriptionPlansPlanId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SubscriptionHistory_VendorSubscriptionPlansPlanId",
-                table: "SubscriptionHistory",
-                column: "VendorSubscriptionPlansPlanId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_UserRolesRoleId",
+                name: "IX_Users_RoleId",
                 table: "Users",
-                column: "UserRolesRoleId");
+                column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserSubscriptions_UserId",
@@ -348,9 +345,9 @@ namespace Subscription_Management_System.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserSubscriptions_VendorSubscriptionPlansPlanId",
+                name: "IX_UserSubscriptions_VendorSubscriptionPlanId",
                 table: "UserSubscriptions",
-                column: "VendorSubscriptionPlansPlanId");
+                column: "VendorSubscriptionPlanId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vendors_UserRolesRoleId",
@@ -358,8 +355,8 @@ namespace Subscription_Management_System.Migrations
                 column: "UserRolesRoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_VendorsSubscriptionPlans_VendorId",
-                table: "VendorsSubscriptionPlans",
+                name: "IX_VendorSubscriptionPlans_VendorId",
+                table: "VendorSubscriptionPlans",
                 column: "VendorId");
         }
 
@@ -376,10 +373,10 @@ namespace Subscription_Management_System.Migrations
                 name: "Notifications");
 
             migrationBuilder.DropTable(
-                name: "ProvidedPromotions");
+                name: "Promotions");
 
             migrationBuilder.DropTable(
-                name: "SubscriptionHistory");
+                name: "SubscriptionHistories");
 
             migrationBuilder.DropTable(
                 name: "UserSubscriptions");
@@ -391,7 +388,7 @@ namespace Subscription_Management_System.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "VendorsSubscriptionPlans");
+                name: "VendorSubscriptionPlans");
 
             migrationBuilder.DropTable(
                 name: "Vendors");

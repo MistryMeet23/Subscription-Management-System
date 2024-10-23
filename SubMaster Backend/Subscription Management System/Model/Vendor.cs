@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Subscription_Management_System.Model
 {
@@ -8,25 +9,34 @@ namespace Subscription_Management_System.Model
         public int VendorId { get; set; }
 
         [Required]
-        public virtual UserRoles UserRoles { get; set; }
+        public int UserRoleId { get; set; } 
+
+        [JsonIgnore]
+        public virtual UserRoles? UserRoles { get; set; }
 
         [Required]
+        [StringLength(100, ErrorMessage = "Business name cannot exceed 100 characters.")]
         public string? BusinessName { get; set; }
 
         [Required]
+        [StringLength(500, ErrorMessage = "Business description cannot exceed 500 characters.")]
         public string? BusinessDescription { get; set; }
 
         [Required]
-        public int PhoneNumber { get; set; }
+        [Phone(ErrorMessage = "Invalid phone number format.")]
+        public string PhoneNumber { get; set; } 
 
+        [Url(ErrorMessage = "Invalid website URL format.")]
         public string? Website { get; set; }
 
-        public string? Sociallinks { get; set; }
+        public string? SocialLinks { get; set; }
 
         public string? LogoUrl { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow; 
 
-        public DateTime UpdatedAt { get; set; }
+        [Required]
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     }
 }

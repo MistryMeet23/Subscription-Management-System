@@ -2,8 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Subscription_Management_System.Data;
 using Subscription_Management_System.Model;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Subscription_Management_System.Controllers
 {
@@ -18,50 +19,46 @@ namespace Subscription_Management_System.Controllers
             _context = context;
         }
 
-        // GET: api/<UserRolesController>
+        // Get all user roles
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserRoles>>> GetUserRoles()
         {
             return await _context.UserRoles.ToListAsync();
         }
 
-        // GET api/<UserRolesController>/5
+        // Get a user role by ID
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserRoles>> GetUserRoles(int id)
+        public async Task<ActionResult<UserRoles>> GetUserRole(int id)
         {
-            var ur = await _context.UserRoles.FindAsync(id);
-            if(ur == null)
-            { 
+            var role = await _context.UserRoles.FindAsync(id);
+            if (role == null)
+            {
                 return NotFound();
             }
-            return ur;
+
+            return role;
         }
 
-        // POST api/<UserRolesController>
+        // Create a new user role
         [HttpPost]
-        public async Task<ActionResult<UserRoles>> Post(UserRoles userRoles)
+        public async Task<ActionResult<UserRoles>> PostUserRole(UserRoles userRole)
         {
-            _context.UserRoles.Add(userRoles);
+            _context.UserRoles.Add(userRole);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetUserRoles),new {id= userRoles.RoleId }, userRoles);
+
+            return CreatedAtAction(nameof(GetUserRole), new { id = userRole.RoleId }, userRole);
         }
 
-        // PUT api/<UserRolesController>/5
+        // Update an existing user role
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, UserRoles userRoles)
+        public async Task<IActionResult> PutUserRole(int id, UserRoles userRole)
         {
-            if (id != userRoles.RoleId)
+            if (id != userRole.RoleId)
             {
                 return BadRequest();
             }
 
-            // Check if the entity exists
-            if (!EntityExists(id))
-            {
-                return NotFound();
-            }
-
-            _context.Entry(userRoles).State = EntityState.Modified;
+            _context.Entry(userRole).State = EntityState.Modified;
 
             try
             {
@@ -69,36 +66,35 @@ namespace Subscription_Management_System.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EntityExists(id))
+                if (!UserRoleExists(id))
                 {
                     return NotFound();
                 }
-                throw; // Re-throw the exception for further handling
+                throw;
             }
 
             return NoContent();
         }
 
-        private bool EntityExists(int id)
-        {
-            return _context.UserRoles.Any(e=>e.RoleId == id);
-        }
-
-        // DELETE api/<UserRolesController>/5
+        // Delete a user role
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteUserRole(int id)
         {
-            var ur = await _context.UserRoles.FindAsync(id);
-            if (ur == null)
+            var userRole = await _context.UserRoles.FindAsync(id);
+            if (userRole == null)
             {
-                return NotFound(); // Corrected this check
+                return NotFound();
             }
 
-            _context.UserRoles.Remove(ur);
+            _context.UserRoles.Remove(userRole);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
-    }
 
+        private bool UserRoleExists(int id)
+        {
+            return _context.UserRoles.Any(e => e.RoleId == id);
+        }
+    }
 }

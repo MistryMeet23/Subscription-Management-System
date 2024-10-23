@@ -39,17 +39,17 @@ namespace Subscription_Management_System.Migrations
                     b.Property<DateTime>("SubmittedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("VendorSubscriptionPlansPlanId")
+                    b.Property<int>("VendorSubscriptionPlanId")
                         .HasColumnType("integer");
 
                     b.HasKey("FeedbackId");
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("VendorSubscriptionPlansPlanId");
+                    b.HasIndex("VendorSubscriptionPlanId");
 
                     b.ToTable("Feedbacks");
                 });
@@ -71,7 +71,7 @@ namespace Subscription_Management_System.Migrations
                     b.Property<DateTime>("IssueDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("PaymentsPaymentId")
+                    b.Property<int?>("PaymentId")
                         .HasColumnType("integer");
 
                     b.Property<decimal>("TotalAmount")
@@ -79,7 +79,7 @@ namespace Subscription_Management_System.Migrations
 
                     b.HasKey("InvoiceId");
 
-                    b.HasIndex("PaymentsPaymentId");
+                    b.HasIndex("PaymentId");
 
                     b.ToTable("Invoices");
                 });
@@ -155,14 +155,14 @@ namespace Subscription_Management_System.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("VendorSubscriptionPlansPlanId")
+                    b.Property<int>("VendorSubscriptionPlanId")
                         .HasColumnType("integer");
 
                     b.HasKey("PaymentId");
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("VendorSubscriptionPlansPlanId");
+                    b.HasIndex("VendorSubscriptionPlanId");
 
                     b.ToTable("Payments");
                 });
@@ -188,17 +188,17 @@ namespace Subscription_Management_System.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("Usagelimit")
+                    b.Property<int>("UsageLimit")
                         .HasColumnType("integer");
 
-                    b.Property<int>("VendorSubscriptionPlansPlanId")
+                    b.Property<int>("VendorSubscriptionPlanId")
                         .HasColumnType("integer");
 
                     b.HasKey("PromotionId");
 
-                    b.HasIndex("VendorSubscriptionPlansPlanId");
+                    b.HasIndex("VendorSubscriptionPlanId");
 
-                    b.ToTable("ProvidedPromotions");
+                    b.ToTable("Promotions");
                 });
 
             modelBuilder.Entity("Subscription_Management_System.Model.SubscriptionHistory", b =>
@@ -224,14 +224,17 @@ namespace Subscription_Management_System.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("VendorSubscriptionPlansPlanId")
+                    b.Property<int>("VendorSubscriptionPlanId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("VendorSubscriptionPlansPlanId")
                         .HasColumnType("integer");
 
                     b.HasKey("HistoryId");
 
                     b.HasIndex("VendorSubscriptionPlansPlanId");
 
-                    b.ToTable("SubscriptionHistory");
+                    b.ToTable("SubscriptionHistories");
                 });
 
             modelBuilder.Entity("Subscription_Management_System.Model.User", b =>
@@ -258,12 +261,17 @@ namespace Subscription_Management_System.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("text");
 
-                    b.Property<int>("PhoneNumber")
+                    b.Property<int?>("RoleId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Status")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -272,12 +280,9 @@ namespace Subscription_Management_System.Migrations
                     b.Property<string>("UserPic")
                         .HasColumnType("text");
 
-                    b.Property<int>("UserRolesRoleId")
-                        .HasColumnType("integer");
-
                     b.HasKey("UserId");
 
-                    b.HasIndex("UserRolesRoleId");
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Users");
                 });
@@ -292,7 +297,8 @@ namespace Subscription_Management_System.Migrations
 
                     b.Property<string>("RoleName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("RoleId");
 
@@ -336,14 +342,14 @@ namespace Subscription_Management_System.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("VendorSubscriptionPlansPlanId")
+                    b.Property<int>("VendorSubscriptionPlanId")
                         .HasColumnType("integer");
 
                     b.HasKey("SubscriptionId");
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("VendorSubscriptionPlansPlanId");
+                    b.HasIndex("VendorSubscriptionPlanId");
 
                     b.ToTable("UserSubscriptions");
                 });
@@ -358,11 +364,13 @@ namespace Subscription_Management_System.Migrations
 
                     b.Property<string>("BusinessDescription")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<string>("BusinessName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -370,16 +378,20 @@ namespace Subscription_Management_System.Migrations
                     b.Property<string>("LogoUrl")
                         .HasColumnType("text");
 
-                    b.Property<int>("PhoneNumber")
-                        .HasColumnType("integer");
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.Property<string>("Sociallinks")
+                    b.Property<string>("SocialLinks")
                         .HasColumnType("text");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("UserRolesRoleId")
+                    b.Property<int>("UserRoleId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("UserRolesRoleId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Website")
@@ -405,7 +417,8 @@ namespace Subscription_Management_System.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<int>("DurationOfDays")
                         .HasColumnType("integer");
@@ -420,7 +433,8 @@ namespace Subscription_Management_System.Migrations
 
                     b.Property<string>("PlanName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
@@ -435,20 +449,18 @@ namespace Subscription_Management_System.Migrations
 
                     b.HasIndex("VendorId");
 
-                    b.ToTable("VendorsSubscriptionPlans");
+                    b.ToTable("VendorSubscriptionPlans");
                 });
 
             modelBuilder.Entity("Subscription_Management_System.Model.Feedback", b =>
                 {
                     b.HasOne("Subscription_Management_System.Model.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.HasOne("Subscription_Management_System.Model.VendorSubscriptionPlans", "VendorSubscriptionPlans")
                         .WithMany()
-                        .HasForeignKey("VendorSubscriptionPlansPlanId")
+                        .HasForeignKey("VendorSubscriptionPlanId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -461,9 +473,7 @@ namespace Subscription_Management_System.Migrations
                 {
                     b.HasOne("Subscription_Management_System.Model.Payments", "Payments")
                         .WithMany()
-                        .HasForeignKey("PaymentsPaymentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PaymentId");
 
                     b.Navigation("Payments");
                 });
@@ -489,7 +499,7 @@ namespace Subscription_Management_System.Migrations
 
                     b.HasOne("Subscription_Management_System.Model.VendorSubscriptionPlans", "VendorSubscriptionPlans")
                         .WithMany()
-                        .HasForeignKey("VendorSubscriptionPlansPlanId")
+                        .HasForeignKey("VendorSubscriptionPlanId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -502,7 +512,7 @@ namespace Subscription_Management_System.Migrations
                 {
                     b.HasOne("Subscription_Management_System.Model.VendorSubscriptionPlans", "VendorSubscriptionPlans")
                         .WithMany()
-                        .HasForeignKey("VendorSubscriptionPlansPlanId")
+                        .HasForeignKey("VendorSubscriptionPlanId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -513,22 +523,18 @@ namespace Subscription_Management_System.Migrations
                 {
                     b.HasOne("Subscription_Management_System.Model.VendorSubscriptionPlans", "VendorSubscriptionPlans")
                         .WithMany()
-                        .HasForeignKey("VendorSubscriptionPlansPlanId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VendorSubscriptionPlansPlanId");
 
                     b.Navigation("VendorSubscriptionPlans");
                 });
 
             modelBuilder.Entity("Subscription_Management_System.Model.User", b =>
                 {
-                    b.HasOne("Subscription_Management_System.Model.UserRoles", "UserRoles")
+                    b.HasOne("Subscription_Management_System.Model.UserRoles", "Role")
                         .WithMany()
-                        .HasForeignKey("UserRolesRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RoleId");
 
-                    b.Navigation("UserRoles");
+                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("Subscription_Management_System.Model.UserSubscriptions", b =>
@@ -541,7 +547,7 @@ namespace Subscription_Management_System.Migrations
 
                     b.HasOne("Subscription_Management_System.Model.VendorSubscriptionPlans", "VendorSubscriptionPlans")
                         .WithMany()
-                        .HasForeignKey("VendorSubscriptionPlansPlanId")
+                        .HasForeignKey("VendorSubscriptionPlanId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -554,9 +560,7 @@ namespace Subscription_Management_System.Migrations
                 {
                     b.HasOne("Subscription_Management_System.Model.UserRoles", "UserRoles")
                         .WithMany()
-                        .HasForeignKey("UserRolesRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserRolesRoleId");
 
                     b.Navigation("UserRoles");
                 });
