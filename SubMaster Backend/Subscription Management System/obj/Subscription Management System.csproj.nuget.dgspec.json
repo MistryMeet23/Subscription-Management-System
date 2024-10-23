@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Subscription Management System.csproj": {}
+    "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Subscription Management System.csproj": {}
   },
   "projects": {
-    "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Subscription Management System.csproj": {
+    "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Subscription Management System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Subscription Management System.csproj",
+        "projectUniqueName": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Subscription Management System.csproj",
         "projectName": "Subscription Management System",
-        "projectPath": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Subscription Management System.csproj",
-        "packagesPath": "C:\\Users\\mistr\\.nuget\\packages\\",
-        "outputPath": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\obj\\",
+        "projectPath": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Subscription Management System.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\mistr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
