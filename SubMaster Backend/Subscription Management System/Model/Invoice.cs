@@ -4,11 +4,11 @@ namespace Subscription_Management_System.Model
 {
     public class Invoice
     {
-        [Required]
+        [Key, Required]
         public int InvoiceId { get; set; }
 
         [Required]
-        public int PaymentId { get; set; }
+        public virtual Payments Payments { get; set; }
 
         [Required]
         public int InvoiceNumber { get; set; }

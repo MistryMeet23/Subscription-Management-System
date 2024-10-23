@@ -1,50 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\",
+  "WorkspaceRootPath": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\model\\subscriptionhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:model\\subscriptionhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\model\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:model\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\model\\promotions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:model\\promotions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\model\\usersubscriptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:model\\usersubscriptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\model\\vendorsubscriptionplans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:model\\vendorsubscriptionplans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\model\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:model\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\model\\payments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:model\\payments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\model\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:model\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\model\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:model\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\model\\vendor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:model\\vendor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|d:\\sem 3 project\\subscription-management-system\\submaster backend\\subscription management system\\controllers\\userrolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:controllers\\userrolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,144 +14,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SubscriptionHistory.cs",
-              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\SubscriptionHistory.cs",
-              "RelativeDocumentMoniker": "Model\\SubscriptionHistory.cs",
-              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\SubscriptionHistory.cs",
-              "RelativeToolTip": "Model\\SubscriptionHistory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
+              "Title": "UserRolesController.cs",
+              "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Controllers\\UserRolesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserRolesController.cs",
+              "ToolTip": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Controllers\\UserRolesController.cs",
+              "RelativeToolTip": "Controllers\\UserRolesController.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAYwGgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T12:30:04.572Z",
+              "WhenOpened": "2024-10-22T19:38:13.787Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Invoice.cs",
-              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\Invoice.cs",
-              "RelativeDocumentMoniker": "Model\\Invoice.cs",
-              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\Invoice.cs",
-              "RelativeToolTip": "Model\\Invoice.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T12:20:16.203Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Payments.cs",
-              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\Payments.cs",
-              "RelativeDocumentMoniker": "Model\\Payments.cs",
-              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\Payments.cs",
-              "RelativeToolTip": "Model\\Payments.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T12:15:20.72Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UserRoles.cs",
-              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\UserRoles.cs",
-              "RelativeDocumentMoniker": "Model\\UserRoles.cs",
-              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\UserRoles.cs",
-              "RelativeToolTip": "Model\\UserRoles.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T12:14:20.05Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Notification.cs",
-              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\Notification.cs",
-              "RelativeDocumentMoniker": "Model\\Notification.cs",
-              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\Notification.cs",
-              "RelativeToolTip": "Model\\Notification.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T12:03:01.138Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserSubscriptions.cs",
-              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\UserSubscriptions.cs",
-              "RelativeDocumentMoniker": "Model\\UserSubscriptions.cs",
-              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\UserSubscriptions.cs",
-              "RelativeToolTip": "Model\\UserSubscriptions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T11:57:27.547Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "VendorSubscriptionPlans.cs",
-              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\VendorSubscriptionPlans.cs",
-              "RelativeDocumentMoniker": "Model\\VendorSubscriptionPlans.cs",
-              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\VendorSubscriptionPlans.cs",
-              "RelativeToolTip": "Model\\VendorSubscriptionPlans.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T11:53:05.498Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Vendor.cs",
-              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\Vendor.cs",
-              "RelativeDocumentMoniker": "Model\\Vendor.cs",
-              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\Vendor.cs",
-              "RelativeToolTip": "Model\\Vendor.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAwB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T11:43:29.059Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\User.cs",
-              "RelativeDocumentMoniker": "Model\\User.cs",
-              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\User.cs",
-              "RelativeToolTip": "Model\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T11:36:17.251Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Promotions.cs",
-              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\Promotions.cs",
-              "RelativeDocumentMoniker": "Model\\Promotions.cs",
-              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\Promotions.cs",
-              "RelativeToolTip": "Model\\Promotions.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAwBYAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T12:23:20.54Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Feedback.cs",
-              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\Feedback.cs",
-              "RelativeDocumentMoniker": "Model\\Feedback.cs",
-              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Model\\Feedback.cs",
-              "RelativeToolTip": "Model\\Feedback.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T12:26:42.545Z"
             }
           ]
         }

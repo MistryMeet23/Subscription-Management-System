@@ -4,7 +4,7 @@ namespace Subscription_Management_System.Model
 {
     public class UserRoles
     {
-        [Required]
+        [Key, Required]
         public int RoleId { get; set; }
 
         [Required]

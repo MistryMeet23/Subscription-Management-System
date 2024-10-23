@@ -4,7 +4,7 @@ namespace Subscription_Management_System.Model
 {
     public class User
     {
-        [Required]
+        [Key, Required]
         public int UserId { get; set; }
 
         [Required]
@@ -17,7 +17,7 @@ namespace Subscription_Management_System.Model
         public string? Password { get; set; }
 
         [Required]
-        public int RoleId { get; set; }
+        public virtual UserRoles UserRoles { get; set; }
 
         public string? Status { get; set; } = "Active";
 

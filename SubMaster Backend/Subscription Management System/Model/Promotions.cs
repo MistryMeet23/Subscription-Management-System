@@ -4,7 +4,7 @@ namespace Subscription_Management_System.Model
 {
     public class Promotions
     {
-        [Required]
+        [Key, Required]
         public int PromotionId { get; set; }
 
         [Required]
@@ -20,6 +20,6 @@ namespace Subscription_Management_System.Model
         public int Usagelimit { get; set; }
 
         [Required]
-        public int PlanId { get; set; }
+        public virtual VendorSubscriptionPlans VendorSubscriptionPlans { get; set; }
     }
 }

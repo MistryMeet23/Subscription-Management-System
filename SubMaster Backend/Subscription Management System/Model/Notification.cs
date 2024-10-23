@@ -4,11 +4,11 @@ namespace Subscription_Management_System.Model
 {
     public class Notification
     {
-        [Required]
+        [Key, Required]
         public int NotificationId { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public virtual User User { get; set; }
 
         [Required]
         public string? NotificationType { get; set; }
