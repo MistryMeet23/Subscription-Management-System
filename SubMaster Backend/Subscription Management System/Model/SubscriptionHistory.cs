@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Subscription_Management_System.Model
 {
@@ -8,10 +9,14 @@ namespace Subscription_Management_System.Model
         public int HistoryId { get; set; }
 
         [Required]
-        public virtual VendorSubscriptionPlans VendorSubscriptionPlans { get; set; }
+        public int VendorSubscriptionPlanId { get; set; }
+
+        [JsonIgnore]
+        public virtual VendorSubscriptionPlans? VendorSubscriptionPlans { get; set; }
 
         [Required]
-        public string? ChangeType { get; set; } = "Upgraded, Canceled";
+        [RegularExpression(@"^(Upgraded|Canceled)$", ErrorMessage = "ChangeType must be either 'Upgraded' or 'Canceled'.")]
+        public string ChangeType { get; set; } = "Upgraded"; 
 
         [Required]
         public string? OldValue { get; set; }
@@ -19,6 +24,6 @@ namespace Subscription_Management_System.Model
         [Required]
         public string? NewValue { get; set; }
 
-        public DateTime ChangedAt { get; set; }
+        public DateTime ChangedAt { get; set; } = DateTime.UtcNow; 
     }
 }
