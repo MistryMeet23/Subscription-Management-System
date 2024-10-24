@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace Subscription_Management_System.Model
@@ -7,6 +8,8 @@ namespace Subscription_Management_System.Model
     {
         [Key, Required]
         public int InvoiceId { get; set; }
+
+        [ForeignKey("Payments")]
         public int? PaymentId { get; set; }
 
         [JsonIgnore]
@@ -20,6 +23,7 @@ namespace Subscription_Management_System.Model
         public DateTime DueDate { get; set; }
 
         [Required]
+        [Range(0.01, double.MaxValue, ErrorMessage = "TotalAmount must be a positive value.")]
         public decimal TotalAmount { get; set; }
     }
 }

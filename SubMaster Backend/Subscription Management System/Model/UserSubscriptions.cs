@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace Subscription_Management_System.Model
@@ -9,10 +10,12 @@ namespace Subscription_Management_System.Model
         public int SubscriptionId { get; set; }
 
         [Required]
+        [ForeignKey("User")]
         public int UserId { get; set; }
 
         [Required]
-        public int VendorSubscriptionPlanId { get; set; } 
+        [ForeignKey("VendorSubscriptionPlans")]
+        public int VendorSubscriptionPlanId { get; set; }
 
         [JsonIgnore]
         public virtual User? User { get; set; }
@@ -32,7 +35,7 @@ namespace Subscription_Management_System.Model
         [Required]
         public string PaymentStatus { get; set; } = "Pending";
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow; 
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
