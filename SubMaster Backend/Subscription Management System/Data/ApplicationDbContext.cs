@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Data;
-using YourNamespace.Models;
+using Subscription_Management_System.Models;
 
-namespace YourNamespace.Data
+namespace Subscription_Management_System.Data
 {
     public class ApplicationDbContext : DbContext
     {

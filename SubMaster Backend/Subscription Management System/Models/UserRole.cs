@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace YourNamespace.Models
+namespace Subscription_Management_System.Models
 {
     public class UserRole
     {
