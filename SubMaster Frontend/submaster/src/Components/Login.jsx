@@ -8,15 +8,16 @@ function Login() {
         <h1>Login</h1>
         <form>
           <div className="input-group">
-            <label>Email</label>
-            <input type="email" placeholder="Enter your Email" required/>
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your Email" required />
           </div>
           <div className="input-group">
-            <label>Password</label>
-            <input type="password" placeholder="Enter your Password" required/>
+            <label htmlFor="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your Password" required />
           </div>
-          <button type="submit" className="login-btn">Login</button><br/><br/>
-          <p>Don't Have An Account</p>
+          <button type="submit" className="login-btn">Login</button>
+          <br /><br />
+          <center><p>Don't Have An Account? <a href="/register">Sign up</a></p></center>
         </form>
       </div>
     </div>

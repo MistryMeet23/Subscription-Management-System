@@ -55,6 +55,7 @@ function Register() {
     <div className="register-container">
       <div className="register-box">
         <h1>Register</h1>
+<<<<<<< HEAD
         {error && <p className="error-message">{error}</p>}
         {success && <p className="success-message">{success}</p>}
         <form onSubmit={handleSubmit}>
@@ -79,6 +80,18 @@ function Register() {
               placeholder="Enter your Last Name"
               required
             />
+=======
+        <form>
+          <div className="input-row">
+            <div className="input-group">
+              <label htmlFor="first-name">First Name</label>
+              <input type="text" id="first-name" placeholder="Enter your First Name" required />
+            </div>
+            <div className="input-group">
+              <label htmlFor="last-name">Last Name</label>
+              <input type="text" id="last-name" placeholder="Enter your Last Name" required />
+            </div>
+>>>>>>> dac968d17d16e5f0d18f006c4524edae0cec7c51
           </div>
           <div className="input-group">
             <label htmlFor="email">Email</label>
@@ -104,6 +117,7 @@ function Register() {
           </div>
           <div className="input-group">
             <label htmlFor="phone">Phone Number</label>
+<<<<<<< HEAD
             <input
               type="tel"
               id="phone"
@@ -112,10 +126,13 @@ function Register() {
               placeholder="Enter your Phone Number"
               required
             />
+=======
+            <input type="number" id="phone" placeholder="Enter your Phone Number" required />
+>>>>>>> dac968d17d16e5f0d18f006c4524edae0cec7c51
           </div>
           <button type="submit" className="register-btn">Register</button>
           <br /><br />
-          <p>Already Have An Account?</p>
+          <center><p>Already Have An Account? <a href="/login">Login</a></p></center>
         </form>
       </div>
     </div>
