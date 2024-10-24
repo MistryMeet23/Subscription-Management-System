@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using YourNamespace.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
