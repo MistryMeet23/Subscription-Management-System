@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace Subscription_Management_System.Model
@@ -24,6 +25,7 @@ namespace Subscription_Management_System.Model
         public int UsageLimit { get; set; }
 
         [Required]
+        [ForeignKey("VendorSubscriptionPlans")]
         public int VendorSubscriptionPlanId { get; set; }
 
         [JsonIgnore]

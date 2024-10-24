@@ -2,13 +2,16 @@
 
 namespace Subscription_Management_System.Model
 {
-    public class UserRoles
+    public class UserRole
     {
         [Key, Required]
-        public int RoleId { get; set; }
+        public int UserRoleId { get; set; }
 
         [Required]
         [StringLength(50, ErrorMessage = "Role name cannot exceed 50 characters.")]
-        public string? RoleName { get; set; }
+        public string RoleName { get; set; }
+
+        // Navigation property
+        public ICollection<User> Users { get; set; } 
     }
 }

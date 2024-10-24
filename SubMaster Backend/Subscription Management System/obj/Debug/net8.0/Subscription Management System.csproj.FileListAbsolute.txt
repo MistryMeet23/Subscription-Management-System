@@ -143,3 +143,17 @@ D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription M
 D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscrip.35748E9A.Up2Date
 D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\Subscription Management System.genruntimeconfig.cache
 D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\obj\Debug\net8.0\ref\Subscription Management System.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

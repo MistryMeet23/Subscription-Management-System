@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace Subscription_Management_System.Model
@@ -9,10 +10,11 @@ namespace Subscription_Management_System.Model
         public int VendorId { get; set; }
 
         [Required]
-        public int UserRoleId { get; set; } 
+        [ForeignKey("UserRoles")]
+        public int UserRoleId { get; set; }
 
         [JsonIgnore]
-        public virtual UserRoles? UserRoles { get; set; }
+        public virtual UserRole? UserRoles { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "Business name cannot exceed 100 characters.")]
@@ -24,7 +26,7 @@ namespace Subscription_Management_System.Model
 
         [Required]
         [Phone(ErrorMessage = "Invalid phone number format.")]
-        public string PhoneNumber { get; set; } 
+        public string PhoneNumber { get; set; }
 
         [Url(ErrorMessage = "Invalid website URL format.")]
         public string? Website { get; set; }
@@ -34,7 +36,7 @@ namespace Subscription_Management_System.Model
         public string? LogoUrl { get; set; }
 
         [Required]
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow; 
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         [Required]
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
