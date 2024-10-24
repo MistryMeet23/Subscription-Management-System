@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace YourNamespace.Models
+namespace Subscription_Management_System.Models
 {
     public class SubscriptionPlan
     {
