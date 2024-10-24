@@ -2,7 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\SubMaster Backend",
-    "\\SubMaster Backend\\Subscription Management System"
+    "\\SubMaster Backend\\Subscription Management System",
+    "\\SubMaster Backend\\Subscription Management System\\Data",
+    "\\SubMaster Data",
+    "\\SubMaster Frontend",
+    "\\SubMaster Frontend\\submaster",
+    "\\SubMaster Frontend\\submaster\\src",
+    "\\SubMaster Frontend\\submaster\\src\\Components"
   ],
+  "SelectedNode": "\\SubMaster Backend\\Subscription Management System\\Data\\ApplicationDbContext.cs",
   "PreviewInSolutionExplorer": false
 }
