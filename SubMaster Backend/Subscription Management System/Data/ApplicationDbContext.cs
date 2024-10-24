@@ -1,191 +1,151 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Subscription_Management_System.Model;
-public class ApplicationDbContext : DbContext
+using System.Data;
+using YourNamespace.Models;
+
+namespace YourNamespace.Data
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-
-    public DbSet<User> Users { get; set; }
-    public DbSet<UserRole> UserRoles { get; set; }
-    public DbSet<Feedback> Feedbacks { get; set; }
-    public DbSet<Invoice> Invoices { get; set; }
-    public DbSet<Notification> Notifications { get; set; }
-    public DbSet<Payments> Payments { get; set; }
-    public DbSet<Promotions> Promotions { get; set; }
-    public DbSet<SubscriptionHistory> SubscriptionHistories { get; set; }
-    public DbSet<UserSubscriptions> UserSubscriptions { get; set; }
-    public DbSet<Vendor> Vendors { get; set; }
-    public DbSet<VendorSubscriptionPlans> VendorSubscriptionPlans { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public class ApplicationDbContext : DbContext
     {
-        // Configure User
-        modelBuilder.Entity<User>()
-            .HasKey(u => u.UserId);
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
 
-        modelBuilder.Entity<User>()
-            .Property(u => u.FirstName)
-            .IsRequired()
-            .HasMaxLength(100);
+        // Define DbSets for all models
+        public DbSet<UserAccount> UserAccounts { get; set; }
+        public DbSet<UserRole> Roles { get; set; }
+        public DbSet<VendorProfile> VendorProfiles { get; set; }
+        public DbSet<SubscriptionPlan> SubscriptionPlans { get; set; }
+        public DbSet<CustomerSubscription> CustomerSubscriptions { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Promotion> Promotions { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<SubscriptionHistory> SubscriptionHistories { get; set; }
 
-        modelBuilder.Entity<User>()
-            .Property(u => u.LastName)
-            .IsRequired()
-            .HasMaxLength(100);
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // UserAccount Model
+            modelBuilder.Entity<UserAccount>(entity =>
+            {
+                entity.HasKey(u => u.User_Id);
+                entity.Property(u => u.FirstName).IsRequired();
+                entity.Property(u => u.LastName).IsRequired();
+                entity.Property(u => u.Email).IsRequired();
+                entity.HasOne(u => u.Role)
+                    .WithMany()
+                    .HasForeignKey(u => u.Role_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
 
-        modelBuilder.Entity<User>()
-            .Property(u => u.Email)
-            .IsRequired()
-            .HasMaxLength(100);
+            // Role Model
+            modelBuilder.Entity<UserRole>(entity =>
+            {
+                entity.HasKey(r => r.Role_Id);
+                entity.Property(r => r.Role_Name).IsRequired();
+            });
 
-        modelBuilder.Entity<User>()
-            .Property(u => u.Password)
-            .IsRequired()
-            .HasMaxLength(255);
+            // VendorProfile Model
+            modelBuilder.Entity<VendorProfile>(entity =>
+            {
+                entity.HasKey(v => v.Vendor_Id);
+                entity.HasOne(v => v.UserAccount)
+                    .WithMany()
+                    .HasForeignKey(v => v.User_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
 
-        modelBuilder.Entity<User>()
-            .HasOne(u => u.UserRole)
-            .WithMany(ur => ur.Users)
-            .HasForeignKey(u => u.UserRoleId); // Ensure this points to UserRoleId
+            // SubscriptionPlan Model
+            modelBuilder.Entity<SubscriptionPlan>(entity =>
+            {
+                entity.HasKey(sp => sp.Plan_Id);
+                entity.HasOne(sp => sp.VendorProfile)
+                    .WithMany()
+                    .HasForeignKey(sp => sp.Vendor_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
 
-        // Configure UserRole
-        modelBuilder.Entity<UserRole>()
-            .HasKey(ur => ur.UserRoleId);
+            // CustomerSubscription Model
+            modelBuilder.Entity<CustomerSubscription>(entity =>
+            {
+                entity.HasKey(cs => cs.Subscription_Id);
+                entity.HasOne(cs => cs.UserAccount)
+                    .WithMany()
+                    .HasForeignKey(cs => cs.User_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+                entity.HasOne(cs => cs.SubscriptionPlan)
+                    .WithMany()
+                    .HasForeignKey(cs => cs.Plan_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
 
-        modelBuilder.Entity<UserRole>()
-            .Property(ur => ur.RoleName)
-            .IsRequired();
+            // Notification Model
+            modelBuilder.Entity<Notification>(entity =>
+            {
+                entity.HasKey(n => n.Notification_Id);
+                entity.HasOne(n => n.UserAccount)
+                    .WithMany()
+                    .HasForeignKey(n => n.User_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
 
-        // Configure Feedback
-        modelBuilder.Entity<Feedback>()
-            .HasKey(f => f.FeedbackId);
+            // Payment Model
+            modelBuilder.Entity<Payment>(entity =>
+            {
+                entity.HasKey(p => p.Payment_Id);
+                entity.HasOne(p => p.UserAccount)
+                    .WithMany()
+                    .HasForeignKey(p => p.User_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+                entity.HasOne(p => p.SubscriptionPlan)
+                    .WithMany()
+                    .HasForeignKey(p => p.Plan_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
 
-        modelBuilder.Entity<Feedback>()
-            .Property(f => f.FeedbackText)
-            .IsRequired();
+            // Invoice Model
+            modelBuilder.Entity<Invoice>(entity =>
+            {
+                entity.HasKey(i => i.Invoice_Id);
+                entity.HasOne(i => i.Payment)
+                    .WithMany()
+                    .HasForeignKey(i => i.Payment_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
 
-        modelBuilder.Entity<Feedback>()
-            .Property(f => f.Rating)
-            .IsRequired();
+            // Promotion Model
+            modelBuilder.Entity<Promotion>(entity =>
+            {
+                entity.HasKey(pr => pr.Promotion_Id);
+                entity.HasOne(pr => pr.SubscriptionPlan)
+                    .WithMany()
+                    .HasForeignKey(pr => pr.Plan_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
 
-        modelBuilder.Entity<Feedback>()
-            .HasOne(f => f.User)
-            .WithMany()
-            .HasForeignKey(f => f.UserId);
+            // Feedback Model
+            modelBuilder.Entity<Feedback>(entity =>
+            {
+                entity.HasKey(fb => fb.Feedback_Id);
+                entity.HasOne(fb => fb.UserAccount)
+                    .WithMany()
+                    .HasForeignKey(fb => fb.User_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+                entity.HasOne(fb => fb.VendorProfile)
+                    .WithMany()
+                    .HasForeignKey(fb => fb.Vendor_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
 
-        modelBuilder.Entity<Feedback>()
-            .HasOne(f => f.VendorSubscriptionPlans)
-            .WithMany()
-            .HasForeignKey(f => f.VendorSubscriptionPlanId);
-
-        // Configure Invoice
-        modelBuilder.Entity<Invoice>()
-            .HasKey(i => i.InvoiceId);
-
-        modelBuilder.Entity<Invoice>()
-            .Property(i => i.InvoiceNumber)
-            .IsRequired();
-
-        modelBuilder.Entity<Invoice>()
-            .HasOne(i => i.Payments)
-            .WithMany()
-            .HasForeignKey(i => i.PaymentId);
-
-        // Configure Notification
-        modelBuilder.Entity<Notification>()
-            .HasKey(n => n.NotificationId);
-
-        modelBuilder.Entity<Notification>()
-            .Property(n => n.Message)
-            .IsRequired();
-
-        modelBuilder.Entity<Notification>()
-            .HasOne(n => n.User)
-            .WithMany()
-            .HasForeignKey(n => n.UserId);
-
-        // Configure Payments
-        modelBuilder.Entity<Payments>()
-            .HasKey(p => p.PaymentId);
-
-        modelBuilder.Entity<Payments>()
-            .Property(p => p.Amount)
-            .IsRequired();
-
-        modelBuilder.Entity<Payments>()
-            .HasOne(p => p.User)
-            .WithMany()
-            .HasForeignKey(p => p.UserId);
-
-        modelBuilder.Entity<Payments>()
-            .HasOne(p => p.VendorSubscriptionPlans)
-            .WithMany()
-            .HasForeignKey(p => p.VendorSubscriptionPlanId);
-
-        // Configure Promotions
-        modelBuilder.Entity<Promotions>()
-            .HasKey(pr => pr.PromotionId);
-
-        modelBuilder.Entity<Promotions>()
-            .Property(pr => pr.PromotionCode)
-            .IsRequired();
-
-        modelBuilder.Entity<Promotions>()
-            .Property(pr => pr.Discount)
-            .IsRequired();
-
-        modelBuilder.Entity<Promotions>()
-            .HasOne(pr => pr.VendorSubscriptionPlans)
-            .WithMany()
-            .HasForeignKey(pr => pr.VendorSubscriptionPlanId);
-
-        // Configure SubscriptionHistory
-        modelBuilder.Entity<SubscriptionHistory>()
-            .HasKey(sh => sh.HistoryId);
-
-        modelBuilder.Entity<SubscriptionHistory>()
-            .Property(sh => sh.ChangeType)
-            .IsRequired();
-
-        modelBuilder.Entity<SubscriptionHistory>()
-            .HasOne(sh => sh.VendorSubscriptionPlans)
-            .WithMany()
-            .HasForeignKey(sh => sh.VendorSubscriptionPlanId);
-
-        // Configure UserSubscriptions
-        modelBuilder.Entity<UserSubscriptions>()
-            .HasKey(us => us.SubscriptionId);
-
-        modelBuilder.Entity<UserSubscriptions>()
-            .HasOne(us => us.User)
-            .WithMany()
-            .HasForeignKey(us => us.UserId);
-
-        modelBuilder.Entity<UserSubscriptions>()
-            .HasOne(us => us.VendorSubscriptionPlans)
-            .WithMany()
-            .HasForeignKey(us => us.VendorSubscriptionPlanId);
-
-        // Configure Vendor
-        modelBuilder.Entity<Vendor>()
-            .HasKey(v => v.VendorId);
-
-        modelBuilder.Entity<Vendor>()
-            .Property(v => v.BusinessName)
-            .IsRequired()
-            .HasMaxLength(100);
-
-        modelBuilder.Entity<Vendor>()
-            .HasOne(v => v.UserRoles)
-            .WithMany()
-            .HasForeignKey(v => v.UserRoleId);
-
-        // Configure VendorSubscriptionPlans
-        modelBuilder.Entity<VendorSubscriptionPlans>()
-            .HasKey(vsp => vsp.PlanId);
-
-        modelBuilder.Entity<VendorSubscriptionPlans>()
-            .HasOne(vsp => vsp.Vendor)
-            .WithMany()
-            .HasForeignKey(vsp => vsp.VendorId);
+            // SubscriptionHistory Model
+            modelBuilder.Entity<SubscriptionHistory>(entity =>
+            {
+                entity.HasKey(sh => sh.History_Id);
+                entity.HasOne(sh => sh.SubscriptionPlan)
+                    .WithMany()
+                    .HasForeignKey(sh => sh.Plan_Id)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+        }
     }
 }
