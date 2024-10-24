@@ -9,13 +9,14 @@ function Login() {
         <form>
           <div className="input-group">
             <label>Email</label>
-            <input type="email" placeholder="Enter your Email" />
+            <input type="email" placeholder="Enter your Email" required/>
           </div>
           <div className="input-group">
             <label>Password</label>
-            <input type="password" placeholder="Enter your Password" />
+            <input type="password" placeholder="Enter your Password" required/>
           </div>
-          <button type="submit" className="login-btn">Login</button>
+          <button type="submit" className="login-btn">Login</button><br/><br/>
+          <p>Don't Have An Account</p>
         </form>
       </div>
     </div>
