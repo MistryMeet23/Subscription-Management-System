@@ -28,6 +28,8 @@ namespace Subscription_Management_System.Controllers
         {
             public string AccessToken { get; set; }
             public bool Success { get; set; }
+
+            public int RoleId { get; set; }
         }
 
         [HttpPost]
@@ -57,7 +59,7 @@ namespace Subscription_Management_System.Controllers
             if (checkUserPassword)
             {
                 var jwtToken = CreateJWTToken(user.User_Id, user.Role_Id);
-                return Ok(new LoginResponse { AccessToken = jwtToken, Success = true });
+                return Ok(new { AccessToken = jwtToken, Success = true,user.Role_Id  });
             }
             else
             {
