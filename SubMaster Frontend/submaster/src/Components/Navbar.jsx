@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -16,8 +17,14 @@ function Navbar() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('accessToken');
-    setIsLoggedIn(false);
+    const logoutButton = document.querySelector('.logout');
+    logoutButton.classList.add('fade-out'); 
+  
+    setTimeout(() => {
+      localStorage.removeItem('accessToken');
+      setIsLoggedIn(false);
+      navigate('/Home'); 
+    }, 500); 
   };
 
   return (
@@ -45,6 +52,11 @@ function Navbar() {
                 <>
                   <li>
                     <Link to="/Profile">Profile</Link>
+                  </li>
+                  <li>
+                  <li>
+                    <button className="logout" onClick={handleLogout}>Logout</button>
+                  </li>
                   </li>
                 </>
               ) : (

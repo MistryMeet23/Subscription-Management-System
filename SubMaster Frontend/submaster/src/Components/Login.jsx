@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import './Login.css';
-import axios from "axios"
+// import axios from "axios"
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -27,7 +27,7 @@ function Login() {
         localStorage.setItem('accessToken', data.accessToken);
 
         // Fetch user details after successful login
-        const userResponse = await fetch('http://localhost:5272/api/UserAccounts/2', {
+        const userResponse = await fetch('http://localhost:5272/api/UserAccounts/1', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${data.accessToken}`, // Include token if needed

@@ -91,6 +91,22 @@ header {
     display: none;
 }
 
+button.logout {
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    padding: 11px 16px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.5s ease;
+}
+
+button.logout.fade-out {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
 @media(max-width: 768px) {
     .content h2 {
         font-size: 4rem;

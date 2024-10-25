@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Profile.css';
+import Navbar from './Navbar';
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -18,6 +19,7 @@ function Profile() {
 
   return (
     <>
+    <Navbar/><br/><br/><br/>
     <div className="profile-card">
       <img
         src="https://via.placeholder.com/150"
