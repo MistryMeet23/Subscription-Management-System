@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import {  useNavigate } from 'react-router-dom'; // Import useHistory for navigation
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import './Login.css';
+import axios from "axios"
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const history = useNavigate(); // Initialize useHistory
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevent the default form submission
@@ -25,12 +26,22 @@ function Login() {
         // Store the access token if needed
         localStorage.setItem('accessToken', data.accessToken);
 
-        // Redirect based on the role ID
-        if (data.role_Id === 2) {
-          history('/home'); // Redirect to Hom.jsx
-        } else if (data.role_Id === 1) {
-          // history.push('/Admin/Home'); // Redirect to Admin/Home.jsx
-        }
+        // Fetch user details after successful login
+        const userResponse = await fetch('http://localhost:5272/api/UserAccounts/2', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${data.accessToken}`, // Include token if needed
+          },
+        });
+        console.log(userResponse)
+        
+        const userData = await userResponse.json();
+
+        // Store user data in local storage or context
+        localStorage.setItem('userDetails', JSON.stringify(userData)); // Or use context
+
+        // Redirect to Profile page
+        navigate('/Profile'); // Redirect to Profile component
       } else {
         // Handle login failure (e.g., show an error message)
         alert('Login failed. Please check your credentials.');

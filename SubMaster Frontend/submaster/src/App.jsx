@@ -7,6 +7,7 @@ import Services from './Components/Services';
 import Contact from './Components/Contact';
 import Login from './Components/Login';
 import Register from './Components/Register';
+import Profile from './Components/Profile';
 
 function App() {
   return (
@@ -14,12 +15,13 @@ function App() {
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Services" element={<Services />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/Profile" element={<Profile />} />
       </Routes>
     </Router>
   );
