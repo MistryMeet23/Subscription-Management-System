@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.css';
@@ -87,10 +88,17 @@ function Register() {
     return re.test(String(email).toLowerCase());
   };
 
+=======
+import React from 'react';
+import './Register.css';
+
+function Register() {
+>>>>>>> 723a2085667584c55c9039b46556a5b67199ecaa
   return (
     <div className="register-container">
       <div className="register-box">
         <h1>Register</h1>
+<<<<<<< HEAD
         {error && <p className="error-message">{error}</p>}
         {success && <p className="success-message">{success}</p>}
         <form onSubmit={handleSubmit}>
@@ -117,31 +125,30 @@ function Register() {
               required
             />
           </div>
+=======
+        <form>
+          <div className="input-row">
+            <div className="input-group">
+              <label htmlFor="first-name">First Name</label>
+              <input type="text" id="first-name" placeholder="Enter your First Name" required />
+            </div>
+            <div className="input-group">
+              <label htmlFor="last-name">Last Name</label>
+              <input type="text" id="last-name" placeholder="Enter your Last Name" required />
+            </div>
+>>>>>>> 723a2085667584c55c9039b46556a5b67199ecaa
           </div>
           <div className="input-group">
             <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your Email"
-              required
-            />
+            <input type="email" id="email" placeholder="Enter your Email" required />
           </div>
           <div className="input-group">
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your Password"
-              required
-            />
+            <input type="password" id="password" placeholder="Enter your Password" required />
           </div>
           <div className="input-group">
             <label htmlFor="phone">Phone Number</label>
+<<<<<<< HEAD
             <input
               type="tel"
               id="phone"
@@ -150,6 +157,9 @@ function Register() {
               placeholder="Enter your Phone Number"
               required
             />
+=======
+            <input type="number" id="phone" placeholder="Enter your Phone Number" required />
+>>>>>>> 723a2085667584c55c9039b46556a5b67199ecaa
           </div>
           <button type="submit" className="register-btn">Register</button>
           <br /><br />
