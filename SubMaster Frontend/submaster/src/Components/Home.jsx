@@ -5,10 +5,7 @@ function Home() {
   return (
     <>
     <Navbar />
-    <center>
-      
-    <h1>Home Page</h1>
-    </center>
+    <div className='imgslider'></div>
     </>
   )
 }
