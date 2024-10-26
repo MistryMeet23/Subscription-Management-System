@@ -122,6 +122,38 @@ button.logout.fade-out {
     animation: changeImage 20s linear infinite;
 }
 
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 26px;
+    text-align: center;
+    background-color: #ff5252;
+    border-radius: 20px;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    padding: 0.5px 16px;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin: 150px 0 20px;
+}
+
+.subheader {
+    margin-top: 50px;
+    color: burlywood;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
 @keyframes changeImage {
     0% {
         background-image: url(./Components/assets/image.png);
