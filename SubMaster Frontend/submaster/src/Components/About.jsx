@@ -6,10 +6,11 @@ function About() {
     <>
       <Navbar />
       <div className='header'>
-        <h1 style={{ color: "wheat" }}>About Page</h1>
+        <h1 style={{ color: "wheat"}}>About Page</h1>
+        <img style={{borderRadius: "10px", width: "15%"}} src="https://img.freepik.com/premium-vector/team-professionals-engaged-collaborative-discussion-with-digital-tools-collaboration-teamwork-communication-discussion-partnership-business-project-flat-illustration_585735-39119.jpg?uid=R86875981&ga=GA1.1.53413832.1701341519&semt=ais_hybrid" alt="" />
       </div>
 
-      <p style={{ marginTop: "50px", color: "burlywood", fontSize: "1.2rem", fontWeight: "bold", textAlign: "center" }}>
+      <p style={{ marginTop: "10px", color: "burlywood", fontSize: "1.2rem", fontWeight: "bold", textAlign: "center" }}>
         Welcome to SMS, where we make subscription management simple and effective.<br />
         Our platform is designed to help businesses streamline their subscription processes, enhance customer engagement, and optimize revenue.<br />
         With a focus on flexibility, scalability, and security, we empower companies to manage their subscriber data, billing, and communication all in one place.
