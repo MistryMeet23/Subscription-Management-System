@@ -6,7 +6,7 @@ function About() {
     <>
       <Navbar />
       <div className='header'>
-        <h1 style={{ color: "white" }}>About Page</h1>
+        <h1 style={{ color: "wheat" }}>About Page</h1>
       </div>
 
       <p style={{ marginTop: "50px", color: "burlywood", fontSize: "1.2rem", fontWeight: "bold", textAlign: "center" }}>
