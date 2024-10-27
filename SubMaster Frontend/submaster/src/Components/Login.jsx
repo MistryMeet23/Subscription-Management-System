@@ -54,8 +54,9 @@ function Login() {
 
   return (
     <div className="login-container">
-      <div className="login-box">
-        <h1>Login</h1>
+      <div className="login-box"><br/>
+        <h2 style={{textAlign: "center"}}>Welcome back 👋</h2><br/>
+        <p style={{textAlign : "center"}}>Please Enter Your Details!</p><br/>
         <form onSubmit={handleLogin}>
           <div className="input-group">
             <label htmlFor="email">Email</label>
