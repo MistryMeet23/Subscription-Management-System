@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Subscription_Management_System.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDB : Migration
+    public partial class newDate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

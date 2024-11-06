@@ -12,8 +12,8 @@ using Subscription_Management_System.Data;
 namespace Subscription_Management_System.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241024154038_InitialDB")]
-    partial class InitialDB
+    [Migration("20241106182238_newDate")]
+    partial class newDate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

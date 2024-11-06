@@ -40,12 +40,19 @@ namespace Subscription_Management_System.Models
         [DefaultValue("active")]
         public string Status { get; set; } = "active";
 
-        public DateTime Created_At { get; set; } = DateTime.Now;
-        public DateTime Updated_At { get; set; } = DateTime.Now;
+        public DateTime Created_At { get; set; }
+        public DateTime Updated_At { get; set; }
 
         // Foreign Key Relationship
         [JsonIgnore]
         [ForeignKey("Role_Id")]
         public virtual UserRole? Role { get; set; }
+
+        public UserAccount()
+        {
+            Created_At = DateTime.UtcNow;
+            Updated_At = DateTime.UtcNow;
+        }
+
     }
 }
