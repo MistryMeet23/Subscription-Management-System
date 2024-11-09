@@ -17,11 +17,18 @@ namespace Subscription_Management_System.Models
 
         public DateTime Issue_Date { get; set; }
         public DateTime Due_Date { get; set; }
+        public DateTime Created_At { get; set; }
+        public DateTime Updated_At { get; set; }
 
         [Required]
         public decimal Total_Amount { get; set; }
 
         [JsonIgnore]
         public virtual Payment Payment { get; set; }
+        public Invoice()
+        {
+            Created_At = DateTime.UtcNow;
+            Updated_At = DateTime.UtcNow;
+        }
     }
 }

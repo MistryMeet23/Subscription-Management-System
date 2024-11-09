@@ -18,7 +18,7 @@ namespace Subscription_Management_System.Models
         [Required]
         public decimal Amount { get; set; }
 
-        public DateTime Payment_Date { get; set; } = DateTime.Now;
+        public DateTime Payment_Date { get; set; }
 
         public string Payment_Method { get; set; }
 
@@ -31,5 +31,10 @@ namespace Subscription_Management_System.Models
 
         [JsonIgnore]
         public virtual SubscriptionPlan SubscriptionPlan { get; set; }
+
+        public Payment()
+        {
+            Payment_Date = DateTime.UtcNow;
+        }
     }
 }

@@ -83,10 +83,16 @@ namespace Subscription_Management_System.Migrations
                     b.Property<string>("Comments")
                         .HasColumnType("text");
 
+                    b.Property<DateTime>("Created_At")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<int>("Rating")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("Submitted_At")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("Updated_At")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("User_Id")
@@ -112,6 +118,9 @@ namespace Subscription_Management_System.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Invoice_Id"));
 
+                    b.Property<DateTime>("Created_At")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<DateTime>("Due_Date")
                         .HasColumnType("timestamp with time zone");
 
@@ -128,6 +137,9 @@ namespace Subscription_Management_System.Migrations
 
                     b.Property<decimal>("Total_Amount")
                         .HasColumnType("numeric");
+
+                    b.Property<DateTime>("Updated_At")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Invoice_Id");
 
@@ -229,6 +241,9 @@ namespace Subscription_Management_System.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Promotion_Id"));
 
+                    b.Property<DateTime>("Created_At")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<decimal>("Discount_Percentage")
                         .HasColumnType("numeric");
 
@@ -244,6 +259,9 @@ namespace Subscription_Management_System.Migrations
                         .HasColumnType("character varying(50)");
 
                     b.Property<DateTime>("Start_Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("Updated_At")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("Usage_Limit")
@@ -269,6 +287,9 @@ namespace Subscription_Management_System.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime>("Changed_At")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("Created_At")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("New_Value")

@@ -24,10 +24,16 @@ namespace Subscription_Management_System.Models
         public string? Social_Media_Links { get; set; } // Consider using a JSON or List<string>
         public string? Logo_Url { get; set; }
 
-        public DateTime Created_At { get; set; } = DateTime.Now;
-        public DateTime Updated_At { get; set; } = DateTime.Now;
+        public DateTime Created_At { get; set; }
+        public DateTime Updated_At { get; set; }
 
         [JsonIgnore]
         public virtual UserAccount UserAccount { get; set; }
+
+        public VendorProfile()
+        {
+            Created_At = DateTime.UtcNow;
+            Updated_At = DateTime.UtcNow;
+        }
     }
 }
