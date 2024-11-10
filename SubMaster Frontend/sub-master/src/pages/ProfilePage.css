@@ -1,0 +1,105 @@
+/* ProfilePage.css */
+
+/* General styling for the profile container */
+.profile-container {
+    margin: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Styling the card containing the profile */
+  .profile-card {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  /* Profile header section */
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .profile-avatar {
+    margin-right: 20px;
+    border-radius: 50%;
+    border: 3px solid #1890ff;
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .profile-status {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .edit-profile-button {
+    margin-top: 15px;
+    align-self: flex-start;
+  }
+  
+  /* Styling the profile details (Contact, Subscription, Personal Information) */
+  .profile-details {
+    margin-bottom: 30px;
+  }
+  
+  .profile-details .ant-col {
+    padding: 10px;
+  }
+  
+  .profile-details .ant-col .ant-typography {
+    font-size: 16px;
+  }
+  
+  /* Spacing for the rows */
+  .profile-details .ant-row {
+    margin-bottom: 20px;
+  }
+  
+  .profile-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .profile-card .ant-row {
+    margin-top: 20px;
+  }
+  
+  /* For small devices (mobile responsiveness) */
+  @media (max-width: 768px) {
+    .profile-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .profile-avatar {
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+  
+    .profile-info {
+      align-items: center;
+    }
+  
+    .profile-details {
+      flex-direction: column;
+    }
+  
+    .profile-details .ant-col {
+      width: 100%;
+    }
+  }
+  

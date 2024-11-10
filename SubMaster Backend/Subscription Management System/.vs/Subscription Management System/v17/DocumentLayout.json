@@ -11,10 +11,6 @@
       "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:models\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Migrations\\20241108063717_SubMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20241108063717_SubMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Migrations\\20241108063655_MigrationName.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20241108063655_MigrationName.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -61,6 +57,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|d:\\sem 3 project\\subscription-management-system\\submaster backend\\subscription management system\\models\\customersubscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:models\\customersubscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|d:\\sem 3 project\\subscription-management-system\\submaster backend\\subscription management system\\migrations\\20241108063717_submigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:migrations\\20241108063717_submigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -84,14 +84,14 @@
               "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
               "ToolTip": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Controllers\\LoginController.cs",
               "RelativeToolTip": "Controllers\\LoginController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAwGEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAAEEAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T10:51:02.365Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "20241108063655_MigrationName.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Migrations\\20241108063655_MigrationName.cs",
               "RelativeDocumentMoniker": "Migrations\\20241108063655_MigrationName.cs",
@@ -99,12 +99,11 @@
               "RelativeToolTip": "Migrations\\20241108063655_MigrationName.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:36:55.269Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:36:55.269Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "VendorProfile.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\VendorProfile.cs",
               "RelativeDocumentMoniker": "Models\\VendorProfile.cs",
@@ -112,12 +111,11 @@
               "RelativeToolTip": "Models\\VendorProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:35:12.685Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:35:12.685Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "UserRole.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\UserRole.cs",
               "RelativeDocumentMoniker": "Models\\UserRole.cs",
@@ -125,12 +123,11 @@
               "RelativeToolTip": "Models\\UserRole.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:35:10.647Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:35:10.647Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "SubscriptionPlan.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\SubscriptionPlan.cs",
               "RelativeDocumentMoniker": "Models\\SubscriptionPlan.cs",
@@ -138,8 +135,7 @@
               "RelativeToolTip": "Models\\SubscriptionPlan.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwCcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:34:43.304Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:34:43.304Z"
             },
             {
               "$type": "Document",
@@ -151,12 +147,11 @@
               "RelativeToolTip": "Models\\Login.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:32:17.325Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:32:17.325Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 14,
               "Title": "20241108063717_SubMigration.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Migrations\\20241108063717_SubMigration.cs",
               "RelativeDocumentMoniker": "Migrations\\20241108063717_SubMigration.cs",
@@ -164,12 +159,11 @@
               "RelativeToolTip": "Migrations\\20241108063717_SubMigration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:37:17.818Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:37:17.818Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "SubscriptionHistory.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\SubscriptionHistory.cs",
               "RelativeDocumentMoniker": "Models\\SubscriptionHistory.cs",
@@ -177,12 +171,11 @@
               "RelativeToolTip": "Models\\SubscriptionHistory.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:34:05.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:34:05.443Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "Promotion.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\Promotion.cs",
               "RelativeDocumentMoniker": "Models\\Promotion.cs",
@@ -190,12 +183,11 @@
               "RelativeToolTip": "Models\\Promotion.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwB0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:33:37.189Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:33:37.189Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "Payment.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\Payment.cs",
               "RelativeDocumentMoniker": "Models\\Payment.cs",
@@ -203,12 +195,11 @@
               "RelativeToolTip": "Models\\Payment.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAACQAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:32:54.44Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:32:54.44Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "Notification.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\Notification.cs",
               "RelativeDocumentMoniker": "Models\\Notification.cs",
@@ -216,12 +207,11 @@
               "RelativeToolTip": "Models\\Notification.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAzwCkAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:32:20Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:32:20Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "UserAccount.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\UserAccount.cs",
               "RelativeDocumentMoniker": "Models\\UserAccount.cs",
@@ -229,12 +219,11 @@
               "RelativeToolTip": "Models\\UserAccount.cs",
               "ViewState": "AgIAACIAAAAAAAAAAADwvzIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:29:14.051Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:29:14.051Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "Invoice.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\Invoice.cs",
               "RelativeDocumentMoniker": "Models\\Invoice.cs",
@@ -242,12 +231,11 @@
               "RelativeToolTip": "Models\\Invoice.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:31:34.87Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:31:34.87Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "Feedback.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\Feedback.cs",
               "RelativeDocumentMoniker": "Models\\Feedback.cs",
@@ -255,12 +243,11 @@
               "RelativeToolTip": "Models\\Feedback.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAA1wBQAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:30:08.351Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:30:08.351Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "CustomerSubscription.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\CustomerSubscription.cs",
               "RelativeDocumentMoniker": "Models\\CustomerSubscription.cs",
@@ -268,8 +255,7 @@
               "RelativeToolTip": "Models\\CustomerSubscription.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAswCsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T06:29:43.484Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T06:29:43.484Z"
             }
           ]
         }

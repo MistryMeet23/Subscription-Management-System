@@ -1,0 +1,116 @@
+/* General styling for the login container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7fb;
+    margin-top: -10px; /* Light background for a clean look */
+  }
+  
+  /* Styling for the card that holds the login form */
+  .login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 15px; /* More rounded corners for a modern feel */
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Subtle animation */
+  }
+  
+  .login-card:hover {
+    transform: translateY(-5px); /* Hover effect for interactivity */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+  }
+  
+  /* Title of the login form */
+  .login-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #333; /* Darker color for readability */
+    margin-bottom: 30px;
+  }
+  
+  /* Form styling */
+  .login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  /* Styling for the login button */
+  .login-button {
+    width: 100%;
+    margin-top: 20px;
+    height: 45px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #1890ff; /* Blue for the button */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background-color: #40a9ff; /* Lighter blue on hover */
+  }
+  
+  /* Register link styling */
+  .register-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #1890ff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .register-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Input field styling */
+  .ant-input, .ant-input-password {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #d9d9d9;
+    background-color: #f9f9f9; /* Subtle background for inputs */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .ant-input:focus, .ant-input-password:focus {
+    border-color: #1890ff; /* Blue border on focus */
+    background-color: #ffffff; /* Clear background when focused */
+  }
+  
+  .ant-form-item-label {
+    font-weight: 500;
+    color: #666;
+  }
+  
+  .ant-form-item {
+    margin-bottom: 24px; /* Increased space between inputs */
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .login-card {
+      padding: 25px;
+      width: 85%;
+    }
+  
+    .login-title {
+      font-size: 24px;
+    }
+  
+    .login-button {
+      padding: 12px;
+      font-size: 15px;
+    }
+  }
+  

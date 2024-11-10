@@ -1,0 +1,69 @@
+/* Navbar Styling */
+.navbar-menu {
+  display: flex;
+  justify-content: space-between; /* Ensures logo is on the left and other items are on the right */
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* This ensures the logo stays on the left */
+}
+
+.navbar-logo .logo-img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu .ant-menu-item {
+  padding: 0 20px;
+}
+
+
+
+.navbar-menu .ant-menu-item-active {
+  color: #1890ff;
+}
+
+.user-menu-item {
+  padding: 0 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.user-menu-item:hover {
+  color: #1890ff;
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: block;
+    text-align: center;
+  }
+
+  .navbar-menu .ant-menu-item {
+    padding: 10px 0;
+  }
+
+  .navbar-logo {
+    justify-content: flex-start;
+    flex: none;
+  }
+
+  .navbar-right {
+    display: block;
+    margin-top: 10px;
+  }
+}
