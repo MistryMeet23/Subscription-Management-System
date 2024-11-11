@@ -26,7 +26,7 @@ const Login = () => {
         localStorage.setItem('user_Id', userId);
 
         // Redirect based on user role or ID
-        if (userId === 1) {
+        if (roleId === 1) {
           navigate('/admin/homepage');
         } else {
           navigate('/profile');

@@ -11,6 +11,7 @@ import Profile from './pages/ProfilePage';
 import Footer from './components/Footer';
 import AboutPage from './pages/AboutPage';
 import ServicePage from './pages/ServicePage';
+import EditProfilePage from './pages/EditProfilePage';
 
 const { Content } = Layout;
 
@@ -28,10 +29,10 @@ const AppContent = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<AboutPage/>}/>
           <Route path="/service" element={<ServicePage/>}/>
-          
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/EditProfilePage" element={<EditProfilePage />} />
         </Routes>
       </Content>
       {shouldShowNavbar && <Footer />}

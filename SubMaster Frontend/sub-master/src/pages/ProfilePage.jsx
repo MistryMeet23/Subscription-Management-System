@@ -9,29 +9,6 @@ import './ProfilePage.css';
 
 const { Title, Text } = Typography;
 
-const ContactInfo = ({ userData }) => (
-  <Col span={12}>
-    <Title level={4}>Contact Information</Title>
-    <Text>Email: {userData?.email || "N/A"}</Text><br />
-    <Text>Phone: {userData?.phone_Number || "N/A"}</Text><br />
-    <Text>Address: {userData?.address || "N/A"}</Text>
-  </Col>
-);
-
-const SubscriptionInfo = ({ userData }) => (
-  <Col span={12}>
-    <Title level={4}>Subscription Information</Title>
-    <Text>Joined: {userData?.created_At ? new Date(userData.created_At).toLocaleDateString() : "N/A"}</Text><br />
-  </Col>
-);
-
-const PersonalInfo = ({ userData }) => (
-  <Col span={12}>
-    <Title level={4}>Personal Information</Title>
-    <Text>Date of Birth: {userData?.date_Of_Birth ? new Date(userData.date_Of_Birth).toLocaleDateString() : "N/A"}</Text><br />
-  </Col>
-);
-
 const ProfilePage = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -80,19 +57,17 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Navbar />
       <div className="profile-container">
-        <Card className="profile-card">
+        <Card bordered={false} className="profile-card">
           <div className="profile-header">
             <Avatar
-              size={100}
+              size={120}
               src={userData?.profile_Picture_Url || defaultProfilePicture}
               alt="Profile Picture"
-              className="profile-avatar"
             />
             <div className="profile-info">
-              <Title level={3} className="profile-name">{`${userData?.firstName || ''} ${userData?.lastName || ''}`}</Title>
-              <Text type="secondary" className="profile-status">Status: {userData?.status || "N/A"}</Text><br />
+              <Title level={3}>{`${userData?.firstName || ''} ${userData?.lastName || ''}`}</Title>
+              <Text type="secondary">Status: {userData?.status || "N/A"}</Text>
               <Button type="primary" onClick={handleEditProfile} className="edit-profile-button">
                 Edit Profile
               </Button>
@@ -100,16 +75,28 @@ const ProfilePage = () => {
           </div>
 
           <Row gutter={24} className="profile-details">
-            <ContactInfo userData={userData} />
-            <SubscriptionInfo userData={userData} />
-          </Row>
+            <Col span={12}>
+              <Card title="Contact Information" bordered={false}>
+                <Text>Email: {userData?.email || "N/A"}</Text><br />
+                <Text>Phone: {userData?.phone_Number || "N/A"}</Text><br />
+                <Text>Address: {userData?.address || "N/A"}</Text>
+              </Card>
+            </Col>
 
-          <Row gutter={24}>
-            <PersonalInfo userData={userData} />
+            <Col span={12}>
+              <Card title="Subscription Information" bordered={false}>
+                <Text>Joined: {userData?.created_At ? new Date(userData.created_At).toLocaleDateString() : "N/A"}</Text>
+              </Card>
+            </Col>
+
+            <Col span={12}>
+              <Card title="Personal Information" bordered={false}>
+                <Text>Date of Birth: {userData?.date_Of_Birth ? new Date(userData.date_Of_Birth).toLocaleDateString() : "N/A"}</Text>
+              </Card>
+            </Col>
           </Row>
         </Card>
       </div>
-      <Footer />
     </>
   );
 };

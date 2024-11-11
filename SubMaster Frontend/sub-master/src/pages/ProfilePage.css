@@ -1,105 +1,120 @@
-/* ProfilePage.css */
-
-/* General styling for the profile container */
+/* Container styling */
 .profile-container {
-    margin: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  /* Styling the card containing the profile */
-  .profile-card {
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  /* Profile header section */
+  margin: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Styling for the profile card */
+.profile-card {
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Profile header styling */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between avatar and info */
+  margin-bottom: 30px;
+}
+
+.profile-info > * {
+  margin-bottom: 10px; /* Adds space between Title, Text, and Button */
+}
+
+.edit-profile-button {
+  margin-top: 10px;
+}
+
+/* Profile detail card styling */
+.profile-detail-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Profile spinner for loading state */
+.profile-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Responsive design for mobile view */
+@media (max-width: 768px) {
   .profile-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
+    flex-direction: column;
+    text-align: center;
   }
-  
+
   .profile-avatar {
-    margin-right: 20px;
-    border-radius: 50%;
-    border: 3px solid #1890ff;
+    margin: 0 auto;
+    margin-bottom: 10px;
   }
-  
-  .profile-info {
-    display: flex;
+
+  .profile-details {
     flex-direction: column;
   }
-  
-  .profile-name {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .profile-status {
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  .edit-profile-button {
-    margin-top: 15px;
-    align-self: flex-start;
-  }
-  
-  /* Styling the profile details (Contact, Subscription, Personal Information) */
-  .profile-details {
-    margin-bottom: 30px;
-  }
-  
+
   .profile-details .ant-col {
-    padding: 10px;
+    width: 100%;
   }
-  
-  .profile-details .ant-col .ant-typography {
-    font-size: 16px;
+}
+
+/* Container styling */
+.profile-container {
+  margin: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Styling for the profile card */
+.profile-card {
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Profile header styling */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Increased space between avatar and info */
+  margin-bottom: 30px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between each item in the profile info */
+}
+
+.edit-profile-button {
+  margin-top: 15px;
+}
+
+/* Profile spinner for loading state */
+.profile-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Responsive design for mobile view */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
   }
-  
-  /* Spacing for the rows */
-  .profile-details .ant-row {
-    margin-bottom: 20px;
-  }
-  
-  .profile-spinner {
-    display: flex;
-    justify-content: center;
+
+  .profile-info {
     align-items: center;
-    height: 100vh;
   }
-  
-  .profile-card .ant-row {
-    margin-top: 20px;
-  }
-  
-  /* For small devices (mobile responsiveness) */
-  @media (max-width: 768px) {
-    .profile-header {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .profile-avatar {
-      margin: 0 auto;
-      margin-bottom: 10px;
-    }
-  
-    .profile-info {
-      align-items: center;
-    }
-  
-    .profile-details {
-      flex-direction: column;
-    }
-  
-    .profile-details .ant-col {
-      width: 100%;
-    }
-  }
-  
+}
