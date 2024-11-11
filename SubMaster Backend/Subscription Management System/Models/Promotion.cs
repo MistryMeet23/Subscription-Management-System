@@ -18,11 +18,19 @@ namespace Subscription_Management_System.Models
         public DateTime End_Date { get; set; }
 
         public int Usage_Limit { get; set; }
+        public DateTime Created_At { get; set; }
+        public DateTime Updated_At { get; set; }
 
         [ForeignKey("Plan_Id")]
         public int Plan_Id { get; set; }
 
         [JsonIgnore]
         public virtual SubscriptionPlan SubscriptionPlan { get; set; }
+
+        public Promotion()
+        {
+            Created_At = DateTime.UtcNow;
+            Updated_At = DateTime.UtcNow;
+        }
     }
 }

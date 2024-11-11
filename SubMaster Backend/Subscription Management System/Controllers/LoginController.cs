@@ -14,7 +14,6 @@ namespace Subscription_Management_System.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _config;
 
@@ -28,8 +27,8 @@ namespace Subscription_Management_System.Controllers
         {
             public string AccessToken { get; set; }
             public bool Success { get; set; }
-
             public int RoleId { get; set; }
+            public int UserId { get; set; }
         }
 
         [HttpPost]
@@ -37,7 +36,6 @@ namespace Subscription_Management_System.Controllers
         {
             try
             {
-                // Try to find the user in User_Master table
                 var user = await _context.UserAccounts.FirstOrDefaultAsync(u => u.Email == login.Email);
 
                 if (user != null)
@@ -51,15 +49,21 @@ namespace Subscription_Management_System.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        } 
+        }
 
-        private async Task<ActionResult<LoginResponse>> VerifyUserPassword(Login login,UserAccount  user)
+        private async Task<ActionResult<LoginResponse>> VerifyUserPassword(Login login, UserAccount user)
         {
             var checkUserPassword = BCrypt.Net.BCrypt.Verify(login.Password, user.Password_Hash);
             if (checkUserPassword)
             {
                 var jwtToken = CreateJWTToken(user.User_Id, user.Role_Id);
-                return Ok(new { AccessToken = jwtToken, Success = true,user.Role_Id  });
+                return Ok(new LoginResponse
+                {
+                    AccessToken = jwtToken,
+                    Success = true,
+                    RoleId = user.Role_Id,
+                    UserId = user.User_Id
+                });
             }
             else
             {
@@ -74,8 +78,9 @@ namespace Subscription_Management_System.Controllers
 
             var claims = new[]
             {
-                new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Sub, userId.ToString()), // Add user's UserId as the subject claim
-                new Claim("role_id", roleId.ToString()) // Add user's Role_Id as a custom claim
+                new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
+                new Claim("role_id", roleId.ToString()),
+                new Claim("user_id", userId.ToString())
             };
 
             var securityToken = new JwtSecurityToken(

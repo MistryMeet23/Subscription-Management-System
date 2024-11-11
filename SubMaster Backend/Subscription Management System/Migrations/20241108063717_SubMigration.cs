@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Subscription_Management_System.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDB : Migration
+    public partial class SubMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -120,7 +120,9 @@ namespace Subscription_Management_System.Migrations
                     Vendor_Id = table.Column<int>(type: "integer", nullable: false),
                     Rating = table.Column<int>(type: "integer", nullable: false),
                     Comments = table.Column<string>(type: "text", nullable: true),
-                    Submitted_At = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    Submitted_At = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Created_At = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Updated_At = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -242,6 +244,8 @@ namespace Subscription_Management_System.Migrations
                     Start_Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     End_Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Usage_Limit = table.Column<int>(type: "integer", nullable: false),
+                    Created_At = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Updated_At = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Plan_Id = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -265,7 +269,8 @@ namespace Subscription_Management_System.Migrations
                     Change_Type = table.Column<string>(type: "text", nullable: false),
                     Old_Value = table.Column<string>(type: "text", nullable: true),
                     New_Value = table.Column<string>(type: "text", nullable: true),
-                    Changed_At = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    Changed_At = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Created_At = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -288,6 +293,8 @@ namespace Subscription_Management_System.Migrations
                     Invoice_Number = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     Issue_Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Due_Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Created_At = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Updated_At = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Total_Amount = table.Column<decimal>(type: "numeric", nullable: false)
                 },
                 constraints: table =>

@@ -31,10 +31,16 @@ namespace Subscription_Management_System.Models
         [DefaultValue(true)]
         public bool Is_Active { get; set; } = true;
 
-        public DateTime Created_At { get; set; } = DateTime.Now;
-        public DateTime Updated_At { get; set; } = DateTime.Now;
+        public DateTime Created_At { get; set; }
+        public DateTime Updated_At { get; set; }
 
         [JsonIgnore]
         public virtual VendorProfile VendorProfile { get; set; }
+
+        public SubscriptionPlan()
+        {
+            Created_At = DateTime.UtcNow;
+            Updated_At = DateTime.UtcNow;
+        }
     }
 }

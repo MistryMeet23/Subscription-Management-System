@@ -22,7 +22,7 @@ namespace Subscription_Management_System.Models
         [DefaultValue("unread")]
         public string Status { get; set; } = "unread";
 
-        public DateTime Created_At { get; set; } = DateTime.Now;
+        public DateTime Created_At { get; set; }
 
         public DateTime? Sent_At { get; set; }
 
@@ -35,5 +35,11 @@ namespace Subscription_Management_System.Models
 
         [JsonIgnore]
         public virtual UserAccount UserAccount { get; set; }
+
+        public Notification()
+        {
+            Created_At = DateTime.UtcNow;
+            Sent_At = DateTime.UtcNow;
+        }
     }
 }

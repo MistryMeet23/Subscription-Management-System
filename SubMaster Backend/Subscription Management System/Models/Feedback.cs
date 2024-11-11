@@ -18,12 +18,21 @@ namespace Subscription_Management_System.Models
         public int Rating { get; set; }
         public string? Comments { get; set; }
 
-        public DateTime Submitted_At { get; set; } = DateTime.Now;
+        public DateTime Submitted_At { get; set; }
+        public DateTime Created_At { get; set; }
+        public DateTime Updated_At { get; set; }
 
         [JsonIgnore]
         public virtual UserAccount UserAccount { get; set; }
 
         [JsonIgnore]
         public virtual VendorProfile VendorProfile { get; set; }
+
+        public Feedback()
+        {
+            Created_At = DateTime.UtcNow;
+            Updated_At = DateTime.UtcNow;
+            Submitted_At = DateTime.UtcNow;
+        }
     }
 }

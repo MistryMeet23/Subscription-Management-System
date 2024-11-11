@@ -32,13 +32,19 @@ namespace Subscription_Management_System.Models
 
         public decimal? Discount_Applied { get; set; }
 
-        public DateTime Created_At { get; set; } = DateTime.Now;
-        public DateTime Updated_At { get; set; } = DateTime.Now;
+        public DateTime Created_At { get; set; }
+        public DateTime Updated_At { get; set; }
 
         [JsonIgnore]
         public virtual UserAccount UserAccount { get; set; }
 
         [JsonIgnore]
         public virtual SubscriptionPlan SubscriptionPlan { get; set; }
+
+        public CustomerSubscription()
+        {
+            Created_At = DateTime.UtcNow;
+            Updated_At = DateTime.UtcNow;
+        }
     }
 }

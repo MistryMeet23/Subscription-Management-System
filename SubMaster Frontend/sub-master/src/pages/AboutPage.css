@@ -1,0 +1,124 @@
+/* Overall page structure */
+.about-page {
+    background-color: #f4f7fa;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif; /* Using a clean, modern font */
+  }
+    
+  .about-header-title {
+    color: #ffffff;
+    font-size: 36px;  /* Larger font size for prominence */
+    font-weight: 900;
+    margin-bottom: auto;
+    margin: 0;
+  }
+  
+  /* Content section */
+  .about-content {
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;  /* Ensures the content section grows to fill remaining space */
+  }
+  
+  /* Card styling */
+  .about-card {
+    border-radius: 15px;  /* More rounded corners for a sleek look */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    padding: 20px;  /* Added padding inside each card for better content spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .about-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);  /* Enhanced hover shadow for emphasis */
+    transform: translateY(-10px);  /* Stronger lift effect on hover */
+  }
+  
+  .about-card-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1890ff;
+    margin-bottom: 12px;  /* Spacing between title and description */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .about-card-title svg {
+    margin-right: 8px;  /* Space between icon and title */
+  }
+  
+  .about-card-description {
+    font-size: 16px;
+    color: #555555;
+    line-height: 1.6;
+    margin-top: 16px;
+    font-weight: 400;  /* Lighter font weight for better readability */
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Footer */
+  .about-footer {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .about-footer-text {
+    color: #888888;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .about-header-title {
+      font-size: 28px;  /* Smaller title on mobile */
+    }
+  
+    .about-card {
+      padding: 18px;  /* Slightly reduced padding on smaller screens */
+    }
+  
+    .about-card-title {
+      font-size: 20px;  /* Adjusted title size for smaller screens */
+    }
+  
+    .about-card-description {
+      font-size: 14px;  /* Reduced font size for readability on mobile */
+    }
+  
+    .about-content {
+      padding: 40px 15px;  /* Adjusted padding for better mobile spacing */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-header {
+      padding: 30px 0;  /* Reduced header padding on very small screens */
+    }
+  
+    .about-card {
+      padding: 15px;  /* Further reduced padding on very small screens */
+    }
+  
+    .about-card-title {
+      font-size: 18px;  /* Further reduced font size for mobile devices */
+    }
+  
+    .about-footer-text {
+      font-size: 12px;  /* Smaller footer text on very small screens */
+    }
+  }
+  

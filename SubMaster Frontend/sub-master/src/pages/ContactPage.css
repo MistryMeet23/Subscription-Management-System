@@ -1,0 +1,104 @@
+.contact-page {
+  padding: 15px 0;  /* Further reduced padding */
+  background-color: #f4f7fa;
+  min-height: 70vh;  /* Further reduced min-height */
+}
+
+.contact-card-col {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-card {
+  width: 100%;
+  padding: 10px;  /* Further reduced padding */
+  border-radius: 10px;  /* Slightly smaller border radius */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);  /* Reduced shadow further */
+  background-color: #ffffff;
+  max-width: 850px;  /* Further reduced max-width */
+  display: flex;
+  align-items: stretch;
+}
+
+.contact-title {
+  font-size: 20px;  /* Further reduced font size */
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 6px;  /* Further reduced bottom margin */
+}
+
+.contact-description {
+  font-size: 12px;  /* Further reduced font size */
+  color: #666666;
+  margin-bottom: 12px;  /* Further reduced margin */
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form .ant-form-item {
+  margin-bottom: 8px;  /* Further reduced margin between form items */
+}
+
+.contact-form .ant-input,
+.contact-form .ant-input-textarea {
+  border-radius: 8px;
+}
+
+.contact-button {
+  border-radius: 8px;
+  height: 32px;  /* Further reduced button height */
+  font-weight: 600;
+  background-color: #1890ff;
+  color: #ffffff;
+}
+
+.contact-button:hover {
+  background-color: #40a9ff;
+}
+
+.contact-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.contact-info {
+  margin-top: 12px;  /* Further reduced margin */
+  padding: 12px;  /* Further reduced padding */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info-text {
+  display: block;
+  font-size: 12px;  /* Further reduced font size */
+  color: #555555;
+  margin-bottom: 6px;  /* Further reduced margin */
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 14px;  /* Further reduced padding on smaller screens */
+  }
+
+  .contact-title {
+    font-size: 16px;  /* Smaller title font size */
+  }
+
+  .contact-description {
+    font-size: 10px;  /* Smaller description font size */
+  }
+
+  .contact-info {
+    padding: 10px;  /* Further reduced padding */
+  }
+
+  .contact-image {
+    display: none;  /* Hide image on smaller screens */
+  }
+}
