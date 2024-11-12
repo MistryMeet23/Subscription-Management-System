@@ -3,10 +3,10 @@
   "WorkspaceRootPath": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\",
   "Documents": [
     {
-<<<<<<< HEAD
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|d:\\sem 3 project\\subscription-management-system\\submaster backend\\subscription management system\\controllers\\useraccountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:controllers\\useraccountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
+      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,11 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\models\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:models\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|c:\\website2021\\subscription-management-system\\submaster backend\\subscription management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> dfaa7fafb56bd2859a15c79f9fc5f2244c2d0289
     }
   ],
   "DocumentGroupContainers": [
@@ -31,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,31 +34,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-<<<<<<< HEAD
-              "Title": "UserAccountsController.cs",
-              "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Controllers\\UserAccountsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserAccountsController.cs",
-              "ToolTip": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Controllers\\UserAccountsController.cs",
-              "RelativeToolTip": "Controllers\\UserAccountsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T09:45:26.417Z",
-              "EditorCaption": ""
-=======
+              "DocumentIndex": 1,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
               "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Controllers\\LoginController.cs",
               "RelativeToolTip": "Controllers\\LoginController.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAwwD8AAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAADoAAAAAAAAAAAAwwEMAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T06:04:29.751Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\Login.cs",
               "RelativeDocumentMoniker": "Models\\Login.cs",
@@ -75,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -87,16 +71,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAAwD4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAlwDIAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T06:04:29.987Z"
->>>>>>> dfaa7fafb56bd2859a15c79f9fc5f2244c2d0289
+              "WhenOpened": "2024-10-25T06:04:29.987Z",
+              "EditorCaption": ""
             }
           ]
         }
