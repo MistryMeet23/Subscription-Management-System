@@ -1,0 +1,88 @@
+/* Sidebar styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Collapse Button styling */
+.collapse-button {
+  color: #fff;
+  font-size: 18px;
+  margin: 10px 0;
+  padding-top: 20px;
+  width: 100%;
+  
+  text-align: center;
+}
+
+/* Menu styling */
+.ant-menu-item {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Ensure proper layout inside the Sider */
+.ant-layout-sider {
+  padding-top: 20px;
+}
+
+/* Header styling */
+.dashboard-header {
+  background: #fff;
+  padding: 0 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-content {
+  padding: 24px;
+  background: #f0f2f5;
+}
+
+/* Card styling */
+.ant-card {
+  text-align: center;
+  font-size: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ant-card-title {
+  font-weight: 600;
+  font-size: 18px;
+  color: #1890ff;
+}
+
+.ant-breadcrumb {
+  margin: 16px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.menu-item-logout {
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.menu-item-logout:hover {
+  background: #ffe8e8;
+  color: #d9363e;
+}
