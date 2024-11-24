@@ -24,10 +24,11 @@ const Login = () => {
         message.success('Login successful!');
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem('user_Id', userId);
+        localStorage.setItem('role_Id', roleId); // Add this line to store role ID
 
         // Redirect based on user role or ID
         if (roleId === 1) {
-          navigate('/admin/homepage');
+          navigate('/AdminDashboard');
         } else {
           navigate('/profile');
         }

@@ -8,15 +8,18 @@ import './Navbar.css';
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState('');
+  const [roleId, setRoleId] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
     const userId = localStorage.getItem('user_Id');
+    const storedRoleId = localStorage.getItem('role_Id');
 
     if (token && userId) {
       setIsLoggedIn(true);
+      setRoleId(storedRoleId);
 
       const fetchUserData = async () => {
         try {
@@ -36,14 +39,17 @@ const Navbar = () => {
     } else {
       setIsLoggedIn(false);
       setUserName('');
+      setRoleId(null);
     }
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('user_Id');
+    localStorage.removeItem('role_Id');
     setIsLoggedIn(false);
     setUserName('');
+    setRoleId(null);
     navigate('/');
   };
 
@@ -56,6 +62,11 @@ const Navbar = () => {
       <Menu.Item key="profile">
         <Link to="/profile">Profile</Link>
       </Menu.Item>
+      {roleId === "1" && (
+        <Menu.Item key="dashboard">
+          <Link to="/AdminDashboard">Admin Dashboard</Link>
+        </Menu.Item>
+      )}
       <Menu.Item key="logout" onClick={handleLogout}>
         Logout
       </Menu.Item>
@@ -88,11 +99,13 @@ const Navbar = () => {
                 {userName || 'User'}
               </Menu.Item>
             </Dropdown>
-            <Menu.Item key="createBusiness">
-              <Button type="primary" onClick={() => navigate('/create-business')}>
-                Create a Business
-              </Button>
-            </Menu.Item>
+            {roleId !== "1" && (
+              <Menu.Item key="createBusiness">
+                <Button type="primary" onClick={() => navigate('/create-business')}>
+                  Create a Business
+                </Button>
+              </Menu.Item>
+            )}
           </>
         ) : (
           <>

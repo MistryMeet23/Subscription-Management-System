@@ -23,7 +23,6 @@ namespace Subscription_Management_System.Models
         public string? Website_Url { get; set; }
         public string? Social_Media_Links { get; set; } // Consider using a JSON or List<string>
         public string? Logo_Url { get; set; }
-
         public DateTime Created_At { get; set; }
         public DateTime Updated_At { get; set; }
 
