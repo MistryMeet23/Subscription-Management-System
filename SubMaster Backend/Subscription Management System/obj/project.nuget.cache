@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "wfA56lHU4q8=",
+=======
   "dgSpecHash": "Usl7LQKceyU=",
+>>>>>>> 974bd15e8100f9b51bb99c7dc2cd1588d9b5bb01
   "success": true,
   "projectFilePath": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Subscription Management System.csproj",
   "expectedPackageFiles": [
