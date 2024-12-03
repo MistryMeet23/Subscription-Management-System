@@ -1007,6 +1007,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Subscription_Management_System.Controllers.UserAccountsController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/UserAccounts/ResetPassword/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "Subscription_Management_System.Models.ResetPassword",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Subscription_Management_System.Controllers.UserRolesController",
     "Method": "GetRoles",
     "RelativePath": "api/UserRoles",

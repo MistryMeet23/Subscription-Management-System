@@ -13,12 +13,14 @@ import ServicePage from './pages/ServicePage';
 import EditProfilePage from './pages/EditProfilePage';
 import CreateBusiness from './pages/CreateBusiness';
 import AdminDashboard from './pages/AdminDashboard';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ErrorPage from './pages/ErrorPage';
 
 const { Content } = Layout;
 
 const AppContent = () => {
   const location = useLocation();
-  const shouldShowNavbarAndFooter = !['/login', '/register', '/AdminDashboard'].includes(location.pathname);
+  const shouldShowNavbarAndFooter = !['/login', '/register', '/forgot-password','/AdminDashboard'].includes(location.pathname);
 
   return (
     <>
@@ -36,6 +38,8 @@ const AppContent = () => {
           <Route path="/EditProfilePage" element={<EditProfilePage />} />
           <Route path="/create-business" element={<CreateBusiness />} />
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/error" element={<ErrorPage/>}/>
         </Routes>
       </Content>
       {shouldShowNavbarAndFooter && <Footer />}
@@ -47,6 +51,7 @@ const App = () => (
   <Router>
     <AppContent />
   </Router>
+  
 );
 
 export default App;

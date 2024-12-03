@@ -104,6 +104,46 @@ namespace Subscription_Management_System.Controllers
             return NoContent();
         }
 
+        [HttpGet("email/{email}")]
+        public async Task<ActionResult> CheckEmail(string email)
+        {
+            var user = await _context.UserAccounts.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null)
+            {
+                return NotFound(new { message = "Email not found." });
+            }
+
+            return Ok(new { userId = user.User_Id });
+        }
+
+        [HttpPost("ResetPassword/{id}")]
+        public async Task<IActionResult> ResetPassword(int id, [FromBody] ResetPassword model)
+        {
+            try
+            {
+                var userAccount = await _context.UserAccounts.FindAsync(id);
+                if (userAccount == null)
+                {
+                    return NotFound("User not found");
+                }
+
+                // Hash the new password
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(model.NewPassword);
+                userAccount.Password_Hash = hashedPassword;
+
+                // Save changes to the database
+                _context.Entry(userAccount).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+
+                return Ok("Password reset successfully");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
         private bool UserAccountExists(int id)
         {
             return _context.UserAccounts.Any(e => e.User_Id == id);
