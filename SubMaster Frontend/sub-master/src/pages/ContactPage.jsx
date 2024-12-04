@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form, Input, Button, Row, Col, Typography, Card } from 'antd';
+import React, { useState } from 'react';
+import { Form, Input, Button, Row, Col, Typography, Card, message, Spin } from 'antd';
 import { MailOutlined, UserOutlined, MessageOutlined } from '@ant-design/icons';
 import Footer from '../components/Footer';
 import './ContactPage.css';
@@ -8,8 +8,18 @@ import contactImage from '../assets/contact.jpg'; // Replace with your image pat
 const { Title, Text } = Typography;
 
 function ContactPage() {
+  const [loading, setLoading] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
   const onFinish = (values) => {
-    console.log('Form values:', values);
+    setLoading(true);
+    // Simulate form submission (e.g., API call)
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitSuccess(true);
+      message.success('Your message has been sent successfully!');
+      // Optionally reset form
+    }, 2000);
   };
 
   return (
@@ -45,6 +55,7 @@ function ContactPage() {
                       <Input
                         placeholder="John Doe"
                         prefix={<UserOutlined />}
+                        aria-label="Full Name"
                       />
                     </Form.Item>
                     <Form.Item
@@ -52,12 +63,13 @@ function ContactPage() {
                       name="email"
                       rules={[
                         { required: true, message: 'Please enter your email' },
-                        { type: 'email', message: 'Please enter a valid email' }
+                        { type: 'email', message: 'Please enter a valid email' },
                       ]}
                     >
                       <Input
                         placeholder="email@example.com"
                         prefix={<MailOutlined />}
+                        aria-label="Email"
                       />
                     </Form.Item>
                     <Form.Item
@@ -68,20 +80,23 @@ function ContactPage() {
                       <Input.TextArea
                         rows={4}
                         placeholder="Type your message here"
+                        aria-label="Message"
                       />
                     </Form.Item>
                     <Form.Item>
-                      <Button type="primary" htmlType="submit" className="contact-button">
-                        Submit
+                      <Button type="primary" htmlType="submit" className="contact-button" disabled={loading}>
+                        {loading ? <Spin /> : 'Submit'}
                       </Button>
                     </Form.Item>
                   </Form>
+                  {submitSuccess && <Text type="success">Thank you for contacting us! We'll get back to you soon.</Text>}
                 </Col>
               </Row>
             </Card>
           </Col>
         </Row>
       </div>
+      <Footer />
     </>
   );
 }

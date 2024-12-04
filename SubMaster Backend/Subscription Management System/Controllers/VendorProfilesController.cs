@@ -78,6 +78,13 @@ namespace Subscription_Management_System.Controllers
         [HttpPost]
         public async Task<ActionResult<VendorProfile>> PostVendorProfile(VendorProfile vendorProfile)
         {
+            var userAccount = await _context.UserAccounts.FindAsync(vendorProfile.User_Id);
+            if (userAccount == null)
+            {
+                return BadRequest(new { error = "Invalid UserAccount" });
+            }
+
+            vendorProfile.UserAccount = userAccount;
             _context.VendorProfiles.Add(vendorProfile);
             await _context.SaveChangesAsync();
 

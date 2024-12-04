@@ -1,0 +1,28 @@
+.subscriptions-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .subscription-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    height: 100%;
+  }
+  
+  .show-details-button {
+    margin-top: 15px;
+  }
+  
+  .subscriptions-container .ant-card-body {
+    padding: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .subscriptions-container {
+      padding: 10px;
+    }
+  }
+  

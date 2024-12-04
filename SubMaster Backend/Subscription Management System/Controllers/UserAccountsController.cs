@@ -45,14 +45,28 @@ namespace Subscription_Management_System.Controllers
         // PUT: api/UserAccounts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUserAccount(int id, UserAccount userAccount)
+        public async Task<IActionResult> PutUserAccount(int id, UserAccount updatedUserAccount)
         {
-            if (id != userAccount.User_Id)
+            if (id != updatedUserAccount.User_Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(userAccount).State = EntityState.Modified;
+            var existingUser = await _context.UserAccounts.FindAsync(id);
+            if (existingUser == null)
+            {
+                return NotFound();
+            }
+
+            // Only update fields that are provided, skip Password_Hash if empty or null
+            existingUser.FirstName = updatedUserAccount.FirstName ?? existingUser.FirstName;
+            existingUser.LastName = updatedUserAccount.LastName ?? existingUser.LastName;
+            existingUser.Email = updatedUserAccount.Email ?? existingUser.Email;
+            existingUser.Phone_Number = updatedUserAccount.Phone_Number ?? existingUser.Phone_Number;
+            existingUser.Address = updatedUserAccount.Address ?? existingUser.Address;
+
+            // Update timestamp
+            existingUser.Updated_At = DateTime.UtcNow;
 
             try
             {
@@ -72,6 +86,8 @@ namespace Subscription_Management_System.Controllers
 
             return NoContent();
         }
+
+
 
         // POST: api/UserAccounts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "H7UwdghgIaZD3CJq1VGsRCQBtP/vJrPyusha8MxNrkA=",
+  "Hash": "GhrjyiWxlmEZxQgXp/Psho8K7lReHWkK6QK40i6wles=",
   "Source": "Subscription Management System",
   "BasePath": "_content/Subscription Management System",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Subscription Management System\\wwwroot",
+      "Source": "Subscription Management System",
+      "ContentRoot": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\",
+      "BasePath": "_content/Subscription Management System",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\images\\defaultProfilePicture.jpg",
+      "SourceId": "Subscription Management System",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\",
+      "BasePath": "_content/Subscription Management System",
+      "RelativePath": "images/defaultProfilePicture.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\defaultProfilePicture.jpg"
+    }
+  ]
 }

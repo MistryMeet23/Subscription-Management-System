@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Breadcrumb, Row, Col, Card, Statistic, List, Progress, Typography, Avatar, Divider, Space, Button } from 'antd';
+import { Layout, Menu, Breadcrumb, Row, Col, Card, Statistic, List, Progress, Typography, Avatar, Divider, Space, Button, Tooltip } from 'antd';
 import {
   DashboardOutlined,
   TeamOutlined,
@@ -50,13 +50,41 @@ class AdminDashboard extends React.Component {
           </div>
 
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<DashboardOutlined />}>Dashboard</Menu.Item>
-            <Menu.Item key="2" icon={<TeamOutlined />}>All Users</Menu.Item>
-            <Menu.Item key="3" icon={<SolutionOutlined />}>All Vendors</Menu.Item>
-            <Menu.Item key="4" icon={<AppstoreAddOutlined />}>Subscriptions</Menu.Item>
-            <Menu.Item key="5" icon={<FileTextOutlined />}>Complaints</Menu.Item>
-            <Menu.Item key="6" icon={<SettingOutlined />}>Settings</Menu.Item>
-            <Menu.Item key="7" icon={<LogoutOutlined />} style={{ color: '#ff4d4f' }}>Logout</Menu.Item>
+            <Menu.Item key="1" icon={<DashboardOutlined />}>
+              <Tooltip title="Dashboard Overview">
+                Dashboard
+              </Tooltip>
+            </Menu.Item>
+            <Menu.Item key="2" icon={<TeamOutlined />}>
+              <Tooltip title="Manage All Users">
+                All Users
+              </Tooltip>
+            </Menu.Item>
+            <Menu.Item key="3" icon={<SolutionOutlined />}>
+              <Tooltip title="Manage Vendors">
+                All Vendors
+              </Tooltip>
+            </Menu.Item>
+            <Menu.Item key="4" icon={<AppstoreAddOutlined />}>
+              <Tooltip title="View Subscriptions">
+                Subscriptions
+              </Tooltip>
+            </Menu.Item>
+            <Menu.Item key="5" icon={<FileTextOutlined />}>
+              <Tooltip title="View Complaints">
+                Complaints
+              </Tooltip>
+            </Menu.Item>
+            <Menu.Item key="6" icon={<SettingOutlined />}>
+              <Tooltip title="Settings">
+                Settings
+              </Tooltip>
+            </Menu.Item>
+            <Menu.Item key="7" icon={<LogoutOutlined />} style={{ color: '#ff4d4f' }}>
+              <Tooltip title="Logout">
+                Logout
+              </Tooltip>
+            </Menu.Item>
           </Menu>
         </Sider>
 

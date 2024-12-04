@@ -1,0 +1,87 @@
+.my-business-page {
+    padding: 40px;
+    background-color: #f4f6f9;
+  }
+  
+  .page-title {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 40px;
+  }
+  
+  .card-row {
+    margin-top: 20px;
+  }
+  
+  .business-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+  }
+  
+  .business-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-image {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .business-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 16px 0;
+  }
+  
+  .business-description {
+    font-size: 14px;
+    color: #7f8c8d;
+    line-height: 1.6;
+  }
+  
+  .business-description a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  .business-description a:hover {
+    text-decoration: underline;
+  }
+  
+  .edit-btn {
+    width: 100%;
+    margin-top: 15px;
+    background-color: #3498db;
+    border: none;
+    font-weight: bold;
+    color: #fff;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+  }
+  
+  .edit-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .loading {
+    text-align: center;
+    font-size: 18px;
+    color: #95a5a6;
+  }
+  
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 24px;
+    }
+  
+    .business-card {
+      margin-bottom: 20px;
+    }
+  }
+  

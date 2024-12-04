@@ -27,7 +27,7 @@ namespace Subscription_Management_System.Models
         public DateTime Updated_At { get; set; }
 
         [JsonIgnore]
-        public virtual UserAccount UserAccount { get; set; }
+        public virtual UserAccount? UserAccount { get; set; }
 
         public VendorProfile()
         {

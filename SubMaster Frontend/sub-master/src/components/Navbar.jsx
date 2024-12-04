@@ -98,6 +98,7 @@ const Navbar = () => {
               <Menu.Item key="user" className="user-menu-item">
                 {userName || 'User'}
               </Menu.Item>
+              
             </Dropdown>
             {roleId !== "1" && (
               <Menu.Item key="createBusiness">

@@ -39,6 +39,7 @@ const ForgotPasswordPage = () => {
 
       if (response.status === 200) {
         message.success('Password reset successful! Please log in.');
+        form.resetFields();  // Reset form fields after success
         navigate('/login');
       } else {
         message.error('Error resetting password.');
@@ -85,7 +86,7 @@ const ForgotPasswordPage = () => {
                 label="Confirm Password"
                 name="confirmPassword"
                 dependencies={['newPassword']}
-                rules={[
+                rules={[ 
                   { required: true, message: 'Please confirm your password!' },
                   ({ getFieldValue }) => ({
                     validator(_, value) {
