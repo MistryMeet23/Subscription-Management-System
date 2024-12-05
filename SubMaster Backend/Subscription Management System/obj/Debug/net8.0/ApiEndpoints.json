@@ -983,7 +983,7 @@
         "IsRequired": true
       },
       {
-        "Name": "userAccount",
+        "Name": "updatedUserAccount",
         "Type": "Subscription_Management_System.Models.UserAccount",
         "IsRequired": true
       }
@@ -1001,6 +1001,43 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Subscription_Management_System.Controllers.UserAccountsController",
+    "Method": "CheckEmail",
+    "RelativePath": "api/UserAccounts/email/{email}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Subscription_Management_System.Controllers.UserAccountsController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/UserAccounts/ResetPassword/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "Subscription_Management_System.Models.ResetPassword",
         "IsRequired": true
       }
     ],

@@ -1,27 +1,54 @@
 .create-business-container {
-    max-width: 500px;
-    margin: auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .create-business-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .create-business-form .ant-form-item {
-    margin-bottom: 16px;
-  }
-  
-  .create-business-form .ant-input {
-    padding: 8px;
-    font-size: 16px;
-  }
-  
-  .create-business-form .ant-btn-primary {
-    width: 100%;
-  }
-  
+  max-width: 700px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.create-business-form h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.create-business-form .ant-form-item {
+  margin-bottom: 20px;
+}
+
+.create-business-form .ant-input,
+.create-business-form .ant-textarea {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  transition: border-color 0.3s ease;
+}
+
+.create-business-form .ant-input:focus,
+.create-business-form .ant-textarea:focus {
+  border-color: #40a9ff;
+}
+
+.create-business-form .ant-btn-primary {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.create-business-form .ant-btn-primary:hover {
+  background-color: #45a049;
+}
+
+.create-business-form .ant-btn-primary:active {
+  background-color: #388e3c;
+}

@@ -43,6 +43,8 @@ builder.Services.AddCors(options =>
 // Build the app
 var app = builder.Build();
 
+//app.UseStaticFiles();
+
 // Use the CORS policy
 app.UseCors("AllowAllOrigins");
 

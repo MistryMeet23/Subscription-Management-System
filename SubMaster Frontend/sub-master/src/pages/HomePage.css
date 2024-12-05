@@ -1,0 +1,140 @@
+/* General Styles */
+.home-page {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(to right, #004aad, #00bcd4);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .hero-description {
+    font-size: 1.2rem;
+    margin: 20px 0;
+  }
+  
+  .hero-buttons .ant-btn {
+    margin: 10px;
+  }
+  
+  .ghost-button {
+    color: #004aad;
+    border-color: #004aad;
+  }
+  
+  .ghost-button:hover {
+    background-color: #004aad;
+    color: white;
+  }
+  
+  /* Slider Section */
+.slider-section {
+    padding: 20px 20px;  /* Reduced padding for height reduction */
+    background-color: #f4f6fa;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slider-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .slider-icon {
+    font-size: 48px;
+    color: #004aad;
+    margin-bottom: 16px;
+  }
+  
+  .slider-text {
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+  }
+ 
+  
+  /* Testimonials Section */
+  .testimonials-section {
+    padding: 60px 20px;
+    background-color: #fff;
+  }
+  
+  .testimonial-card {
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .testimonial-feedback {
+    font-style: italic;
+    color: #555;
+  }
+  
+  /* Statistics Section */
+  .statistics-section {
+    padding: 60px 20px;
+    background-color: #f4f6fa;
+  }
+  
+  .statistic-card {
+    border-radius: 12px;
+    text-align: center;
+    padding: 30px;
+  }
+  
+  /* Services Section */
+  .services-section {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    color: #004aad;
+    margin-bottom: 40px;
+  }
+  
+  .service-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .service-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .service-icon {
+    font-size: 64px;
+    color: #ff9800;
+    margin: 20px auto;
+  }
+  
+  .service-title {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .service-description {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  .service-address {
+    font-size: 0.9rem;
+    color: #999;
+  }
+  

@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\images\\defaultProfilePicture.jpg",
+      "PackagePath": "staticwebassets\\images\\defaultProfilePicture.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Subscription Management System.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Subscription Management System.props",
+      "PackagePath": "build\\Subscription Management System.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Subscription Management System.props",
+      "PackagePath": "buildMultiTargeting\\Subscription Management System.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Subscription Management System.props",
+      "PackagePath": "buildTransitive\\Subscription Management System.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

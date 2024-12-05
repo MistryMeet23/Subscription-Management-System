@@ -24,9 +24,8 @@ const Login = () => {
         message.success('Login successful!');
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem('user_Id', userId);
-        localStorage.setItem('role_Id', roleId); // Add this line to store role ID
+        localStorage.setItem('role_Id', roleId);
 
-        // Redirect based on user role or ID
         if (roleId === 1) {
           navigate('/AdminDashboard');
         } else {
@@ -82,9 +81,15 @@ const Login = () => {
               </Button>
             </Form.Item>
           </Form>
-          <Link to="/register" className="register-link">
-            Don't have an account? Register here
-          </Link>
+          <div>
+            <Link to="/register" className="register-link">
+              Don't have an account? Register here
+            </Link>
+            <Link to="/forgot-password" className="forgot-password-link">
+              Forgot your password?
+            </Link>
+          </div>
+
         </div>
       </Card>
     </div>

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Typography, Spin, Avatar, Button, message, Row, Col } from 'antd';
+import { Card, Typography, Spin, Button, message, Row, Col } from 'antd';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import defaultProfilePicture from '../assets/s1.png';
+import ErrorPage from '../pages/ErrorPage'; // Adjust import if needed
 import './ProfilePage.css';
 
 const { Title, Text } = Typography;
@@ -12,6 +12,7 @@ const { Title, Text } = Typography;
 const ProfilePage = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [hasError, setHasError] = useState(false); // New state to track errors
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,7 +35,7 @@ const ProfilePage = () => {
         setUserData(response.data);
       } catch (error) {
         console.error("Error fetching user data", error);
-        message.error("Failed to load user data. Please try again.");
+        setHasError(true); // Set error state
       } finally {
         setLoading(false);
       }
@@ -47,6 +48,11 @@ const ProfilePage = () => {
     navigate('/EditProfilePage');
   };
 
+  const handleShowAllSubscriptions = () => {
+    navigate('/AllSubscriptions');
+  };
+
+  // Show loading spinner while loading
   if (loading) {
     return (
       <div className="profile-spinner">
@@ -55,43 +61,50 @@ const ProfilePage = () => {
     );
   }
 
+  // Show error page if there's an error
+  if (hasError) {
+    return <ErrorPage />;
+  }
+
   return (
     <>
       <div className="profile-container">
         <Card bordered={false} className="profile-card">
           <div className="profile-header">
-            <Avatar
-              size={120}
-              src={userData?.profile_Picture_Url || defaultProfilePicture}
-              alt="Profile Picture"
-            />
-            <div className="profile-info">
-              <Title level={3}>{`${userData?.firstName || ''} ${userData?.lastName || ''}`}</Title>
-              <Text type="secondary">Status: {userData?.status || "N/A"}</Text>
-              <Button type="primary" onClick={handleEditProfile} className="edit-profile-button">
-                Edit Profile
-              </Button>
-            </div>
+            <Title level={2} className="profile-title">
+              {`${userData?.firstName || ''} ${userData?.lastName || ''}`}
+            </Title>
+            <Text className="profile-status" type="secondary">
+              Status: {userData?.status || "N/A"}
+            </Text>
+            <Button
+              type="primary"
+              onClick={handleEditProfile}
+              className="edit-profile-button"
+            >
+              Edit Profile
+            </Button>
           </div>
 
-          <Row gutter={24} className="profile-details">
-            <Col span={12}>
-              <Card title="Contact Information" bordered={false}>
-                <Text>Email: {userData?.email || "N/A"}</Text><br />
-                <Text>Phone: {userData?.phone_Number || "N/A"}</Text><br />
-                <Text>Address: {userData?.address || "N/A"}</Text>
+          <Row gutter={32} className="profile-details">
+            <Col span={24} sm={12}>
+              <Card title="Contact Information" bordered={false} className="profile-info-card">
+                <Text><strong>Email:</strong> {userData?.email || "N/A"}</Text><br />
+                <Text><strong>Phone:</strong> {userData?.phone_Number || "N/A"}</Text><br />
+                <Text><strong>Address:</strong> {userData?.address || "N/A"}</Text>
               </Card>
             </Col>
 
-            <Col span={12}>
-              <Card title="Subscription Information" bordered={false}>
-                <Text>Joined: {userData?.created_At ? new Date(userData.created_At).toLocaleDateString() : "N/A"}</Text>
-              </Card>
-            </Col>
-
-            <Col span={12}>
-              <Card title="Personal Information" bordered={false}>
-                <Text>Date of Birth: {userData?.date_Of_Birth ? new Date(userData.date_Of_Birth).toLocaleDateString() : "N/A"}</Text>
+            <Col span={24} sm={12}>
+              <Card title="Subscription Information" bordered={false} className="profile-info-card">
+                <Text><strong>Joined:</strong> {userData?.created_At ? new Date(userData.created_At).toLocaleDateString() : "N/A"}</Text>
+                <Button
+                  type="link"
+                  onClick={handleShowAllSubscriptions}
+                  className="show-subscriptions-button"
+                >
+                  Show My All Subscriptions
+                </Button>
               </Card>
             </Col>
           </Row>
