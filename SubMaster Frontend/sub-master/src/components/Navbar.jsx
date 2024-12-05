@@ -73,6 +73,17 @@ const Navbar = () => {
     </Menu>
   );
 
+  const businessMenu = (
+    <Menu>
+      <Menu.Item key="createBusiness">
+        <Link to="/create-business">Create a Business</Link>
+      </Menu.Item>
+      <Menu.Item key="myBusinessPage">
+        <Link to="/MyBusinessPage">My Business Page</Link>
+      </Menu.Item>
+    </Menu>
+  );
+
   const menuKeys = ['home', 'service', 'about', 'contact'];
 
   return (
@@ -98,14 +109,14 @@ const Navbar = () => {
               <Menu.Item key="user" className="user-menu-item">
                 {userName || 'User'}
               </Menu.Item>
-              
             </Dropdown>
+
             {roleId !== "1" && (
-              <Menu.Item key="createBusiness">
-                <Button type="primary" onClick={() => navigate('/create-business')}>
-                  Create a Business
-                </Button>
-              </Menu.Item>
+              <Dropdown overlay={businessMenu} placement="bottomRight">
+                <Menu.Item key="myBusiness" className="my-business-dropdown">
+                  <Button type="primary">My Business</Button>
+                </Menu.Item>
+              </Dropdown>
             )}
           </>
         ) : (
