@@ -505,3 +505,4 @@ C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Man
 C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 D:\Sem 3 Project\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Subscription Management System.staticwebassets.runtime.json
+C:\website2021\Subscription-Management-System\SubMaster Backend\Subscription Management System\bin\Debug\net8.0\Subscription Management System.staticwebassets.runtime.json

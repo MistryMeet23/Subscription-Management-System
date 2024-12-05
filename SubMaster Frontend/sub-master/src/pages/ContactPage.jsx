@@ -96,7 +96,6 @@ function ContactPage() {
           </Col>
         </Row>
       </div>
-      <Footer />
     </>
   );
 }
