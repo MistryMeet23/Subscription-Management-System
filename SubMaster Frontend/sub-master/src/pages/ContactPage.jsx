@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Row, Col, Typography, Card, message, Spin } from 'antd';
 import { MailOutlined, UserOutlined, MessageOutlined } from '@ant-design/icons';
+import axios from 'axios';
 import Footer from '../components/Footer';
 import './ContactPage.css';
 import contactImage from '../assets/contact.jpg'; // Replace with your image path
@@ -11,15 +12,21 @@ function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     setLoading(true);
-    // Simulate form submission (e.g., API call)
-    setTimeout(() => {
+    try {
+      const response = await axios.post('https://formspree.io/f/xpzgelrp', values, {
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (response.status === 200) {
+        setLoading(false);
+        setSubmitSuccess(true);
+        message.success('Your message has been sent successfully!');
+      }
+    } catch (error) {
       setLoading(false);
-      setSubmitSuccess(true);
-      message.success('Your message has been sent successfully!');
-      // Optionally reset form
-    }, 2000);
+      message.error('There was an error sending your message. Please try again.');
+    }
   };
 
   return (
