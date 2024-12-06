@@ -10,6 +10,19 @@
   border: 1px solid #e0e0e0;
 }
 
+.category-image-preview {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.category-image-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .create-business-form h2 {
   text-align: center;
   font-size: 24px;

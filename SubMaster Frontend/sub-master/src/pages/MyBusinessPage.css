@@ -1,87 +1,90 @@
+/* General Page Styling */
 .my-business-page {
-    padding: 40px;
-    background-color: #f4f6f9;
-  }
-  
-  .page-title {
-    text-align: center;
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 40px;
-  }
-  
-  .card-row {
-    margin-top: 20px;
-  }
-  
-  .business-card {
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff;
-  }
-  
-  .business-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  }
-  
-  .card-image {
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px 12px 0 0;
-  }
-  
-  .business-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #2c3e50;
-    margin: 16px 0;
-  }
-  
-  .business-description {
-    font-size: 14px;
-    color: #7f8c8d;
-    line-height: 1.6;
-  }
-  
-  .business-description a {
-    color: #3498db;
-    text-decoration: none;
-  }
-  
-  .business-description a:hover {
-    text-decoration: underline;
-  }
-  
-  .edit-btn {
-    width: 100%;
-    margin-top: 15px;
-    background-color: #3498db;
-    border: none;
-    font-weight: bold;
-    color: #fff;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-  }
-  
-  .edit-btn:hover {
-    background-color: #2980b9;
-  }
-  
-  .loading {
-    text-align: center;
-    font-size: 18px;
-    color: #95a5a6;
-  }
-  
-  @media (max-width: 768px) {
-    .page-title {
-      font-size: 24px;
-    }
-  
-    .business-card {
-      margin-bottom: 20px;
-    }
-  }
-  
+  min-height: 100vh;
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+}
+
+/* Page Title Styling */
+.my-business-page-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Loading Spinner */
+.my-business-spinner {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Alert Styling */
+.my-business-alert {
+  margin-bottom: 20px;
+}
+
+/* Row Styling */
+.my-business-row {
+  margin: 0 auto;
+  justify-content: center;
+}
+
+/* Card Styling */
+.my-business-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.my-business-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Cover Styling */
+.my-business-card-cover {
+  height: 160px;
+  background-color: #1890ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-business-card-icon {
+  font-size: 64px;
+  color: #fff;
+}
+
+/* Card Meta Styling */
+.my-business-card-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.my-business-card-description {
+  margin-top: 12px;
+}
+
+.my-business-card-text {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.my-business-card-space {
+  display: block;
+  font-size: 14px;
+}
+
+/* Action Button Styling */
+.my-business-action-button {
+  color: #1890ff;
+  transition: color 0.2s;
+}
+
+.my-business-action-button:hover {
+  color: #0056b3;
+}

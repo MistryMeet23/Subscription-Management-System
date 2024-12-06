@@ -10,6 +10,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  
   const onFinish = async (values) => {
     setLoading(true);
     try {
@@ -17,15 +18,18 @@ const Login = () => {
         email: values.email,
         password: values.password,
       });
-
+  
       const { accessToken, success, roleId, userId } = response.data;
-
+  
       if (success) {
         message.success('Login successful!');
+        
+        // Store values correctly in localStorage
         localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem('user_Id', userId);
+        localStorage.setItem('user_Id', userId);  // Ensure this is the correct key
         localStorage.setItem('role_Id', roleId);
-
+  
+        // Redirect based on role
         if (roleId === 1) {
           navigate('/AdminDashboard');
         } else {
@@ -40,7 +44,7 @@ const Login = () => {
     } finally {
       setLoading(false);
     }
-  };
+  };  
 
   return (
     <div className="login-container">
