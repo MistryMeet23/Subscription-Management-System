@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 70vh;
   background-color: #f4f7fb;
   margin-top: -10px;
   /* Light background for a clean look */
@@ -143,4 +143,31 @@
     padding: 12px;
     font-size: 15px;
   }
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.login-card {
+  width: 400px;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-button {
+  width: 100%;
+}
+
+.register-link,
+.forgot-password-link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
 }

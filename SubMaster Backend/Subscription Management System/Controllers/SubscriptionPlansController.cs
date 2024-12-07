@@ -44,24 +44,46 @@ namespace Subscription_Management_System.Controllers
             return subscriptionPlan;
         }
 
+        // GET: api/SubscriptionPlans/vendor/5
+        [HttpGet("vendor/{vendorId}")]
+        public async Task<ActionResult<IEnumerable<SubscriptionPlan>>> GetSubscriptionPlansByVendorId(int vendorId)
+        {
+            var subscriptionPlans = await _context.SubscriptionPlans
+                .Where(sp => sp.Vendor_Id == vendorId)
+                .Include(sp => sp.VendorProfile) // Include VendorProfile for related data
+                .ToListAsync();
+
+            if (!subscriptionPlans.Any())
+            {
+                return NotFound($"No subscription plans found for Vendor_Id {vendorId}");
+            }
+
+            return subscriptionPlans;
+        }
+
+
+        // PUT: api/SubscriptionPlans/5
         // PUT: api/SubscriptionPlans/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSubscriptionPlan(int id, SubscriptionPlan subscriptionPlan)
         {
             if (id != subscriptionPlan.Plan_Id)
             {
-                return BadRequest();
+                return BadRequest("The Plan_Id in the URL and the body must match.");
             }
 
-            // Ensure VendorProfile is associated with the subscription plan
+            // Ensure VendorProfile exists
             var vendorProfile = await _context.VendorProfiles.FindAsync(subscriptionPlan.Vendor_Id);
             if (vendorProfile == null)
             {
                 return BadRequest("Invalid VendorProfile");
             }
 
-            subscriptionPlan.Updated_At = DateTime.UtcNow; // Set Updated_At timestamp
+            // Set timestamps for tracking updates
+            subscriptionPlan.Updated_At = DateTime.UtcNow;
 
+            // Attach and mark entity as modified
+            _context.Attach(subscriptionPlan);
             _context.Entry(subscriptionPlan).State = EntityState.Modified;
 
             try
@@ -72,7 +94,7 @@ namespace Subscription_Management_System.Controllers
             {
                 if (!SubscriptionPlanExists(id))
                 {
-                    return NotFound();
+                    return NotFound($"Subscription Plan with ID {id} does not exist.");
                 }
                 else
                 {

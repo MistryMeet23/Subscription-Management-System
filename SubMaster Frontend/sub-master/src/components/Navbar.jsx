@@ -77,7 +77,7 @@ const Navbar = () => {
   const businessMenu = (
     <Menu>
       <Menu.Item key="createBusiness">
-        <Link to="/create-business">Create a Business</Link>
+        <Link to="/createbusiness">Create a Business</Link>
       </Menu.Item>
       <Menu.Item key="myBusinessPage">
         <Link to="/MyBusinessPage">My Business Page</Link>

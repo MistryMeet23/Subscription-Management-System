@@ -45,6 +45,12 @@ const MyBusinessPage = () => {
     fetchBusinessData();
   }, [userId]);
 
+  const handleManageBusiness = (vendorId) => {
+    // Save the vendor ID in localStorage
+    localStorage.setItem('MyBusinessVendorId', vendorId);
+    navigate('/ManageBusiness');
+  };
+
   return (
     <div className="my-business-page">
       <div className="my-business-header">
@@ -52,7 +58,7 @@ const MyBusinessPage = () => {
         <Button
           type="primary"
           icon={<PlusOutlined />}
-          onClick={() => navigate('/CreateBusiness')}
+          onClick={() => navigate('/createbusiness')}
           className="my-business-add-button"
         >
           Add New Business
@@ -80,7 +86,7 @@ const MyBusinessPage = () => {
             const bgColor = getRandomColor();
 
             return (
-              <Col xs={24} sm={12} md={8} lg={6} key={business.vendor_Id}>
+              <Col xs={24} sm={12} md={8} lg={8} key={business.vendor_Id}>
                 <Card
                   hoverable
                   className="my-business-card"
@@ -97,7 +103,7 @@ const MyBusinessPage = () => {
                         type="link"
                         icon={<EditOutlined />}
                         className="my-business-manage-button"
-                        onClick={() => navigate(`/ManageBusiness/${business.vendor_Id}`)}
+                        onClick={() => handleManageBusiness(business.vendor_Id)}
                       >
                         Manage
                       </Button>

@@ -1,108 +1,149 @@
-import React from 'react';
-import { Layout, Menu, Breadcrumb, Row, Col, Card, List, Avatar, Typography, Button, Tooltip } from 'antd';
-import {
-  DashboardOutlined,
-  TeamOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  LogoutOutlined,
-} from '@ant-design/icons';
+import React, { useState, useEffect } from 'react';
+import { Layout, Menu, Card, Col, Row, Spin, Dropdown, Button, message } from 'antd';
+import { DashboardOutlined, UserOutlined, AppstoreAddOutlined, MessageOutlined, LogoutOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './AdminDashboard.css';
-import logo from '../assets/react.svg';
+import logo from '../assets/SMSLOGORound.png';
 
-const { Header, Content, Sider } = Layout;
-const { Title } = Typography;
+const { Header, Content } = Layout;
 
-class AdminDashboard extends React.Component {
-  state = {
-    collapsed: false,
-    users: [], // Store users data
-    loading: true, // Loading state for API data
+const AdminDashboard = () => {
+  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState({
+    users: 0,
+    vendors: 0,
+    subscriptions: 0,
+    feedbacks: 0
+  });
+  const [adminName, setAdminName] = useState('');
+  const navigate = useNavigate();
+
+  // Fetch stats on component mount
+  useEffect(() => {
+    const userRole = localStorage.getItem('role_Id');
+    if (userRole !== '1') {
+      navigate('/login');
+    } else {
+      // Fetch the data for counts
+      axios.get('http://localhost:5272/api/stats') // Modify this URL with the correct API endpoint for stats
+        .then(response => {
+          setStats(response.data);
+          setLoading(false);
+        })
+        .catch(err => {
+          console.error('Error fetching stats:', err);
+          setLoading(false);
+        });
+
+      // Set Admin Name (assumed from localStorage or API)
+      const admin = localStorage.getItem('adminName'); // Replace with actual logic to fetch admin's name
+      setAdminName(admin || 'Admin');
+    }
+  }, [navigate]);
+
+  const handleMenuClick = (key) => {
+    if (key === '1') {
+      navigate('/AdminDashboard');
+    } else if (key === '2') {
+      navigate('/users');
+    } else if (key === '3') {
+      navigate('/admin/vendors');
+    } else if (key === '4') {
+      navigate('/admin/feedback');
+    }
   };
 
-  toggleCollapse = () => {
-    this.setState({ collapsed: !this.state.collapsed });
+  const handleLogout = () => {
+    localStorage.removeItem('role_Id');
+    localStorage.removeItem('adminName'); // Clear admin name from local storage
+    navigate('/login');
+    message.success('Logged out successfully');
   };
 
-  // Fetch users from the API
-  componentDidMount() {
-    axios
-      .get('http://localhost:5272/api/UserAccounts') // Replace with your actual API URL
-      .then((response) => {
-        this.setState({ users: response.data, loading: false });
-      })
-      .catch((error) => {
-        console.error('Error fetching user data:', error);
-        this.setState({ loading: false });
-      });
-  }
+  const menu = (
+    <Menu onClick={({ key }) => key === 'logout' && handleLogout()}>
+      <Menu.Item key="logout" icon={<LogoutOutlined />} style={{ color: '#ff4d4f' }}>
+        Logout
+      </Menu.Item>
+    </Menu>
+  );
 
-  render() {
-    const { collapsed, users, loading } = this.state;
+  return (
+    <Layout style={{ minHeight: '100vh' }}>
+      <Header className="dashboard-header">
+        <div className="logo-container">
+          <img src={logo} alt="Logo" className="logo-img" />
+          <span className="logo-text">Admin Dashboard</span>
+        </div>
+        <div className="header-right">
+          <span className="admin-name">{adminName}</span>
+          <Dropdown overlay={menu} trigger={['click']}>
+            <Button className="logout-btn">Logout</Button>
+          </Dropdown>
+        </div>
+      </Header>
 
-    return (
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sider trigger={null} collapsible collapsed={collapsed}>
-          <div className="logo-container">
-            <img src={logo} alt="Logo" className="logo-img" />
-            <span className={`logo-text ${collapsed ? 'hidden' : ''}`}>Admin</span>
-          </div>
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<DashboardOutlined />}>Dashboard</Menu.Item>
-            <Menu.Item key="2" icon={<TeamOutlined />}>All Users</Menu.Item>
-            <Menu.Item key="7" icon={<LogoutOutlined />} style={{ color: '#ff4d4f' }}>Logout</Menu.Item>
-          </Menu>
-        </Sider>
-
-        <Layout>
-          <Header className="dashboard-header">
-            <Breadcrumb>
-              <Breadcrumb.Item>Admin</Breadcrumb.Item>
-              <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-            </Breadcrumb>
-            <Button
-              type="primary"
-              shape="circle"
-              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-              onClick={this.toggleCollapse}
-              className="collapse-button"
-            />
-          </Header>
-
-          <Content style={{ margin: '24px 16px' }}>
-            <Title level={3}>All Users</Title>
-            <Row gutter={[24, 24]}>
-              <Col span={24}>
-                <Card>
-                  <List
-                    loading={loading}
-                    itemLayout="horizontal"
-                    dataSource={users}
-                    renderItem={(user) => (
-                      <List.Item>
-                        <List.Item.Meta
-                          avatar={<Avatar>{user.firstName.charAt(0)}</Avatar>}
-                          title={`${user.firstName} ${user.lastName}`}
-                          description={
-                            <>
-                              <Typography.Text>Email: {user.email}</Typography.Text>
-                              <br />
-                              <Typography.Text>Status: {user.status}</Typography.Text>
-                            </>
-                          }
-                        />
-                      </List.Item>
-                    )}
-                  />
+      <Content style={{ margin: '24px 16px' }}>
+        {loading ? (
+          <Spin size="large" />
+        ) : (
+          <div className="dashboard-content">
+            <Row gutter={16}>
+              <Col span={6}>
+                <Card
+                  title="All Users"
+                  bordered={false}
+                  className="dashboard-card"
+                  onClick={() => navigate('/users')}
+                  hoverable
+                  actions={[<UserOutlined key="users" className="card-icon" />]}
+                >
+                  <h2>{stats.users}</h2>
+                </Card>
+              </Col>
+              <Col span={6}>
+                <Card
+                  title="All Vendors"
+                  bordered={false}
+                  className="dashboard-card"
+                  onClick={() => navigate('/admin/vendors')}
+                  hoverable
+                  actions={[<AppstoreAddOutlined key="vendors" className="card-icon" />]}
+                >
+                  <h2>{stats.vendors}</h2>
+                </Card>
+              </Col>
+              <Col span={6}>
+                <Card
+                  title="All Subscriptions"
+                  bordered={false}
+                  className="dashboard-card"
+                  onClick={() => navigate('/admin/feedback')}
+                  hoverable
+                  actions={[<AppstoreAddOutlined key="subscriptions" className="card-icon" />]}
+                >
+                  <h2>{stats.subscriptions}</h2>
+                </Card>
+              </Col>
+              <Col span={6}>
+                <Card
+                  title="All Feedback"
+                  bordered={false}
+                  className="dashboard-card"
+                  onClick={() => navigate('/admin/feedback')}
+                  hoverable
+                  actions={[<MessageOutlined key="feedback" className="card-icon" />]}
+                >
+                  <h2>{stats.feedbacks}</h2>
                 </Card>
               </Col>
             </Row>
-          </Content>
-        </Layout>
-      </Layout>
-    );
-  }
-}
+          </div>
+        )}
+      </Content>
+    </Layout>
+  );
+};
 
 export default AdminDashboard;

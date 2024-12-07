@@ -19,6 +19,11 @@ import AllSubscriptionsPage from './pages/AllSubscriptionsPage';
 import MyBusinessPage from './pages/MyBusinessPage';
 import ManageBusiness from './pages/ManageBusiness';
 import Logout from './pages/Logout';
+import AddNewPlans from './pages/AddNewPlans';
+import EditBusinessPlan from './pages/EditBusinessPlan';
+import ProtectedRoute from './pages/ProtectedRoute';
+import AllUsers from './pages/AllUsers';
+import ExplorePlan from './pages/ExplorePlan';
 
 const { Content } = Layout;
 
@@ -64,7 +69,7 @@ const AppContent = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/EditProfilePage" element={<EditProfilePage />} />
-          <Route path="/create-business" element={<CreateBusiness />} />
+          <Route path="/createbusiness" element={<CreateBusiness />} />
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/error" element={<ErrorPage />} />
@@ -72,6 +77,24 @@ const AppContent = () => {
           <Route path="/MyBusinessPage" element={<MyBusinessPage />} />
           <Route path="/ManageBusiness" element={<ManageBusiness />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/AddNewPlans" element={<AddNewPlans />} />
+          <Route path="/EditBusinessPlan" element={<EditBusinessPlan />} />
+          <Route path="/users" element={<AllUsers />} />
+          <Route path="/ExplorePlan" element={<ExplorePlan />} />
+          <Route
+            path="/AdminDashboard"
+            element={
+              <ProtectedRoute allowedRoles={[1]}/>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute allowedRoles={[2]}>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Content>
       {shouldShowNavbarAndFooter && <Footer />}

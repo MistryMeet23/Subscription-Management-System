@@ -914,6 +914,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Subscription_Management_System.Controllers.SubscriptionPlansController",
+    "Method": "GetSubscriptionPlansByVendorId",
+    "RelativePath": "api/SubscriptionPlans/vendor/{vendorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vendorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Subscription_Management_System.Models.SubscriptionPlan, Subscription Management System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Subscription_Management_System.Controllers.UserAccountsController",
     "Method": "GetUserAccounts",
     "RelativePath": "api/UserAccounts",

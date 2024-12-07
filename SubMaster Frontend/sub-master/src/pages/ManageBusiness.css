@@ -1,47 +1,203 @@
 .manage-business-page {
-    padding: 20px;
-    background-color: #f5f5f5;
-    min-height: 100vh;
-  }
-  
-  .manage-business-header {
-    margin-bottom: 20px;
-  }
-  
-  .manage-business-add-button {
-    text-align: right;
-  }
-  
-  .manage-business-spinner,
-  .manage-business-alert {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-  }
-  
-  .manage-business-row {
-    margin-top: 20px;
-  }
-  
-  .manage-business-card {
-    border-radius: 8px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .manage-business-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .manage-business-card-title {
-    color: #1890ff;
-  }
-  
-  .manage-business-card-description {
-    margin-top: 10px;
-  }
-  
-  .manage-business-modal .ant-modal-body {
-    padding: 24px;
-  }
-  
+  padding: 24px;
+  background: linear-gradient(to bottom, #f0f2f5, #ffffff);
+  min-height: 60vh;
+}
+
+.manage-business-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.manage-business-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #001529;
+}
+
+/* ManageBusiness.css */
+
+.manage-business-page {
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+.manage-business-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.manage-business-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.add-new-plan-button {
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.no-plans-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.plans-list {
+  margin-top: 20px;
+}
+
+
+.add-new-plan-button {
+  background: linear-gradient(90deg, #1890ff, #40a9ff);
+  color: #fff;
+  font-weight: 500;
+  padding: 8px 16px; /* Adjusted padding */
+  font-size: 16px;   /* Standard font size */
+  border-radius: 6px;
+  border: none;
+  transition: all 0.3s ease;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;  /* Ensures button doesn't stretch too much */
+  max-width: 220px;  /* Prevents the button from becoming too wide */
+}
+
+.add-new-plan-button:hover {
+  background: linear-gradient(90deg, #40a9ff, #69c0ff);
+  transform: translateY(-2px);
+}
+
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.plans-list {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.plans-list .ant-table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.plans-list .ant-table-thead > tr > th {
+  background: #fafafa;
+  color: #595959;
+  font-weight: 600;
+}
+
+.plans-list .ant-table-row:hover {
+  background: #f5f5f5;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.edit-button {
+  background-color: #52c41a;
+  border-color: #52c41a;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #73d13d;
+}
+
+.delete-button {
+  background-color: #f5222d;
+  border-color: #f5222d;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #ff4d4f;
+}
+
+.features-tooltip {
+  cursor: pointer;
+  color: #1890ff;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.features-tooltip:hover {
+  color: #40a9ff;
+}
+
+.add-new-plan-button {
+  background: linear-gradient(90deg, #1890ff, #40a9ff);
+  color: #fff;
+  font-weight: 500;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  transition: all 0.3s ease;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  max-width: 220px;
+}
+
+.add-new-plan-button:hover {
+  background: linear-gradient(90deg, #40a9ff, #69c0ff);
+  transform: translateY(-2px);
+}
+
+.toggle-status-button {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.toggle-status-button:hover {
+  background-color: #40a9ff;
+}
+
+.delete-button {
+  background-color: #f5222d;
+  border-color: #f5222d;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #ff4d4f;
+}
