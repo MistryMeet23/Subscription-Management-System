@@ -18,6 +18,7 @@ import ErrorPage from './pages/ErrorPage';
 import AllSubscriptionsPage from './pages/AllSubscriptionsPage';
 import MyBusinessPage from './pages/MyBusinessPage';
 import ManageBusiness from './pages/ManageBusiness';
+import Logout from './pages/Logout';
 
 const { Content } = Layout;
 
@@ -70,6 +71,7 @@ const AppContent = () => {
           <Route path="/AllSubscriptions" element={<AllSubscriptionsPage />} />
           <Route path="/MyBusinessPage" element={<MyBusinessPage />} />
           <Route path="/ManageBusiness" element={<ManageBusiness />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </Content>
       {shouldShowNavbarAndFooter && <Footer />}

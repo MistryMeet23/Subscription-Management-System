@@ -1,90 +1,99 @@
-/* General Page Styling */
 .my-business-page {
-  min-height: 100vh;
   padding: 40px 20px;
-  background-color: #f5f5f5;
+  background: linear-gradient(to bottom, #ffffff, #f4f4f4);
+  min-height: 100vh;
 }
 
-/* Page Title Styling */
-.my-business-page-title {
-  text-align: center;
+.my-business-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 30px;
-  color: #333;
-  font-size: 2rem;
+}
+
+.my-business-title {
   font-weight: bold;
+  color: #3d3d3d;
 }
 
-/* Loading Spinner */
-.my-business-spinner {
-  display: block;
-  margin: 0 auto;
+.my-business-add-button {
+  background-color: #1890ff;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Alert Styling */
-.my-business-alert {
-  margin-bottom: 20px;
+.my-business-add-button:hover {
+  background-color: #007acc;
+  transform: scale(1.05);
 }
 
-/* Row Styling */
 .my-business-row {
-  margin: 0 auto;
+  display: flex;
   justify-content: center;
 }
 
-/* Card Styling */
 .my-business-card {
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .my-business-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Card Cover Styling */
-.my-business-card-cover {
-  height: 160px;
-  background-color: #1890ff;
+.my-business-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-size: 32px;
+  color: white;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: auto;
 }
 
-.my-business-card-icon {
-  font-size: 64px;
-  color: #fff;
-}
-
-/* Card Meta Styling */
 .my-business-card-title {
-  margin: 0;
-  font-size: 1.25rem;
   color: #333;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
 }
 
 .my-business-card-description {
-  margin-top: 12px;
-}
-
-.my-business-card-text {
-  display: block;
-  margin-bottom: 8px;
-  color: #555;
-}
-
-.my-business-card-space {
-  display: block;
   font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+  margin-top: 10px;
 }
 
-/* Action Button Styling */
-.my-business-action-button {
+.my-business-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.my-business-alert {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.my-business-manage-button {
+  font-size: 14px;
   color: #1890ff;
-  transition: color 0.2s;
+  font-weight: bold;
 }
 
-.my-business-action-button:hover {
-  color: #0056b3;
+@media screen and (max-width: 768px) {
+  .my-business-card {
+    margin-bottom: 20px;
+  }
 }

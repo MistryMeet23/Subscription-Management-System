@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Form, Input, Button, Typography, Card, message } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import './LoginPage.css';
+import React, { useState, useEffect } from "react";
+import { Form, Input, Button, Typography, Card, message } from "antd";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./LoginPage.css";
 
 const { Title } = Typography;
 
@@ -10,47 +10,67 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  
+  // Auto logout after 30 minutes of inactivity
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      handleLogout();
+    }, 30 * 60 * 1000); // 30 minutes in milliseconds
+
+    return () => clearTimeout(timeout); // Clear timeout on component unmount
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("user_Id");
+    localStorage.removeItem("role_Id");
+    message.info("Session expired. Please log in again.");
+    navigate("/login");
+  };
+
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5272/api/Login', {
+      const response = await axios.post("http://localhost:5272/api/Login", {
         email: values.email,
         password: values.password,
       });
-  
+
       const { accessToken, success, roleId, userId } = response.data;
-  
+
       if (success) {
-        message.success('Login successful!');
-        
+        message.success("Login successful!");
+
         // Store values correctly in localStorage
-        localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem('user_Id', userId);  // Ensure this is the correct key
-        localStorage.setItem('role_Id', roleId);
-  
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("user_Id", userId);
+        localStorage.setItem("role_Id", roleId);
+
         // Redirect based on role
         if (roleId === 1) {
-          navigate('/AdminDashboard');
+          navigate("/AdminDashboard");
         } else {
-          navigate('/profile');
+          navigate("/profile");
         }
       } else {
-        message.error('Login failed. Please check your credentials.');
+        message.error("Login failed. Please check your credentials.");
       }
     } catch (error) {
-      console.error('Login error:', error);
-      message.error(error.response?.data?.message || 'An error occurred. Please try again.');
+      console.error("Login error:", error);
+      message.error(
+        error.response?.data?.message || "An error occurred. Please try again."
+      );
     } finally {
       setLoading(false);
     }
-  };  
+  };
 
   return (
     <div className="login-container">
       <Card className="login-card">
         <div className="login-content">
-          <Title level={2} className="login-title">Login</Title>
+          <Title level={2} className="login-title">
+            Login
+          </Title>
           <Form
             name="login"
             onFinish={onFinish}
@@ -60,7 +80,9 @@ const Login = () => {
             <Form.Item
               label="Email"
               name="email"
-              rules={[{ required: true, type: 'email', message: 'Please enter a valid email!' }]}
+              rules={[
+                { required: true, type: "email", message: "Please enter a valid email!" },
+              ]}
             >
               <Input />
             </Form.Item>
@@ -68,7 +90,7 @@ const Login = () => {
             <Form.Item
               label="Password"
               name="password"
-              rules={[{ required: true, message: 'Please input your password!' }]}
+              rules={[{ required: true, message: "Please input your password!" }]}
             >
               <Input.Password />
             </Form.Item>
@@ -81,7 +103,7 @@ const Login = () => {
                 loading={loading}
                 disabled={loading}
               >
-                {loading ? 'Logging in...' : 'Login'}
+                {loading ? "Logging in..." : "Login"}
               </Button>
             </Form.Item>
           </Form>
@@ -93,7 +115,6 @@ const Login = () => {
               Forgot your password?
             </Link>
           </div>
-
         </div>
       </Card>
     </div>

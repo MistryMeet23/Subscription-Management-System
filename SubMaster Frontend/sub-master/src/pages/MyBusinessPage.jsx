@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Row, Typography, Spin, Alert, Button, Space } from 'antd';
-import { HomeOutlined, PhoneOutlined, LinkOutlined, EditOutlined } from '@ant-design/icons';
+import { Card, Col, Row, Typography, Spin, Alert, Button, Space, Tooltip } from 'antd';
+import { PhoneOutlined, LinkOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './MyBusinessPage.css';
@@ -16,6 +16,15 @@ const MyBusinessPage = () => {
   const userId = localStorage.getItem('user_Id');
   const apiUrl = `http://localhost:5272/api/VendorProfiles/user/${userId}`;
   const navigate = useNavigate();
+
+  const getRandomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
 
   useEffect(() => {
     const fetchBusinessData = async () => {
@@ -38,72 +47,95 @@ const MyBusinessPage = () => {
 
   return (
     <div className="my-business-page">
-      <Title level={2} className="my-business-page-title">
-        My Businesses
-      </Title>
+      <div className="my-business-header">
+        <Title level={2} className="my-business-title">My Businesses</Title>
+        <Button
+          type="primary"
+          icon={<PlusOutlined />}
+          onClick={() => navigate('/CreateBusiness')}
+          className="my-business-add-button"
+        >
+          Add New Business
+        </Button>
+      </div>
 
       {loading ? (
-        <Spin size="large" className="my-business-spinner" />
+        <div className="my-business-spinner-container">
+          <Spin size="large" className="my-business-spinner" />
+        </div>
       ) : error ? (
         <Alert message={error} type="error" showIcon className="my-business-alert" />
       ) : noBusiness ? (
         <Alert
-          message="You have no businesses associated with your account."
-          description="Please create a business profile to manage it here."
+          message="No businesses found"
+          description="Start by creating your first business profile."
           type="info"
           showIcon
           className="my-business-alert"
         />
       ) : (
         <Row gutter={[24, 24]} className="my-business-row">
-          {businessData.map((business) => (
-            <Col xs={24} sm={12} md={8} key={business.vendor_Id}>
-              <Card
-                hoverable
-                className="my-business-card"
-                cover={
-                  <div className="my-business-card-cover">
-                    <HomeOutlined className="my-business-card-icon" />
-                  </div>
-                }
-                actions={[
-                  <Button
-                    type="link"
-                    icon={<EditOutlined />}
-                    className="my-business-action-button"
-                    onClick={() => navigate(`/ManageBusiness/${business.vendor_Id}`)}
-                  >
-                    Manage Business
-                  </Button>,
-                ]}
-              >
-                <Card.Meta
-                  title={<Title level={4} className="my-business-card-title">{business.business_Name}</Title>}
-                  description={
-                    <div className="my-business-card-description">
-                      <Text className="my-business-card-text">{business.business_Description}</Text>
-                      <Space direction="vertical" size={6} className="my-business-card-space">
-                        <Text>
-                          <strong>Address:</strong> {business.business_Address}
-                        </Text>
-                        <Text>
-                          <PhoneOutlined style={{ marginRight: '5px' }} /> {business.phone_Number}
-                        </Text>
-                        {business.website_Url && (
-                          <Text>
-                            <LinkOutlined style={{ marginRight: '5px' }} />
-                            <a href={business.website_Url} target="_blank" rel="noopener noreferrer">
-                              {business.website_Url}
-                            </a>
-                          </Text>
-                        )}
-                      </Space>
+          {businessData.map((business) => {
+            const firstLetter = business.business_Name ? business.business_Name[0].toUpperCase() : '';
+            const bgColor = getRandomColor();
+
+            return (
+              <Col xs={24} sm={12} md={8} lg={6} key={business.vendor_Id}>
+                <Card
+                  hoverable
+                  className="my-business-card"
+                  cover={
+                    <div>
+                      <div className="my-business-avatar" style={{ backgroundColor: bgColor }}>
+                        {firstLetter}
+                      </div>
                     </div>
                   }
-                />
-              </Card>
-            </Col>
-          ))}
+                  actions={[
+                    <Tooltip title="Manage Business">
+                      <Button
+                        type="link"
+                        icon={<EditOutlined />}
+                        className="my-business-manage-button"
+                        onClick={() => navigate(`/ManageBusiness/${business.vendor_Id}`)}
+                      >
+                        Manage
+                      </Button>
+                    </Tooltip>,
+                  ]}
+                >
+                  <Card.Meta
+                    title={<Title level={4} className="my-business-card-title">{business.business_Name}</Title>}
+                    description={
+                      <div className="my-business-card-description">
+                        <Space direction="vertical" size={8}>
+                          <Text className="my-business-address">
+                            <strong>Address:</strong> {business.business_Address}
+                          </Text>
+                          <Text>
+                            <PhoneOutlined /> {business.phone_Number}
+                          </Text>
+                          {business.website_Url && (
+                            <Text>
+                              <LinkOutlined />{' '}
+                              <a
+                                href={business.website_Url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="my-business-link"
+                              >
+                                {business.website_Url}
+                              </a>
+                            </Text>
+                          )}
+                        </Space>
+                      </div>
+                    }
+                  />
+                </Card>
+              </Col>
+            );
+          })}
         </Row>
       )}
     </div>

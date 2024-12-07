@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
@@ -10,7 +11,8 @@ namespace Subscription_Management_System.Models
         [Key]
         public int Plan_Id { get; set; }
 
-        [ForeignKey("Vendor_Id")]
+        [Required]
+        [ForeignKey("VendorProfile")]
         public int Vendor_Id { get; set; }
 
         [Required]
@@ -20,27 +22,24 @@ namespace Subscription_Management_System.Models
         public string? Description { get; set; }
 
         [Required]
-        [Range(0.01, 99999.99)]
+        [Range(0.01, 99999.99, ErrorMessage = "Price must be between 0.01 and 99999.99.")]
         public decimal Price { get; set; }
 
         [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "Duration must be at least 1 day.")]
         public int Duration_In_Days { get; set; }
 
-        public string? Features { get; set; } // Store as JSON
+        public string? Features { get; set; } 
 
         [DefaultValue(true)]
         public bool Is_Active { get; set; } = true;
 
-        public DateTime Created_At { get; set; }
-        public DateTime Updated_At { get; set; }
+        public DateTime Created_At { get; set; } = DateTime.UtcNow;
+
+        public DateTime Updated_At { get; set; } = DateTime.UtcNow;
+
 
         [JsonIgnore]
-        public virtual VendorProfile VendorProfile { get; set; }
-
-        public SubscriptionPlan()
-        {
-            Created_At = DateTime.UtcNow;
-            Updated_At = DateTime.UtcNow;
-        }
+        public virtual VendorProfile? VendorProfile { get; set; } // Made nullable
     }
 }

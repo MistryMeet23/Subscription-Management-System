@@ -18,7 +18,9 @@
 }
 
 .navbar-logo .logo-img {
-  width: 30px;
+  margin-top: 10px;
+  width: 165px;
+  height: 65px;
   margin-right: 10px;
 }
 

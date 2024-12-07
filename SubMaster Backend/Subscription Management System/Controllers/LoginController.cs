@@ -93,5 +93,18 @@ namespace Subscription_Management_System.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(securityToken);
         }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout([FromBody] string token)
+        {
+            await _context.RevokedTokens.AddAsync(new RevokedToken
+            {
+                Token = token,
+                RevokedAt = DateTime.UtcNow
+            });
+            await _context.SaveChangesAsync();
+            return Ok(new { Message = "Logged out successfully." });
+        }
+
     }
 }

@@ -353,6 +353,22 @@
     ]
   },
   {
+    "ContainingType": "Subscription_Management_System.Controllers.LoginController",
+    "Method": "Logout",
+    "RelativePath": "api/Login/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Subscription_Management_System.Controllers.NotificationsController",
     "Method": "GetNotifications",
     "RelativePath": "api/Notifications",

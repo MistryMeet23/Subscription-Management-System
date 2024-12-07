@@ -22,6 +22,8 @@ namespace Subscription_Management_System.Data
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<SubscriptionHistory> SubscriptionHistories { get; set; }
+        public DbSet<RevokedToken> RevokedTokens { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
