@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Breadcrumb, Row, Col, Card, List, Avatar, Typography, Button, Tooltip } from 'antd';
+import { Layout, Menu, Breadcrumb, Table, Button, Typography } from 'antd';
 import {
   DashboardOutlined,
   TeamOutlined,
@@ -17,18 +17,20 @@ const { Title } = Typography;
 class AdminDashboard extends React.Component {
   state = {
     collapsed: false,
-    users: [], // Store users data
-    loading: true, // Loading state for API data
+    currentView: 'dashboard', // Tracks the current view ('dashboard', 'allUsers', or 'allVendors')
+    users: [],
+    vendors: [],
+    loading: false,
   };
 
   toggleCollapse = () => {
     this.setState({ collapsed: !this.state.collapsed });
   };
 
-  // Fetch users from the API
-  componentDidMount() {
+  fetchUsers = () => {
+    this.setState({ loading: true });
     axios
-      .get('http://localhost:5272/api/UserAccounts') // Replace with your actual API URL
+      .get('http://localhost:5272/api/UserAccounts')
       .then((response) => {
         this.setState({ users: response.data, loading: false });
       })
@@ -36,10 +38,84 @@ class AdminDashboard extends React.Component {
         console.error('Error fetching user data:', error);
         this.setState({ loading: false });
       });
-  }
+  };
+
+  fetchVendors = () => {
+    this.setState({ loading: true });
+    axios
+      .get('http://localhost:5272/api/VendorProfiles')
+      .then((response) => {
+        this.setState({ vendors: response.data, loading: false });
+      })
+      .catch((error) => {
+        console.error('Error fetching vendor data:', error);
+        this.setState({ loading: false });
+      });
+  };
+
+  handleMenuClick = ({ key }) => {
+    this.setState({ currentView: key }, () => {
+      if (key === 'allUsers') {
+        this.fetchUsers();
+      } else if (key === 'allVendors') {
+        this.fetchVendors();
+      }
+    });
+  };
 
   render() {
-    const { collapsed, users, loading } = this.state;
+    const { collapsed, currentView, users, vendors, loading } = this.state;
+
+    const userColumns = [
+      {
+        title: 'First Name',
+        dataIndex: 'firstName',
+        key: 'firstName',
+      },
+      {
+        title: 'Last Name',
+        dataIndex: 'lastName',
+        key: 'lastName',
+      },
+      {
+        title: 'Email',
+        dataIndex: 'email',
+        key: 'email',
+      },
+      {
+        title: 'Phone Number',
+        dataIndex: 'phone_Number',
+        key: 'phoneNumber',
+      },
+      {
+        title: 'Address',
+        dataIndex: 'address',
+        key: 'address',
+      },
+    ];
+
+    const vendorColumns = [
+      {
+        title: 'Business Name',
+        dataIndex: 'business_Name',
+        key: 'businessName',
+      },
+      {
+        title: 'Description',
+        dataIndex: 'business_Description',
+        key: 'businessDescription',
+      },
+      {
+        title: 'Address',
+        dataIndex: 'business_Address',
+        key: 'businessAddress',
+      },
+      {
+        title: 'Phone Number',
+        dataIndex: 'phone_Number',
+        key: 'phoneNumber',
+      },
+    ];
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
@@ -48,10 +124,24 @@ class AdminDashboard extends React.Component {
             <img src={logo} alt="Logo" className="logo-img" />
             <span className={`logo-text ${collapsed ? 'hidden' : ''}`}>Admin</span>
           </div>
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<DashboardOutlined />}>Dashboard</Menu.Item>
-            <Menu.Item key="2" icon={<TeamOutlined />}>All Users</Menu.Item>
-            <Menu.Item key="7" icon={<LogoutOutlined />} style={{ color: '#ff4d4f' }}>Logout</Menu.Item>
+          <Menu
+            theme="dark"
+            defaultSelectedKeys={['dashboard']}
+            mode="inline"
+            onClick={this.handleMenuClick}
+          >
+            <Menu.Item key="dashboard" icon={<DashboardOutlined />}>
+              Dashboard
+            </Menu.Item>
+            <Menu.Item key="allUsers" icon={<TeamOutlined />}>
+              All Users
+            </Menu.Item>
+            <Menu.Item key="allVendors" icon={<TeamOutlined />}>
+              All Vendors
+            </Menu.Item>
+            <Menu.Item key="logout" icon={<LogoutOutlined />} style={{ color: '#ff4d4f' }}>
+              Logout
+            </Menu.Item>
           </Menu>
         </Sider>
 
@@ -59,7 +149,13 @@ class AdminDashboard extends React.Component {
           <Header className="dashboard-header">
             <Breadcrumb>
               <Breadcrumb.Item>Admin</Breadcrumb.Item>
-              <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+              <Breadcrumb.Item>
+                {currentView === 'dashboard'
+                  ? 'Dashboard'
+                  : currentView === 'allUsers'
+                  ? 'All Users'
+                  : 'All Vendors'}
+              </Breadcrumb.Item>
             </Breadcrumb>
             <Button
               type="primary"
@@ -71,33 +167,36 @@ class AdminDashboard extends React.Component {
           </Header>
 
           <Content style={{ margin: '24px 16px' }}>
-            <Title level={3}>All Users</Title>
-            <Row gutter={[24, 24]}>
-              <Col span={24}>
-                <Card>
-                  <List
-                    loading={loading}
-                    itemLayout="horizontal"
-                    dataSource={users}
-                    renderItem={(user) => (
-                      <List.Item>
-                        <List.Item.Meta
-                          avatar={<Avatar>{user.firstName.charAt(0)}</Avatar>}
-                          title={`${user.firstName} ${user.lastName}`}
-                          description={
-                            <>
-                              <Typography.Text>Email: {user.email}</Typography.Text>
-                              <br />
-                              <Typography.Text>Status: {user.status}</Typography.Text>
-                            </>
-                          }
-                        />
-                      </List.Item>
-                    )}
-                  />
-                </Card>
-              </Col>
-            </Row>
+            {currentView === 'dashboard' && (
+              <div>
+                <Title level={3}>Dashboard</Title>
+                <p>Welcome to the Admin Dashboard!</p>
+              </div>
+            )}
+
+            {currentView === 'allUsers' && (
+              <div>
+                <Title level={3}>All Users</Title>
+                <Table
+                  columns={userColumns}
+                  dataSource={users}
+                  loading={loading}
+                  rowKey="id"
+                />
+              </div>
+            )}
+
+            {currentView === 'allVendors' && (
+              <div>
+                <Title level={3}>All Vendors</Title>
+                <Table
+                  columns={vendorColumns}
+                  dataSource={vendors}
+                  loading={loading}
+                  rowKey="vendor_Id"
+                />
+              </div>
+            )}
           </Content>
         </Layout>
       </Layout>
