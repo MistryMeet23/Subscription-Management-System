@@ -1,16 +1,13 @@
 import React from 'react';
-import { Layout, Menu, Breadcrumb, Row, Col, Card, Statistic, List, Progress, Typography, Avatar, Divider, Space, Button, Tooltip } from 'antd';
+import { Layout, Menu, Breadcrumb, Row, Col, Card, List, Avatar, Typography, Button, Tooltip } from 'antd';
 import {
   DashboardOutlined,
   TeamOutlined,
-  SolutionOutlined,
-  AppstoreAddOutlined,
-  FileTextOutlined,
-  SettingOutlined,
-  LogoutOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
+  LogoutOutlined,
 } from '@ant-design/icons';
+import axios from 'axios';
 import './AdminDashboard.css';
 import logo from '../assets/react.svg';
 
@@ -18,28 +15,31 @@ const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
 
 class AdminDashboard extends React.Component {
-  state = { collapsed: false };
+  state = {
+    collapsed: false,
+    users: [], // Store users data
+    loading: true, // Loading state for API data
+  };
 
   toggleCollapse = () => {
     this.setState({ collapsed: !this.state.collapsed });
   };
 
+  // Fetch users from the API
+  componentDidMount() {
+    axios
+      .get('http://localhost:5272/api/UserAccounts') // Replace with your actual API URL
+      .then((response) => {
+        this.setState({ users: response.data, loading: false });
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+        this.setState({ loading: false });
+      });
+  }
+
   render() {
-    const { collapsed } = this.state;
-
-    // Data for the list and statistics
-    const recentActivities = [
-      'User1 logged in',
-      'User2 updated profile',
-      'Vendor added a subscription',
-      'User3 posted a complaint',
-    ];
-
-    const systemStatus = [
-      { title: 'Database Status', status: 'Operational', color: 'green' },
-      { title: 'API Response', status: 'Stable', color: 'blue' },
-      { title: 'Server Health', status: 'Good', color: 'orange' },
-    ];
+    const { collapsed, users, loading } = this.state;
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
@@ -48,43 +48,10 @@ class AdminDashboard extends React.Component {
             <img src={logo} alt="Logo" className="logo-img" />
             <span className={`logo-text ${collapsed ? 'hidden' : ''}`}>Admin</span>
           </div>
-
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<DashboardOutlined />}>
-              <Tooltip title="Dashboard Overview">
-                Dashboard
-              </Tooltip>
-            </Menu.Item>
-            <Menu.Item key="2" icon={<TeamOutlined />}>
-              <Tooltip title="Manage All Users">
-                All Users
-              </Tooltip>
-            </Menu.Item>
-            <Menu.Item key="3" icon={<SolutionOutlined />}>
-              <Tooltip title="Manage Vendors">
-                All Vendors
-              </Tooltip>
-            </Menu.Item>
-            <Menu.Item key="4" icon={<AppstoreAddOutlined />}>
-              <Tooltip title="View Subscriptions">
-                Subscriptions
-              </Tooltip>
-            </Menu.Item>
-            <Menu.Item key="5" icon={<FileTextOutlined />}>
-              <Tooltip title="View Complaints">
-                Complaints
-              </Tooltip>
-            </Menu.Item>
-            <Menu.Item key="6" icon={<SettingOutlined />}>
-              <Tooltip title="Settings">
-                Settings
-              </Tooltip>
-            </Menu.Item>
-            <Menu.Item key="7" icon={<LogoutOutlined />} style={{ color: '#ff4d4f' }}>
-              <Tooltip title="Logout">
-                Logout
-              </Tooltip>
-            </Menu.Item>
+            <Menu.Item key="1" icon={<DashboardOutlined />}>Dashboard</Menu.Item>
+            <Menu.Item key="2" icon={<TeamOutlined />}>All Users</Menu.Item>
+            <Menu.Item key="7" icon={<LogoutOutlined />} style={{ color: '#ff4d4f' }}>Logout</Menu.Item>
           </Menu>
         </Sider>
 
@@ -104,58 +71,30 @@ class AdminDashboard extends React.Component {
           </Header>
 
           <Content style={{ margin: '24px 16px' }}>
-            <Title level={3}>Admin Overview</Title>
-
+            <Title level={3}>All Users</Title>
             <Row gutter={[24, 24]}>
-              {/* Statistics Cards */}
-              <Col span={8}>
+              <Col span={24}>
                 <Card>
-                  <Statistic title="Total Users" value={1234} valueStyle={{ color: '#3f8600' }} />
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card>
-                  <Statistic title="New Registrations" value={56} valueStyle={{ color: '#108ee9' }} />
-                </Card>
-              </Col>
-              <Col span={8}>
-                <Card>
-                  <Statistic title="Active Sessions" value={123} />
-                </Card>
-              </Col>
-            </Row>
-
-            <Divider />
-
-            <Row gutter={[24, 24]}>
-              {/* Recent Activities */}
-              <Col span={12}>
-                <Card title="Recent Activities">
                   <List
+                    loading={loading}
                     itemLayout="horizontal"
-                    dataSource={recentActivities}
-                    renderItem={(item) => (
+                    dataSource={users}
+                    renderItem={(user) => (
                       <List.Item>
                         <List.Item.Meta
-                          avatar={<Avatar icon={<TeamOutlined />} />}
-                          title={item}
+                          avatar={<Avatar>{user.firstName.charAt(0)}</Avatar>}
+                          title={`${user.firstName} ${user.lastName}`}
+                          description={
+                            <>
+                              <Typography.Text>Email: {user.email}</Typography.Text>
+                              <br />
+                              <Typography.Text>Status: {user.status}</Typography.Text>
+                            </>
+                          }
                         />
                       </List.Item>
                     )}
                   />
-                </Card>
-              </Col>
-
-              {/* System Status */}
-              <Col span={12}>
-                <Card title="System Status">
-                  {systemStatus.map((item, index) => (
-                    <Space key={index} direction="horizontal" style={{ marginBottom: '16px' }}>
-                      <Typography.Text strong>{item.title}:</Typography.Text>
-                      <Typography.Text type={item.color}>{item.status}</Typography.Text>
-                    </Space>
-                  ))}
-                  <Progress percent={75} status="active" showInfo={false} />
                 </Card>
               </Col>
             </Row>
