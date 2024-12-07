@@ -91,6 +91,22 @@ namespace Subscription_Management_System.Controllers
             return CreatedAtAction("GetVendorProfile", new { id = vendorProfile.Vendor_Id }, vendorProfile);
         }
 
+        // GET: api/VendorProfiles/user/{userId}
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<IEnumerable<VendorProfile>>> GetAllVendorProfilesByUserId(int userId)
+        {
+            var vendorProfiles = await _context.VendorProfiles
+                                               .Where(vp => vp.User_Id == userId)
+                                               .ToListAsync();
+
+            if (vendorProfiles == null || !vendorProfiles.Any())
+            {
+                return NotFound(new { error = "No vendor profiles found for the specified User_Id." });
+            }
+
+            return Ok(vendorProfiles);
+        }
+
         // DELETE: api/VendorProfiles/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteVendorProfile(int id)

@@ -353,6 +353,22 @@
     ]
   },
   {
+    "ContainingType": "Subscription_Management_System.Controllers.LoginController",
+    "Method": "Logout",
+    "RelativePath": "api/Login/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Subscription_Management_System.Controllers.NotificationsController",
     "Method": "GetNotifications",
     "RelativePath": "api/Notifications",
@@ -1260,6 +1276,32 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Subscription_Management_System.Controllers.VendorProfilesController",
+    "Method": "GetAllVendorProfilesByUserId",
+    "RelativePath": "api/VendorProfiles/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Subscription_Management_System.Models.VendorProfile, Subscription Management System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "Subscription_Management_System.Controllers.WeatherForecastController",

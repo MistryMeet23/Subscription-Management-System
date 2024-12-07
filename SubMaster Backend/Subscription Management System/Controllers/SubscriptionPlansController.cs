@@ -25,14 +25,16 @@ namespace Subscription_Management_System.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SubscriptionPlan>>> GetSubscriptionPlans()
         {
-            return await _context.SubscriptionPlans.ToListAsync();
+            return await _context.SubscriptionPlans.Include(sp => sp.VendorProfile).ToListAsync();
         }
 
         // GET: api/SubscriptionPlans/5
         [HttpGet("{id}")]
         public async Task<ActionResult<SubscriptionPlan>> GetSubscriptionPlan(int id)
         {
-            var subscriptionPlan = await _context.SubscriptionPlans.FindAsync(id);
+            var subscriptionPlan = await _context.SubscriptionPlans
+                .Include(sp => sp.VendorProfile) // Ensure VendorProfile is loaded
+                .FirstOrDefaultAsync(sp => sp.Plan_Id == id);
 
             if (subscriptionPlan == null)
             {
@@ -43,7 +45,6 @@ namespace Subscription_Management_System.Controllers
         }
 
         // PUT: api/SubscriptionPlans/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSubscriptionPlan(int id, SubscriptionPlan subscriptionPlan)
         {
@@ -51,6 +52,15 @@ namespace Subscription_Management_System.Controllers
             {
                 return BadRequest();
             }
+
+            // Ensure VendorProfile is associated with the subscription plan
+            var vendorProfile = await _context.VendorProfiles.FindAsync(subscriptionPlan.Vendor_Id);
+            if (vendorProfile == null)
+            {
+                return BadRequest("Invalid VendorProfile");
+            }
+
+            subscriptionPlan.Updated_At = DateTime.UtcNow; // Set Updated_At timestamp
 
             _context.Entry(subscriptionPlan).State = EntityState.Modified;
 
@@ -74,10 +84,19 @@ namespace Subscription_Management_System.Controllers
         }
 
         // POST: api/SubscriptionPlans
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<SubscriptionPlan>> PostSubscriptionPlan(SubscriptionPlan subscriptionPlan)
         {
+            // Ensure VendorProfile exists before adding a new subscription plan
+            var vendorProfile = await _context.VendorProfiles.FindAsync(subscriptionPlan.Vendor_Id);
+            if (vendorProfile == null)
+            {
+                return BadRequest("Invalid VendorProfile");
+            }
+
+            subscriptionPlan.Created_At = DateTime.UtcNow;
+            subscriptionPlan.Updated_At = DateTime.UtcNow;
+
             _context.SubscriptionPlans.Add(subscriptionPlan);
             await _context.SaveChangesAsync();
 

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Menu, Dropdown, Button, message } from 'antd';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import logo from '../assets/react.svg';
+import logo1 from '../assets/react.svg';
+import logo from '../assets/SMSLOGOFull.png';
 import './Navbar.css';
 
 const Navbar = () => {

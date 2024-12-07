@@ -1,87 +1,99 @@
 .my-business-page {
-    padding: 40px;
-    background-color: #f4f6f9;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #ffffff, #f4f4f4);
+  min-height: 100vh;
+}
+
+.my-business-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.my-business-title {
+  font-weight: bold;
+  color: #3d3d3d;
+}
+
+.my-business-add-button {
+  background-color: #1890ff;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.my-business-add-button:hover {
+  background-color: #007acc;
+  transform: scale(1.05);
+}
+
+.my-business-row {
+  display: flex;
+  justify-content: center;
+}
+
+.my-business-card {
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.my-business-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.my-business-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-size: 32px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: auto;
+}
+
+.my-business-card-title {
+  color: #333;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.my-business-card-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+  margin-top: 10px;
+}
+
+.my-business-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.my-business-alert {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.my-business-manage-button {
+  font-size: 14px;
+  color: #1890ff;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .my-business-card {
+    margin-bottom: 20px;
   }
-  
-  .page-title {
-    text-align: center;
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 40px;
-  }
-  
-  .card-row {
-    margin-top: 20px;
-  }
-  
-  .business-card {
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff;
-  }
-  
-  .business-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  }
-  
-  .card-image {
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px 12px 0 0;
-  }
-  
-  .business-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #2c3e50;
-    margin: 16px 0;
-  }
-  
-  .business-description {
-    font-size: 14px;
-    color: #7f8c8d;
-    line-height: 1.6;
-  }
-  
-  .business-description a {
-    color: #3498db;
-    text-decoration: none;
-  }
-  
-  .business-description a:hover {
-    text-decoration: underline;
-  }
-  
-  .edit-btn {
-    width: 100%;
-    margin-top: 15px;
-    background-color: #3498db;
-    border: none;
-    font-weight: bold;
-    color: #fff;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-  }
-  
-  .edit-btn:hover {
-    background-color: #2980b9;
-  }
-  
-  .loading {
-    text-align: center;
-    font-size: 18px;
-    color: #95a5a6;
-  }
-  
-  @media (max-width: 768px) {
-    .page-title {
-      font-size: 24px;
-    }
-  
-    .business-card {
-      margin-bottom: 20px;
-    }
-  }
-  
+}
