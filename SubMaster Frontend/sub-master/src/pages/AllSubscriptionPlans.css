@@ -1,0 +1,43 @@
+/* .all-subscriptionplans-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #f5f5f5;
+}
+
+.subscriptionplans-card {
+    width: 100%;
+    max-width: 1500px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+} */
+
+.subscriptionplans-title {
+    text-align: center;
+    color: #1890ff;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.subscriptionplans-table .ant-table-thead>tr>th {
+    background-color: #1890ff;
+    color: #fff;
+    text-align: center;
+}
+
+.subscriptionplans-table .ant-table-tbody>tr>td {
+    text-align: center;
+}
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}

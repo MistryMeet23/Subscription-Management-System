@@ -39,6 +39,22 @@ const RegisterPage = () => {
     <div className="register-container">
       <Card className="register-card">
         <div className="register-content">
+        <div style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center', 
+              height: '5vh' // full viewport height or as per requirement
+              }}>
+                <img 
+                  src="./src/assets/SMSLOGORound.png" 
+                  alt="Logo" 
+                  style={{ 
+                    height: '50px', 
+                    width: '50px', 
+                    objectFit: 'cover' 
+                  }} 
+                />
+         </div>
           <Title level={2} className="register-title">Register</Title>
           <Form
             name="register"

@@ -24,6 +24,8 @@ import EditBusinessPlan from './pages/EditBusinessPlan';
 import ProtectedRoute from './pages/ProtectedRoute';
 import AllUsers from './pages/AllUsers';
 import ExplorePlan from './pages/ExplorePlan';
+import AllVendors from './pages/AllVendors';
+import AllSubscriptionPlans from './pages/AllSubscriptionPlans';
 
 const { Content } = Layout;
 
@@ -80,6 +82,8 @@ const AppContent = () => {
           <Route path="/AddNewPlans" element={<AddNewPlans />} />
           <Route path="/EditBusinessPlan" element={<EditBusinessPlan />} />
           <Route path="/users" element={<AllUsers />} />
+          <Route path="/admin/vendors" element={<AllVendors />} />
+          <Route path="/admin/subscriptions" element={<AllSubscriptionPlans />} />
           <Route path="/ExplorePlan" element={<ExplorePlan />} />
           <Route
             path="/AdminDashboard"

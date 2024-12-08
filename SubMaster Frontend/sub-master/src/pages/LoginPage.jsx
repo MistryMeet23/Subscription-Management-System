@@ -51,6 +51,22 @@ const Login = () => {
   return (
     <div className="login-container">
       <Card className="login-card">
+      <div style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center', 
+              height: '5vh' // full viewport height or as per requirement
+              }}>
+                <img 
+                  src="./src/assets/SMSLOGORound.png" 
+                  alt="Logo" 
+                  style={{ 
+                    height: '50px', 
+                    width: '50px', 
+                    objectFit: 'cover' 
+                  }} 
+                />
+         </div>
         <div className="login-content">
           <Title level={2} className="login-title">Login</Title>
           <Form

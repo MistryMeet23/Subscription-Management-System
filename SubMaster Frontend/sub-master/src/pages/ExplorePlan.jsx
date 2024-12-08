@@ -44,7 +44,7 @@ const ExplorePlan = () => {
                 ]}
               >
                 <Title level={4} className="explore-plan-card-title">{plan.name}</Title>
-                <Paragraph className="explore-plan-price">{plan.price ? `$${plan.price}` : 'Contact for Pricing'}</Paragraph>
+                <Paragraph className="explore-plan-price">{plan.price ? ` ₹${plan.price}` : 'Contact for Pricing'}</Paragraph>
                 <Paragraph className="explore-plan-description">{plan.description}</Paragraph>
               </Card>
             </Col>
