@@ -83,7 +83,6 @@ class AdminDashboard extends React.Component {
     message.success('Logged out successfully');
   };
 
-<<<<<<< HEAD
   const menu = (
     <Menu onClick={({ key }) => key === 'logout' && handleLogout()}>
       <Menu.Item key="logout" icon={<LogoutOutlined />} style={{ color: '#ff4d4f' }}>
