@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Input, Button, Typography, Card, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -10,23 +10,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Auto logout after 30 minutes of inactivity
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      handleLogout();
-    }, 30 * 60 * 1000); // 30 minutes in milliseconds
-
-    return () => clearTimeout(timeout); // Clear timeout on component unmount
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("user_Id");
-    localStorage.removeItem("role_Id");
-    message.info("Session expired. Please log in again.");
-    navigate("/login");
-  };
-
+  
   const onFinish = async (values) => {
     setLoading(true);
     try {
@@ -34,17 +18,17 @@ const Login = () => {
         email: values.email,
         password: values.password,
       });
-
+  
       const { accessToken, success, roleId, userId } = response.data;
-
+  
       if (success) {
         message.success("Login successful!");
-
+  
         // Store values correctly in localStorage
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("user_Id", userId);
-        localStorage.setItem("role_Id", roleId);
-
+        localStorage.setItem("role_Id", roleId); // Ensure 'role_Id' is saved
+  
         // Redirect based on role
         if (roleId === 1) {
           navigate("/AdminDashboard");
@@ -62,15 +46,13 @@ const Login = () => {
     } finally {
       setLoading(false);
     }
-  };
+  };  
 
   return (
     <div className="login-container">
       <Card className="login-card">
         <div className="login-content">
-          <Title level={2} className="login-title">
-            Login
-          </Title>
+          <Title level={2} className="login-title">Login</Title>
           <Form
             name="login"
             onFinish={onFinish}

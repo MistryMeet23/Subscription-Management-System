@@ -1,0 +1,58 @@
+.add-new-plan-page {
+  padding: 24px;
+  background: linear-gradient(to bottom, #f0f2f5, #ffffff);
+  min-height: 70vh;
+}
+
+.add-new-plan-header {
+  margin-bottom: 20px;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-new-plan-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #001529;
+}
+
+.add-new-plan-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.add-new-plan-form .ant-form-item-label {
+  font-weight: 500;
+}
+
+.add-new-plan-form .ant-input,
+.add-new-plan-form .ant-select,
+.add-new-plan-form .ant-textarea {
+  border-radius: 6px;
+}
+
+.add-new-plan-form .ant-btn-primary {
+  background: linear-gradient(90deg, #1890ff, #40a9ff);
+  border: none;
+  color: white;
+  font-weight: 500;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.add-new-plan-form .ant-btn-primary:hover {
+  background: linear-gradient(90deg, #40a9ff, #69c0ff);
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+}

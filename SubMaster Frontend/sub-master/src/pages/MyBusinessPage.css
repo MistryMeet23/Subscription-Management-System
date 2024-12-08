@@ -1,7 +1,7 @@
 .my-business-page {
   padding: 40px 20px;
   background: linear-gradient(to bottom, #ffffff, #f4f4f4);
-  min-height: 100vh;
+  min-height: 70vh;
 }
 
 .my-business-header {
@@ -9,6 +9,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  margin-left: 200px;
 }
 
 .my-business-title {
@@ -20,6 +21,7 @@
   background-color: #1890ff;
   color: white;
   font-weight: bold;
+  margin-right: 200px;
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -35,9 +37,12 @@
 }
 
 .my-business-card {
+  
   border-radius: 12px;
   transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  height: 100%;
 }
 
 .my-business-card:hover {
