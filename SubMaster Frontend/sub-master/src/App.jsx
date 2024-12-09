@@ -26,6 +26,7 @@ import AllUsers from './pages/AllUsers';
 import ExplorePlan from './pages/ExplorePlan';
 import AllVendors from './pages/AllVendors';
 import AllSubscriptionPlans from './pages/AllSubscriptionPlans';
+import UserSubscribePlan from './pages/UserSubscribePlan';
 
 const { Content } = Layout;
 
@@ -85,6 +86,7 @@ const AppContent = () => {
           <Route path="/admin/vendors" element={<AllVendors />} />
           <Route path="/admin/subscriptions" element={<AllSubscriptionPlans />} />
           <Route path="/ExplorePlan" element={<ExplorePlan />} />
+          <Route path="/USP" element={<UserSubscribePlan />} />
           <Route
             path="/AdminDashboard"
             element={
