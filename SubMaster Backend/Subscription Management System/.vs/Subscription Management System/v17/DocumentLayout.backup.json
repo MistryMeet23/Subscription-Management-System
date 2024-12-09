@@ -31,6 +31,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< HEAD
               "Title": "CustomerSubscription.cs",
               "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\CustomerSubscription.cs",
               "RelativeDocumentMoniker": "Models\\CustomerSubscription.cs",
@@ -39,6 +40,16 @@
               "ViewState": "AgIAABsAAAAAAAAAAAAQwCoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-09T05:23:47.682Z",
+=======
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-07T15:34:29.792Z",
+>>>>>>> 989653b7566d504898b26558321a3606d61f060b
               "EditorCaption": ""
             },
             {
