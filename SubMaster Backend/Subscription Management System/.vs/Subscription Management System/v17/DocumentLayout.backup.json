@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|d:\\sem 3 project\\subscription-management-system\\submaster backend\\subscription management system\\models\\customersubscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:models\\customersubscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|d:\\sem 3 project\\subscription-management-system\\submaster backend\\subscription management system\\controllers\\customersubscriptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F63D2E5-262B-462B-94A3-F742C2C6F7EF}|Subscription Management System.csproj|solutionrelative:controllers\\customersubscriptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -27,43 +18,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-<<<<<<< HEAD
-              "Title": "CustomerSubscription.cs",
-              "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\CustomerSubscription.cs",
-              "RelativeDocumentMoniker": "Models\\CustomerSubscription.cs",
-              "ToolTip": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Models\\CustomerSubscription.cs*",
-              "RelativeToolTip": "Models\\CustomerSubscription.cs*",
-              "ViewState": "AgIAABsAAAAAAAAAAAAQwCoAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T05:23:47.682Z",
-=======
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-07T15:34:29.792Z",
->>>>>>> 989653b7566d504898b26558321a3606d61f060b
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CustomerSubscriptionsController.cs",
-              "DocumentMoniker": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Controllers\\CustomerSubscriptionsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CustomerSubscriptionsController.cs",
-              "ToolTip": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Controllers\\CustomerSubscriptionsController.cs",
-              "RelativeToolTip": "Controllers\\CustomerSubscriptionsController.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAGMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T05:23:38.044Z",
-              "EditorCaption": ""
             }
           ]
         }
