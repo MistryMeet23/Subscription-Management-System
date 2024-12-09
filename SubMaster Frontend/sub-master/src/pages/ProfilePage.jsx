@@ -43,6 +43,7 @@ const ProfilePage = () => {
           },
         });
         setUserData(response.data);
+        localStorage.setItem('userData', JSON.stringify(response.data)); // Save user data to localStorage
       } catch (error) {
         console.error("Error fetching user data", error);
         setHasError(true); 

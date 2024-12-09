@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace Subscription_Management_System.Models
 {
+
     public class CustomerSubscription
     {
         [Key]
@@ -36,10 +37,10 @@ namespace Subscription_Management_System.Models
         public DateTime Updated_At { get; set; }
 
         [JsonIgnore]
-        public virtual UserAccount UserAccount { get; set; }
+        public virtual UserAccount? UserAccount { get; set; }
 
         [JsonIgnore]
-        public virtual SubscriptionPlan SubscriptionPlan { get; set; }
+        public virtual SubscriptionPlan? SubscriptionPlan { get; set; }
 
         public CustomerSubscription()
         {
@@ -47,4 +48,6 @@ namespace Subscription_Management_System.Models
             Updated_At = DateTime.UtcNow;
         }
     }
+
+
 }

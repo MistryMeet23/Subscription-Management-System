@@ -42,6 +42,22 @@ namespace Subscription_Management_System.Controllers
             return customerSubscription;
         }
 
+        // GET: api/CustomerSubscriptions/user/{userId}
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<IEnumerable<CustomerSubscription>>> GetCustomerSubscriptionsByUser(int userId)
+        {
+            var customerSubscriptions = await _context.CustomerSubscriptions
+                                                       .Where(cs => cs.User_Id == userId)
+                                                       .ToListAsync();
+
+            if (customerSubscriptions == null || !customerSubscriptions.Any())
+            {
+                return NotFound();
+            }
+
+            return customerSubscriptions;
+        }
+
         // PUT: api/CustomerSubscriptions/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -75,14 +91,29 @@ namespace Subscription_Management_System.Controllers
 
         // POST: api/CustomerSubscriptions
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPost]
         public async Task<ActionResult<CustomerSubscription>> PostCustomerSubscription(CustomerSubscription customerSubscription)
         {
+            // Ensure that the User and Plan exist before saving
+            var user = await _context.UserAccounts.FindAsync(customerSubscription.User_Id);
+            var plan = await _context.SubscriptionPlans.FindAsync(customerSubscription.Plan_Id);
+
+            if (user == null || plan == null)
+            {
+                return BadRequest("Invalid User or Plan Id.");
+            }
+
+            // Automatically populate the navigation properties (optional)
+            customerSubscription.UserAccount = user;
+            customerSubscription.SubscriptionPlan = plan;
+
             _context.CustomerSubscriptions.Add(customerSubscription);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCustomerSubscription", new { id = customerSubscription.Subscription_Id }, customerSubscription);
         }
+
 
         // DELETE: api/CustomerSubscriptions/5
         [HttpDelete("{id}")]

@@ -24,7 +24,7 @@ const HomePage = () => {
   useEffect(() => {
     fetch('http://localhost:5272/api/VendorProfiles')
       .then(response => response.json())
-      .then(data => setServices(data))
+      .then(data => setServices(data.slice(0, 6))) // Fetch only 6 services
       .catch(error => console.error('Error fetching services:', error));
   }, []);
 
@@ -47,6 +47,21 @@ const HomePage = () => {
               </Button>
             </div>
           </Col>
+        </Row>
+      </div>
+
+      {/* Features Section */}
+      <div className="features-section">
+        <Title className="section-title">Why Choose Us?</Title>
+        <Row gutter={16} justify="center">
+          {features.map((feature, index) => (
+            <Col xs={24} sm={8} md={6} key={index}>
+              <div className="feature-card">
+                <div className="feature-icon">{feature.icon}</div>
+                <Paragraph className="feature-text">{feature.text}</Paragraph>
+              </div>
+            </Col>
+          ))}
         </Row>
       </div>
 

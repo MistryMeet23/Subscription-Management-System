@@ -1,0 +1,104 @@
+/* Global styling for the subscribe page */
+.subscribe-container {
+    padding: 40px 20px;
+    background-color: #f7f7f7;
+    min-height: 90vh;
+}
+
+/* Card styling */
+.subscribe-container .subscribe-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 30px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Title styling */
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Plan details section */
+.plan-details {
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Styling for the 'Add to Cart' button */
+.add-to-cart-btn {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    border-color: transparent;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background: linear-gradient(90deg, #feb47b, #ff7e5f);
+    transform: scale(1.05);
+}
+
+/* 'Join the Subscription' button styling */
+.join-btn {
+    background-color: #28a745;
+    border-color: #28a745;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.join-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Text styling for price */
+.plan-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Features and vendor info */
+.vendor-info {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #e8e8e8;
+    font-size: 14px;
+    color: #444;
+}
+
+/* Styling for features section */
+.subscribe-container .plan-details .ant-tag {
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #e0f7fa;
+    color: #00796b;
+}
+
+/* Adding spacing between sections */
+.subscribe-container .ant-divider {
+    margin: 15px 0;
+    border-color: #e8e8e8;
+}
+
+/* Overall responsiveness */
+@media (max-width: 576px) {
+    .subscribe-container .ant-card-cover img {
+        height: 150px;
+    }
+
+    .subscribe-container .ant-card {
+        padding: 15px;
+    }
+
+    .subscribe-container .plan-details {
+        font-size: 14px;
+    }
+}
