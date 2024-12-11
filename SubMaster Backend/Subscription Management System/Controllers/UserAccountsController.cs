@@ -15,10 +15,12 @@ namespace Subscription_Management_System.Controllers
     public class UserAccountsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly EmailService _emailService;
 
-        public UserAccountsController(ApplicationDbContext context)
+        public UserAccountsController(ApplicationDbContext context, EmailService emailService)
         {
             _context = context;
+            _emailService = emailService;
         }
 
         // GET: api/UserAccounts
@@ -88,9 +90,7 @@ namespace Subscription_Management_System.Controllers
         }
 
 
-
         // POST: api/UserAccounts
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<UserAccount>> PostUserAccount(UserAccount userAccount)
         {
@@ -101,11 +101,24 @@ namespace Subscription_Management_System.Controllers
             _context.UserAccounts.Add(userAccount);
             await _context.SaveChangesAsync();
 
+            // Send welcome email
+            try
+            {
+                await _emailService.SendWelcomeEmail(userAccount.Email, userAccount.FirstName);
+            }
+            catch (Exception ex)
+            {
+                // Log error (consider using a logging framework)
+                Console.WriteLine($"Error sending email: {ex.Message}");
+            }
+
             return CreatedAtAction("GetUserAccount", new { id = userAccount.User_Id }, userAccount);
         }
+    
 
-        // DELETE: api/UserAccounts/5
-        [HttpDelete("{id}")]
+
+    // DELETE: api/UserAccounts/5
+    [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUserAccount(int id)
         {
             var userAccount = await _context.UserAccounts.FindAsync(id);

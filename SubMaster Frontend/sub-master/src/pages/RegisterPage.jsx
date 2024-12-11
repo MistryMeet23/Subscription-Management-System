@@ -10,6 +10,7 @@ const RegisterPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  
   const onFinish = async (values) => {
     setLoading(true);
     const payload = {
@@ -18,11 +19,13 @@ const RegisterPage = () => {
       email: values.email,
       password_Hash: values.password, // Assuming API handles hashing
     };
-
+  
     try {
       const response = await axios.post("http://localhost:5272/api/UserAccounts", payload);
       if (response.status === 201) {
-        message.success("Registration successful!");
+        message.success(
+          "Registration successful! A welcome email has been sent to your inbox."
+        );
         navigate("/login");
       } else {
         message.error("Registration failed. Please try again.");
@@ -34,6 +37,7 @@ const RegisterPage = () => {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="register-container">
