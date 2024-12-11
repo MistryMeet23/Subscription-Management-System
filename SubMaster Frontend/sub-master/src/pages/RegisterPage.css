@@ -1,115 +1,126 @@
-/* General styling for the register container */
+/* General container styling for centering */
 .register-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f7fb;
-    margin-top: -10px; /* Light background for a clean look */
-}
-
-/* Styling for the card that holds the register form */
-.register-card {
+    background: url('./src/assets/bg.jpg') no-repeat center;
+    background-size: cover;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Add a dark overlay */
+  .register-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 550px;
-    padding: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 15px; /* More rounded corners for a modern feel */
-    background-color: #ffffff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Subtle animation */
-}
-
-.register-card:hover {
-    transform: translateY(-5px); /* Hover effect for interactivity */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
-}
-
-/* Title of the register form */
-.register-title {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 600;
-    color: #333; /* Darker color for readability */
-    margin-bottom: 30px;
-}
-
-/* Form styling */
-.register-content {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); 
+    z-index: 1;
+  }
+  
+  /* Ensure child elements are above the overlay */
+  .register-container > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Wrapper for the content to maintain the box appearance */
+  .register-content {
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
-
-/* Styling for the register button */
-.register-button {
+    flex-direction: row;
+    width: 60%;
+    max-width: 850px;
+    min-height: 450px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+  } 
+  
+  /* Left side styling for the image */
+  .register-left {
+    flex: 1;
+    background-color: #e6f7ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .register-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Right side styling for the form */
+  .register-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #ffffff;
+  }
+  
+  .register-card {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #002766;
+  }
+  
+  .register-button {
     width: 100%;
     margin-top: 20px;
-    height: 45px;
+    height: 50px;
     font-size: 16px;
     font-weight: 600;
-    background-color: #1890ff; /* Blue for the button */
+    background: linear-gradient(90deg, #1890ff, #40a9ff);
     color: white;
     border: none;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-}
-
-.register-button:hover {
-    background-color: #40a9ff; /* Lighter blue on hover */
-}
-
-/* Login link styling */
-.login-link {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .register-button:hover {
+    background: linear-gradient(90deg, #40a9ff, #1890ff);
+    transform: scale(1.05);
+  }
+  
+  .register-link {
     display: block;
-    text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 14px;
     color: #1890ff;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.login-link:hover {
+  }
+  
+  .register-link:hover {
+    color: #40a9ff;
     text-decoration: underline;
-}
-
-/* Input field styling */
-.ant-input, .ant-input-password {
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #d9d9d9;
-    background-color: #f9f9f9; /* Subtle background for inputs */
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-
-.ant-input:focus, .ant-input-password:focus {
-    border-color: #1890ff; /* Blue border on focus */
-    background-color: #ffffff; /* Clear background when focused */
-}
-
-.ant-form-item-label {
-    font-weight: 500;
-    color: #666;
-}
-
-.ant-form-item {
-    margin-bottom: 24px; /* Increased space between inputs */
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .register-card {
-        padding: 25px;
-        width: 85%;
-    }
-
-    .register-title {
-        font-size: 24px;
-    }
-
-    .register-button {
-        padding: 12px;
-        font-size: 15px;
-    }
-}
+  }
+  
+  /* Placeholder adjustments for inputs */
+  .ant-input::placeholder,
+  .ant-input-password::placeholder {
+    color: #bfbfbf;
+    font-size: 14px;
+  }
+  
+  /* Improved Form Item Spacing */
+  .ant-form-item {
+    margin-bottom: 16px;
+  }
+  

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Typography, Button, Row, Col, Card, Carousel, Statistic } from 'antd';
+import { Typography, Button, Row, Col, Card, Carousel, Statistic, Space } from 'antd';
 import { Link } from 'react-router-dom';
 import { CheckCircleOutlined, SafetyOutlined, CustomerServiceOutlined, ShopOutlined, TeamOutlined } from '@ant-design/icons';
 import './HomePage.css';
@@ -7,9 +7,9 @@ import './HomePage.css';
 const { Title, Paragraph } = Typography;
 
 const features = [
-  { icon: <CheckCircleOutlined />, text: 'Trusted by Thousands' },
-  { icon: <SafetyOutlined />, text: 'Secure and Reliable' },
-  { icon: <CustomerServiceOutlined />, text: '24/7 Support' },
+  { icon: <CheckCircleOutlined style={{ fontSize: '40px', color: '#1890ff' }} />, text: 'Trusted by Thousands' },
+  { icon: <SafetyOutlined style={{ fontSize: '40px', color: '#1890ff' }} />, text: 'Secure and Reliable' },
+  { icon: <CustomerServiceOutlined style={{ fontSize: '40px', color: '#1890ff' }} />, text: '24/7 Support' },
 ];
 
 const testimonials = [
@@ -33,19 +33,19 @@ const HomePage = () => {
       {/* Hero Section */}
       <div className="hero-section">
         <Row justify="center" align="middle">
-          <Col span={24} className="hero-content">
+          <Col xs={24} sm={20} md={18} lg={12} className="hero-content">
             <Title className="hero-title">Welcome to SUBMASTER</Title>
             <Paragraph className="hero-description">
               Your trusted partner for business success. Discover the perfect subscription plans tailored to your needs.
             </Paragraph>
-            <div className="hero-buttons">
-              <Button type="primary" size="large">
+            <Space>
+              <Button type="primary" size="large" className="primary-btn">
                 <Link to="/contact">Contact Us</Link>
               </Button>
               <Button size="large" className="ghost-button">
                 <Link to="/register">Get Started</Link>
               </Button>
-            </div>
+            </Space>
           </Col>
         </Row>
       </div>
@@ -53,13 +53,13 @@ const HomePage = () => {
       {/* Features Section */}
       <div className="features-section">
         <Title className="section-title">Why Choose Us?</Title>
-        <Row gutter={16} justify="center">
+        <Row gutter={[16, 16]} justify="center">
           {features.map((feature, index) => (
             <Col xs={24} sm={8} md={6} key={index}>
-              <div className="feature-card">
+              <Card className="feature-card" hoverable>
                 <div className="feature-icon">{feature.icon}</div>
                 <Paragraph className="feature-text">{feature.text}</Paragraph>
-              </div>
+              </Card>
             </Col>
           ))}
         </Row>
@@ -68,7 +68,7 @@ const HomePage = () => {
       {/* Services Section */}
       <div className="services-section">
         <Title className="section-title">Our Services</Title>
-        <Row gutter={16} justify="center">
+        <Row gutter={[16, 16]} justify="center">
           {services.map(service => (
             <Col xs={24} sm={12} md={8} key={service.vendor_Id}>
               <Card
@@ -88,7 +88,7 @@ const HomePage = () => {
       {/* Testimonials Section */}
       <div className="testimonials-section">
         <Title className="section-title">What Our Clients Say</Title>
-        <Row gutter={16} justify="center">
+        <Row gutter={[16, 16]} justify="center">
           {testimonials.map((testimonial, index) => (
             <Col xs={24} sm={12} md={8} key={index}>
               <Card className="testimonial-card">
@@ -103,7 +103,7 @@ const HomePage = () => {
       {/* Statistics Section */}
       <div className="statistics-section">
         <Title className="section-title">Our Achievements</Title>
-        <Row gutter={16} justify="center">
+        <Row gutter={[16, 16]} justify="center">
           <Col xs={24} sm={12} md={6}>
             <Card className="statistic-card">
               <Statistic title="Clients Served" value={2000} />
@@ -131,3 +131,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+ 

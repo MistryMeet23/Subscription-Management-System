@@ -43,11 +43,67 @@ const AdminDashboard = () => {
         console.error('Error fetching stats:', error);
         setLoading(false);
       });
+
+    // Fetch total users count from UserAccounts API
+    axios
+      .get('http://localhost:5272/api/UserAccounts') // Fetch all users
+      .then((response) => {
+        // Assuming the API returns an array of users, set the count
+        setStats((prevStats) => ({
+          ...prevStats,
+          users: response.data.length, // Assuming the response contains an array of user data
+        }));
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+      });
+
+    // Fetch total vendors count from VendorProfiles API
+    axios
+      .get('http://localhost:5272/api/VendorProfiles') // Fetch all vendors
+      .then((response) => {
+        // Assuming the API returns an array of vendors, set the count
+        setStats((prevStats) => ({
+          ...prevStats,
+          vendors: response.data.length, // Assuming the response contains an array of vendor data
+        }));
+      })
+      .catch((error) => {
+        console.error('Error fetching vendor data:', error);
+      });
+
+    // Fetch total subscriptions count from SubscriptionPlans API
+    axios
+      .get('http://localhost:5272/api/SubscriptionPlans') // Fetch all subscriptions
+      .then((response) => {
+        // Assuming the API returns an array of subscription plans, set the count
+        setStats((prevStats) => ({
+          ...prevStats,
+          subscriptions: response.data.length, // Assuming the response contains an array of subscription data
+        }));
+      })
+      .catch((error) => {
+        console.error('Error fetching subscription data:', error);
+      });
+
+    // Fetch total feedback count from Feedbacks API
+    axios
+      .get('http://localhost:5272/api/Feedbacks') // Fetch all feedbacks
+      .then((response) => {
+        // Assuming the API returns an array of feedback data, set the count
+        setStats((prevStats) => ({
+          ...prevStats,
+          feedbacks: response.data.length, // Assuming the response contains an array of feedback data
+        }));
+      })
+      .catch((error) => {
+        console.error('Error fetching feedback data:', error);
+      });
   }, [navigate]);
 
   const handleLogout = () => {
     localStorage.clear();
-    navigate('/login');
+    navigate('/home');
     message.success('Logged out successfully');
   };
 
@@ -126,7 +182,7 @@ const AdminDashboard = () => {
                   title="All Feedback"
                   bordered={false}
                   className="dashboard-card"
-                  onClick={() => navigateTo('/admin/feedback')}
+                  onClick={() => navigateTo('/AllFeedback')}
                   hoverable
                 >
                   <MessageOutlined className="card-icon" />

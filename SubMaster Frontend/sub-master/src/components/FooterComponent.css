@@ -1,0 +1,146 @@
+/* General Styles */
+.footer {
+    background: linear-gradient(145deg, #89bde8, #1d72b8); /* Soft blue gradient */
+    padding: 20px 40px; /* Added padding for spacious feel */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333; /* Dark text for better readability */
+    border-top: 1px solid #e0e0e0; /* Subtle border */
+    font-size: 1rem; /* Standard font size */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; /* Center content vertically */
+}
+
+.footer-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo-full {
+    width: 160px; /* Optimized logo size */
+    transition: transform 0.3s ease;
+}
+
+.footer-logo-full:hover {
+    transform: scale(1.05); /* Slight hover effect */
+}
+
+.footer-logo-round {
+    display: none;
+    width: 90px; /* Optimized size for round logo */
+}
+
+.footer-social-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-social a {
+    color: #333;
+    transition: color 0.3s ease-in-out;
+    font-size: 24px; /* Optimized icon size */
+    margin: 0 15px; /* Added more space between icons */
+}
+
+.footer-social a:hover {
+    color: #1d72b8; /* Blue hover effect */
+}
+
+.footer-links-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease-in-out;
+    margin: 8px 0;
+    font-weight: 500; /* Slightly bolder links */
+}
+
+.footer-link:hover {
+    color: #1d72b8; /* Blue hover effect */
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    color: #555; /* Lighter footer text */
+}
+
+.footer-text:hover {
+    color: #1d72b8; /* Blue hover effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo-full {
+        width: 130px; /* Adjusted for smaller screens */
+    }
+
+    .footer-logo-round {
+        display: block;
+    }
+
+    .footer-logo-full {
+        display: none;
+    }
+
+    .footer-social a {
+        font-size: 22px; /* Slightly smaller icons */
+    }
+
+    .footer-link {
+        font-size: 1rem;
+    }
+
+    .footer-text {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-logo-container {
+        margin-bottom: 15px;
+    }
+
+    .footer-social {
+        margin-bottom: 15px;
+    }
+
+    .footer-link {
+        font-size: 0.95rem;
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+    }
+}

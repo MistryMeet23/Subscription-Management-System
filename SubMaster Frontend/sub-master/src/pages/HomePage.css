@@ -1,20 +1,22 @@
 /* General Styles */
 .home-page {
   font-family: 'Arial', sans-serif;
+  background-color: #f7f9fb;
 }
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(to right, #004aad, #00bcd4);
+  background: linear-gradient(to right, #1890ff, #40a9ff);
   color: white;
   padding: 80px 20px;
   text-align: center;
+  border-bottom: 2px solid #f0f0f0;
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: bold;
-}
+} 
 
 .hero-description {
   font-size: 1.2rem;
@@ -25,52 +27,52 @@
   margin: 10px;
 }
 
+.primary-btn {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
 .ghost-button {
-  color: #004aad;
-  border-color: #004aad;
+  color: #1890ff;
+  border-color: #1890ff;
 }
 
 .ghost-button:hover {
-  background-color: #004aad;
+  background-color: #1890ff;
   color: white;
 }
 
 /* Features Section */
 .features-section {
-  padding: 40px 20px;
-  background-color: #f4f6fa;
+  padding: 60px 20px;
+  background-color: #ffffff;
   text-align: center;
 }
 
 .feature-card {
-  background: #fff;
-  border-radius: 12px;
   padding: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
-  font-size: 40px;
-  color: #004aad;
-  margin-bottom: 10px;
+  font-size: 50px;
+  color: #1890ff;
+  margin-bottom: 15px;
 }
 
 .feature-text {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #333;
+  font-weight: 500;
 }
 
 /* Services Section */
 .services-section {
   padding: 60px 20px;
-  background-color: #fff;
+  background-color: #ffffff;
   text-align: center;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  color: #004aad;
-  margin-bottom: 40px;
 }
 
 .service-card {
@@ -92,6 +94,7 @@
 .service-title {
   font-size: 1.5rem;
   color: #333;
+  font-weight: 600;
 }
 
 .service-description {
@@ -107,28 +110,48 @@
 /* Testimonials Section */
 .testimonials-section {
   padding: 60px 20px;
-  background-color: #fff;
+  background-color: #ffffff;
+  text-align: center;
 }
 
 .testimonial-card {
   border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
 .testimonial-feedback {
   font-style: italic;
   color: #555;
+  font-size: 1rem;
 }
 
 /* Statistics Section */
 .statistics-section {
   padding: 60px 20px;
   background-color: #f4f6fa;
+  text-align: center;
 }
 
 .statistic-card {
   border-radius: 12px;
   text-align: center;
   padding: 30px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 20px;
+  }
+
+  .features-section, .services-section, .testimonials-section, .statistics-section {
+    padding: 40px 20px;
+  }
+
+  .service-card, .testimonial-card, .statistic-card {
+    margin-bottom: 20px;
+  }
 }

@@ -17,7 +17,7 @@ const AllUsers = () => {
       .get('http://localhost:5272/api/UserAccounts')
       .then((response) => {
         const filteredData = response.data.filter((user) => user.role_Id !== 1); // Exclude role_Id = 1
-        setUsers(filteredData);
+        setUsers(filteredData); 
         setFilteredUsers(filteredData); // Initialize filteredUsers
         setLoading(false);
       })
