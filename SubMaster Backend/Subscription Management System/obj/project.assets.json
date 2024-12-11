@@ -1958,17 +1958,6 @@
           }
         }
       },
-<<<<<<< HEAD
-      "Mono.TextTemplating/3.0.0": {
-        "type": "package",
-        "dependencies": {
-          "System.CodeDom": "6.0.0"
-        },
-        "compile": {
-          "lib/net6.0/Mono.TextTemplating.dll": {}
-        },
-        "runtime": {
-=======
       "MimeKit/4.9.0": {
         "type": "package",
         "dependencies": {
@@ -1996,7 +1985,6 @@
           "lib/net6.0/Mono.TextTemplating.dll": {}
         },
         "runtime": {
->>>>>>> 709293d1733360a410a4ae5d3919db684cb6e31b
           "lib/net6.0/Mono.TextTemplating.dll": {}
         },
         "build": {
@@ -6389,15 +6377,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-<<<<<<< HEAD
-    "Mono.TextTemplating/3.0.0": {
-      "sha512": "YqueG52R/Xej4VVbKuRIodjiAhV0HR/XVbLbNrJhCZnzjnSjgMJ/dCdV0akQQxavX6hp/LC6rqLGLcXeQYU7XA==",
-      "type": "package",
-      "path": "mono.texttemplating/3.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-=======
     "MimeKit/4.9.0": {
       "sha512": "DZXXMZzmAABDxFhOSMb6SE8KKxcRd/sk1E6aJTUE5ys2FWOQhznYV2Gl3klaaSfqKn27hQ32haqquH1J8Z6kJw==",
       "type": "package",
@@ -6440,7 +6419,6 @@
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
->>>>>>> 709293d1733360a410a4ae5d3919db684cb6e31b
         "LICENSE.txt/LICENSE",
         "buildTransitive/Mono.TextTemplating.targets",
         "lib/net472/Mono.TextTemplating.dll",
@@ -7757,5 +7735,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
