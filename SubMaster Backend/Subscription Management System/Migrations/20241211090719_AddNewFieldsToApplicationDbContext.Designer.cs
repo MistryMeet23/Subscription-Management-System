@@ -12,15 +12,15 @@ using Subscription_Management_System.Data;
 namespace Subscription_Management_System.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241108063717_SubMigration")]
-    partial class SubMigration
+    [Migration("20241211090719_AddNewFieldsToApplicationDbContext")]
+    partial class AddNewFieldsToApplicationDbContext
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -275,6 +275,26 @@ namespace Subscription_Management_System.Migrations
                     b.HasIndex("Plan_Id");
 
                     b.ToTable("Promotions");
+                });
+
+            modelBuilder.Entity("Subscription_Management_System.Models.RevokedToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("RevokedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RevokedTokens");
                 });
 
             modelBuilder.Entity("Subscription_Management_System.Models.SubscriptionHistory", b =>
