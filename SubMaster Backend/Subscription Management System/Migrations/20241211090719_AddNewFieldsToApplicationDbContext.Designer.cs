@@ -12,11 +12,7 @@ using Subscription_Management_System.Data;
 namespace Subscription_Management_System.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<<< HEAD:SubMaster Backend/Subscription Management System/Migrations/20241211090719_AddNewFieldsToApplicationDbContext.Designer.cs
     [Migration("20241211090719_AddNewFieldsToApplicationDbContext")]
-========
-    [Migration("20241211072910_AddNewFieldsToApplicationDbContext")]
->>>>>>>> 709293d1733360a410a4ae5d3919db684cb6e31b:SubMaster Backend/Subscription Management System/Migrations/20241211072910_AddNewFieldsToApplicationDbContext.Designer.cs
     partial class AddNewFieldsToApplicationDbContext
     {
         /// <inheritdoc />

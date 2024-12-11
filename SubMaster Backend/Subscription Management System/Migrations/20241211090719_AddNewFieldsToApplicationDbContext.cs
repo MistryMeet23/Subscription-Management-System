@@ -10,7 +10,7 @@ namespace Subscription_Management_System.Migrations
     public partial class AddNewFieldsToApplicationDbContext : Migration
     {
         /// <inheritdoc />
-        protected override void Up(MigrationBuilder migrationBuilder)
+        protected override void Up(MigrationBuilder migrationBuilder)   
         {
             migrationBuilder.CreateTable(
                 name: "RevokedTokens",
