@@ -1590,13 +1590,6 @@
           }
         }
       },
-<<<<<<< HEAD
-      "Mono.TextTemplating/3.0.0": {
-        "dependencies": {
-          "System.CodeDom": "6.0.0"
-        },
-        "runtime": {
-=======
       "MimeKit/4.9.0": {
         "dependencies": {
           "BouncyCastle.Cryptography": "2.5.0",
@@ -1615,7 +1608,6 @@
           "System.CodeDom": "6.0.0"
         },
         "runtime": {
->>>>>>> 709293d1733360a410a4ae5d3919db684cb6e31b
           "lib/net6.0/Mono.TextTemplating.dll": {
             "assemblyVersion": "3.0.0.0",
             "fileVersion": "3.0.0.1"
@@ -2827,11 +2819,6 @@
       "path": "microsoft.win32.systemevents/7.0.0",
       "hashPath": "microsoft.win32.systemevents.7.0.0.nupkg.sha512"
     },
-<<<<<<< HEAD
-    "Mono.TextTemplating/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-=======
     "MimeKit/4.9.0": {
       "type": "package",
       "serviceable": true,
@@ -2842,7 +2829,6 @@
     "Mono.TextTemplating/3.0.0": {
       "type": "package",
       "serviceable": true,
->>>>>>> 709293d1733360a410a4ae5d3919db684cb6e31b
       "sha512": "sha512-YqueG52R/Xej4VVbKuRIodjiAhV0HR/XVbLbNrJhCZnzjnSjgMJ/dCdV0akQQxavX6hp/LC6rqLGLcXeQYU7XA==",
       "path": "mono.texttemplating/3.0.0",
       "hashPath": "mono.texttemplating.3.0.0.nupkg.sha512"

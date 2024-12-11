@@ -27,10 +27,10 @@ namespace Subscription_Management_System.Models
         public string Payment_Status { get; set; }
 
         [JsonIgnore]
-        public virtual UserAccount? UserAccount { get; set; }
+        public virtual UserAccount UserAccount { get; set; }
 
         [JsonIgnore]
-        public virtual SubscriptionPlan? SubscriptionPlan { get; set; }
+        public virtual SubscriptionPlan SubscriptionPlan { get; set; }
 
         public Payment()
         {
