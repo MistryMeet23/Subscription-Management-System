@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "lGxbjv1/RkG6OhxpfYdovPD6GqTXXSEpoEjfpCk8wJk=",
+=======
+  "Hash": "7PdEbQpSFNmKCDQbtBg9oUYCKeyt5J9L7ELj4+VELcg=",
+>>>>>>> 579e450fe8f5c9572934b1ae25401cd13b46ebb4
   "Source": "Subscription Management System",
   "BasePath": "_content/Subscription Management System",
   "Mode": "Default",
@@ -10,17 +14,17 @@
     {
       "Name": "Subscription Management System\\wwwroot",
       "Source": "Subscription Management System",
-      "ContentRoot": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\",
+      "ContentRoot": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\",
       "BasePath": "_content/Subscription Management System",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\images\\defaultProfilePicture.jpg",
+      "Identity": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\images\\defaultProfilePicture.jpg",
       "SourceId": "Subscription Management System",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\",
+      "ContentRoot": "C:\\website2021\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\",
       "BasePath": "_content/Subscription Management System",
       "RelativePath": "images/defaultProfilePicture.jpg",
       "AssetKind": "All",

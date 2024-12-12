@@ -3,11 +3,15 @@ import { Layout, Menu, Card, Col, Row, Spin, Dropdown, Button, message, Typograp
 import { DashboardOutlined, UserOutlined, AppstoreAddOutlined, MessageOutlined, LogoutOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Bar, Line } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, LineElement, Title, Tooltip, Legend, PointElement } from 'chart.js';
 import './AdminDashboard.css';
 import logo from '../assets/SMSLOGORound.png';
 
+ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, Title, Tooltip, Legend, PointElement);
+
 const { Header, Content } = Layout;
-const { Title } = Typography;
+const { Title: AntTitle } = Typography;
 
 const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
@@ -18,9 +22,11 @@ const AdminDashboard = () => {
     feedbacks: 0,
   });
   const [adminName, setAdminName] = useState('');
+  const [userCountData, setUserCountData] = useState([]);
+  const [vendorCountData, setVendorCountData] = useState([]);
+  const [subscriptionCountData, setSubscriptionCountData] = useState([]);
   const navigate = useNavigate();
 
-  // Fetch stats and validate admin role on component mount
   useEffect(() => {
     const userRole = localStorage.getItem('role_Id');
     if (userRole !== '1') {
@@ -28,13 +34,11 @@ const AdminDashboard = () => {
       return;
     }
 
-    // Fetch the admin name from localStorage or API
     const admin = localStorage.getItem('adminName');
     setAdminName(admin || 'Admin');
 
-    // Fetch stats data
     axios
-      .get('http://localhost:5272/api/stats') // Update the endpoint as per your API
+      .get('http://localhost:5272/api/stats')
       .then((response) => {
         setStats(response.data);
         setLoading(false);
@@ -44,56 +48,51 @@ const AdminDashboard = () => {
         setLoading(false);
       });
 
-    // Fetch total users count from UserAccounts API
     axios
-      .get('http://localhost:5272/api/UserAccounts') // Fetch all users
+      .get('http://localhost:5272/api/UserAccounts')
       .then((response) => {
-        // Assuming the API returns an array of users, set the count
         setStats((prevStats) => ({
           ...prevStats,
-          users: response.data.length, // Assuming the response contains an array of user data
+          users: response.data.length,
         }));
+        setUserCountData([response.data.length]);
       })
       .catch((error) => {
         console.error('Error fetching user data:', error);
       });
 
-    // Fetch total vendors count from VendorProfiles API
     axios
-      .get('http://localhost:5272/api/VendorProfiles') // Fetch all vendors
+      .get('http://localhost:5272/api/VendorProfiles')
       .then((response) => {
-        // Assuming the API returns an array of vendors, set the count
         setStats((prevStats) => ({
           ...prevStats,
-          vendors: response.data.length, // Assuming the response contains an array of vendor data
+          vendors: response.data.length,
         }));
+        setVendorCountData([response.data.length]);
       })
       .catch((error) => {
         console.error('Error fetching vendor data:', error);
       });
 
-    // Fetch total subscriptions count from SubscriptionPlans API
     axios
-      .get('http://localhost:5272/api/SubscriptionPlans') // Fetch all subscriptions
+      .get('http://localhost:5272/api/SubscriptionPlans')
       .then((response) => {
-        // Assuming the API returns an array of subscription plans, set the count
         setStats((prevStats) => ({
           ...prevStats,
-          subscriptions: response.data.length, // Assuming the response contains an array of subscription data
+          subscriptions: response.data.length,
         }));
+        setSubscriptionCountData([response.data.length]);
       })
       .catch((error) => {
         console.error('Error fetching subscription data:', error);
       });
 
-    // Fetch total feedback count from Feedbacks API
     axios
-      .get('http://localhost:5272/api/Feedbacks') // Fetch all feedbacks
+      .get('http://localhost:5272/api/Feedbacks')
       .then((response) => {
-        // Assuming the API returns an array of feedback data, set the count
         setStats((prevStats) => ({
           ...prevStats,
-          feedbacks: response.data.length, // Assuming the response contains an array of feedback data
+          feedbacks: response.data.length,
         }));
       })
       .catch((error) => {
@@ -117,6 +116,56 @@ const AdminDashboard = () => {
 
   const navigateTo = (path) => navigate(path);
 
+  // Chart.js data and options for User, Vendor, and Subscription counts
+  const userChartData = {
+    labels: ['Users'],
+    datasets: [
+      {
+        label: 'User Count',
+        data: userCountData,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const vendorChartData = {
+    labels: ['Vendors'],
+    datasets: [
+      {
+        label: 'Vendor Count',
+        data: vendorCountData,
+        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+        borderColor: 'rgba(255, 159, 64, 1)',
+        borderWidth: 1,
+        fill: true,
+      },
+    ],
+  };
+
+  const subscriptionChartData = {
+    labels: ['Subscriptions'],
+    datasets: [
+      {
+        label: 'Subscription Count',
+        data: subscriptionCountData,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Header className="dashboard-header">
@@ -137,9 +186,9 @@ const AdminDashboard = () => {
           <Spin size="large" />
         ) : (
           <div className="dashboard-content">
-            <Title level={3} style={{ textAlign: 'center' }}>
+            <AntTitle level={3} style={{ textAlign: 'center' }}>
               Admin Overview
-            </Title>
+            </AntTitle>
             <Row gutter={16}>
               <Col span={6}>
                 <Card
@@ -187,6 +236,30 @@ const AdminDashboard = () => {
                 >
                   <MessageOutlined className="card-icon" />
                   <h2>{stats.feedbacks}</h2>
+                </Card>
+              </Col>
+            </Row>
+            <Row gutter={16}>
+              <Col span={12}>
+                <Card title="User Count Graph" bordered={false}>
+                  <div style={{ height: '300px', width: '100%' }}>
+                    <Bar data={userChartData} options={chartOptions} />
+                  </div>
+                </Card>
+              </Col>
+              <Col span={12}>
+                <Card title="Vendor Count Graph" bordered={false}>
+                  <div style={{ height: '300px', width: '100%' }}>
+                    <Line data={vendorChartData} options={chartOptions} />
+                  </div>
+                </Card>
+              </Col>
+              <Col span={12}>
+              <br/>
+                <Card title="Subscription Count Graph" bordered={false}>
+                  <div style={{ height: '300px', width: '100%' }}>
+                    <Bar data={subscriptionChartData} options={chartOptions} />
+                  </div>
                 </Card>
               </Col>
             </Row>
