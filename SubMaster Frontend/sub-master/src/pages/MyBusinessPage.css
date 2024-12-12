@@ -9,7 +9,6 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
-  margin-left: 200px;
 }
 
 .my-business-title {
@@ -21,7 +20,6 @@
   background-color: #1890ff;
   color: white;
   font-weight: bold;
-  margin-right: 200px;
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -37,7 +35,6 @@
 }
 
 .my-business-card {
-  
   border-radius: 12px;
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
@@ -79,6 +76,12 @@
   margin-top: 10px;
 }
 
+.my-business-manage-button {
+  font-size: 14px;
+  color: #1890ff;
+  font-weight: bold;
+}
+
 .my-business-spinner-container {
   display: flex;
   justify-content: center;
@@ -86,15 +89,39 @@
   height: 100%;
 }
 
-.my-business-alert {
-  margin-top: 20px;
+.my-business-no-business {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.my-business-no-business-title {
+  font-size: 24px;
+  color: #3d3d3d;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.my-business-no-business-description {
+  font-size: 16px;
+  color: #777;
   text-align: center;
 }
 
-.my-business-manage-button {
-  font-size: 14px;
-  color: #1890ff;
-  font-weight: bold;
+.my-business-error-message {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.my-business-error-text {
+  font-size: 16px;
+  color: #f5222d;
 }
 
 @media screen and (max-width: 768px) {
@@ -102,3 +129,4 @@
     margin-bottom: 20px;
   }
 }
+  

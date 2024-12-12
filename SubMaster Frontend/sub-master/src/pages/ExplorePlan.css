@@ -10,7 +10,7 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+ 
 .explore-plan-content:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
@@ -117,5 +117,125 @@
 
   .explore-plan-card {
     margin-bottom: 20px;
+  }
+}
+
+.explore-plan-card {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 350px; /* Set a minimum height to ensure uniformity */
+  height: 100%;
+}
+
+.explore-plan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.explore-plan-card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #34495e;
+  margin-top: 15px;
+  letter-spacing: 0.5px;
+  flex-shrink: 0; /* Prevent title from shrinking */
+}
+
+.explore-plan-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #e74c3c;
+  margin: 12px 0;
+  flex-shrink: 0; /* Prevent price from shrinking */
+}
+
+.explore-plan-description {
+  font-size: 1rem;
+  color: #7f8c8d;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  flex-grow: 1; /* Allow description to take up remaining space */
+}
+
+.plan-features,
+.plan-duration,
+.plan-status {
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+.plan-features {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.plan-duration,
+.plan-status {
+  margin-top: 5px;
+}
+.explore-plan-page {
+  background-color: #f7f9fc;
+  padding: 40px 20px;
+}
+
+.explore-plan-content {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.explore-plan-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2c3e50;
+  text-transform: uppercase;
+}
+
+.explore-plan-card {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-plan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.explore-plan-button {
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.explore-plan-button:hover {
+  background-color: #2980b9;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 576px) {
+  .explore-plan-title {
+    font-size: 2rem;
+  }
+
+  .explore-plan-card-title {
+    font-size: 1.2rem;
   }
 }

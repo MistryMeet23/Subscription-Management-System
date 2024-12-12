@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Row, Typography, Spin, Alert, Button, Space, Tooltip } from 'antd';
+import { Card, Col, Row, Typography, Spin, Button, Space, Tooltip } from 'antd';
 import { PhoneOutlined, LinkOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -37,7 +37,7 @@ const MyBusinessPage = () => {
         }
         setLoading(false);
       } catch (err) {
-        setError('Failed to fetch business data.');
+        setError('There was an issue fetching your business data. Please try again later.');
         setLoading(false);
       }
     };
@@ -46,7 +46,6 @@ const MyBusinessPage = () => {
   }, [userId]);
 
   const handleManageBusiness = (vendorId) => {
-    // Save the vendor ID in localStorage
     localStorage.setItem('MyBusinessVendorId', vendorId);
     navigate('/ManageBusiness');
   };
@@ -70,15 +69,18 @@ const MyBusinessPage = () => {
           <Spin size="large" className="my-business-spinner" />
         </div>
       ) : error ? (
-        <Alert message={error} type="error" showIcon className="my-business-alert" />
+        <div className="my-business-error-message">
+          <Text className="my-business-error-text">There was an issue fetching your business data. Please try again later.</Text>
+        </div>
       ) : noBusiness ? (
-        <Alert
-          message="No businesses found"
-          description="Start by creating your first business profile."
-          type="info"
-          showIcon
-          className="my-business-alert"
-        />
+        <div className="my-business-no-business">
+          <Title level={4} className="my-business-no-business-title">
+            No businesses found
+          </Title>
+          <Text className="my-business-no-business-description">
+            Start by creating your first business profile.
+          </Text>
+        </div>
       ) : (
         <Row gutter={[24, 24]} className="my-business-row">
           {businessData.map((business) => {
