@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GhrjyiWxlmEZxQgXp/Psho8K7lReHWkK6QK40i6wles=",
+  "Hash": "lGxbjv1/RkG6OhxpfYdovPD6GqTXXSEpoEjfpCk8wJk=",
   "Source": "Subscription Management System",
   "BasePath": "_content/Subscription Management System",
   "Mode": "Default",
@@ -34,6 +34,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\defaultProfilePicture.jpg"
+    },
+    {
+      "Identity": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\images\\SMSLOGORound.png",
+      "SourceId": "Subscription Management System",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\",
+      "BasePath": "_content/Subscription Management System",
+      "RelativePath": "images/SMSLOGORound.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\SMSLOGORound.png"
     }
   ]
 }

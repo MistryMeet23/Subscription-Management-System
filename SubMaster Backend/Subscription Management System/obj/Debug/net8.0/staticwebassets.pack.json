@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\images\\SMSLOGORound.png",
+      "PackagePath": "staticwebassets\\images\\SMSLOGORound.png"
+    },
+    {
       "Id": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\images\\defaultProfilePicture.jpg",
       "PackagePath": "staticwebassets\\images\\defaultProfilePicture.jpg"
     },

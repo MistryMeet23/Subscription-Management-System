@@ -94,6 +94,15 @@ namespace Subscription_Management_System.Controllers
         [HttpPost]
         public async Task<ActionResult<UserAccount>> PostUserAccount(UserAccount userAccount)
         {
+            // Check if the email already exists
+            var existingUser = await _context.UserAccounts
+                .FirstOrDefaultAsync(u => u.Email == userAccount.Email);
+
+            if (existingUser != null)
+            {
+                return Conflict(new { message = "Email already exists." });
+            }
+
             // Hash the user's password using bcrypt
             string hashPassword = BCrypt.Net.BCrypt.HashPassword(userAccount.Password_Hash);
             userAccount.Password_Hash = hashPassword;
@@ -114,11 +123,10 @@ namespace Subscription_Management_System.Controllers
 
             return CreatedAtAction("GetUserAccount", new { id = userAccount.User_Id }, userAccount);
         }
-    
 
 
-    // DELETE: api/UserAccounts/5
-    [HttpDelete("{id}")]
+        // DELETE: api/UserAccounts/5
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUserAccount(int id)
         {
             var userAccount = await _context.UserAccounts.FindAsync(id);

@@ -10,7 +10,7 @@ const RegisterPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  
+ 
   const onFinish = async (values) => {
     setLoading(true);
     const payload = {
@@ -27,16 +27,20 @@ const RegisterPage = () => {
           "Registration successful! A welcome email has been sent to your inbox."
         );
         navigate("/login");
-      } else {
-        message.error("Registration failed. Please try again.");
       }
     } catch (error) {
-      console.log(error.response);
-      message.error(error.response?.data?.message || "Registration failed. Please try again.");
+      if (error.response?.status === 409) {
+        message.error("This email is already registered. Please use another email.");
+      } else {
+        message.error(error.response?.data?.message || "Registration failed. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
   };
+  
+ 
+  
   
 
   return (
