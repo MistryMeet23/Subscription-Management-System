@@ -16,22 +16,30 @@ const AllSubscriptionsPage = () => {
   const [loading, setLoading] = useState(true);
   const [plans, setPlans] = useState({}); // To store plan names
 
+  
   useEffect(() => {
     const fetchSubscriptions = async () => {
+      const userId = localStorage.getItem('user_Id'); // Retrieve user ID from local storage
+      if (!userId) {
+        message.error('User not logged in. Please log in to view subscriptions.');
+        setLoading(false);
+        return;
+      }
+  
       try {
-        const response = await fetch('http://localhost:5272/api/CustomerSubscriptions/user/18');
+        const response = await fetch(`http://localhost:5272/api/CustomerSubscriptions/user/${userId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch subscriptions');
         }
         const data = await response.json();
-        
+  
         // Assuming a separate endpoint or predefined object for plan names
         const fetchedPlans = {
           1: "Basic Plan",
           2: "Standard Plan",
           3: "Premium Plan",
         };
-
+  
         // Format the data with plan names
         const formattedData = data.map((subscription) => ({
           id: subscription.subscription_Id,
@@ -47,7 +55,7 @@ const AllSubscriptionsPage = () => {
           createdAt: new Date(subscription.created_At).toLocaleDateString(),
           updatedAt: new Date(subscription.updated_At).toLocaleDateString(),
         }));
-        
+  
         setPlans(fetchedPlans); // Store the fetched plans
         setSubscriptions(formattedData);
       } catch (error) {
@@ -57,9 +65,11 @@ const AllSubscriptionsPage = () => {
         setLoading(false);
       }
     };
-
+  
     fetchSubscriptions();
   }, []);
+  
+  
 
   const handleDownloadInvoice = async (subscriptionId) => {
     try {
@@ -221,3 +231,4 @@ const AllSubscriptionsPage = () => {
 };
 
 export default AllSubscriptionsPage;
+ 

@@ -12,7 +12,7 @@ const AllSubscriptionPlans = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true); 
     axios
       .get('http://localhost:5272/api/SubscriptionPlans')
       .then((response) => {
