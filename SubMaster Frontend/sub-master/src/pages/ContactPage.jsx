@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Row, Col, Typography, Card, message, Spin } from 'antd';
+import { Form, Input, Button, Row, Col, Typography, Card, message, Spin, Rate } from 'antd';
 import { MailOutlined, UserOutlined, MessageOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import Footer from '../components/Footer';
@@ -14,20 +14,39 @@ function ContactPage() {
 
   const onFinish = async (values) => {
     setLoading(true);
+    const feedbackData = {
+      user_Id: 1, // Replace with actual user ID
+      vendor_Id: 2, // Replace with actual vendor ID
+      rating: values.rating,
+      comments: values.message,
+      submitted_At: new Date().toISOString(),
+      created_At: new Date().toISOString(),
+      updated_At: new Date().toISOString(),
+    };
+  
     try {
-      const response = await axios.post('https://formspree.io/f/xpzgelrp', values, {
+      const response = await axios.post('http://localhost:5272/api/Feedbacks', feedbackData, {
         headers: { 'Content-Type': 'application/json' },
       });
-      if (response.status === 200) {
+  
+      if (response.status === 201 || response.status === 200) { // Handle both 201 and 200 statuses
         setLoading(false);
         setSubmitSuccess(true);
-        message.success('Your message has been sent successfully!');
+        message.success('Your feedback has been submitted successfully!');
+      } else {
+        setLoading(false);
+        message.error(`Unexpected status code: ${response.status}`);
       }
     } catch (error) {
       setLoading(false);
-      message.error('There was an error sending your message. Please try again.');
+      const errorMessage =
+        error.response && error.response.data
+          ? `Error: ${error.response.data}`
+          : 'There was an error submitting your feedback. Please try again.';
+      message.error(errorMessage);
     }
   };
+  
 
   return (
     <>
@@ -80,6 +99,13 @@ function ContactPage() {
                       />
                     </Form.Item>
                     <Form.Item
+                      label="Rating"
+                      name="rating"
+                      rules={[{ required: true, message: 'Please provide a rating' }]}
+                    >
+                      <Rate allowHalf />
+                    </Form.Item>
+                    <Form.Item
                       label="Message"
                       name="message"
                       rules={[{ required: true, message: 'Please enter your message' }]}
@@ -96,7 +122,7 @@ function ContactPage() {
                       </Button>
                     </Form.Item>
                   </Form>
-                  {submitSuccess && <Text type="success">Thank you for contacting us! We'll get back to you soon.</Text>}
+                  {submitSuccess && <Text type="success">Thank you for your feedback! We'll get back to you soon.</Text>}
                 </Col>
               </Row>
             </Card>
