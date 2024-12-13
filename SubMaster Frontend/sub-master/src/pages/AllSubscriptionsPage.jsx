@@ -6,7 +6,9 @@ import {
   CheckCircleOutlined,
   CloseCircleOutlined,
 } from '@ant-design/icons';
-import { jsPDF } from 'jspdf'; // Import jsPDF
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+
 import './AllSubscriptions.css';
 
 const { Title, Text } = Typography;
@@ -14,37 +16,44 @@ const { Title, Text } = Typography;
 const AllSubscriptionsPage = () => {
   const [subscriptions, setSubscriptions] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [plans, setPlans] = useState({}); // To store plan names
+  const [plans, setPlans] = useState({});
 
-  
   useEffect(() => {
-    const fetchSubscriptions = async () => {
-      const userId = localStorage.getItem('user_Id'); // Retrieve user ID from local storage
-      if (!userId) {
-        message.error('User not logged in. Please log in to view subscriptions.');
+    const fetchPlanAndSubscriptionData = async () => {
+      const vendorId = localStorage.getItem('vendor_Id'); // Retrieve vendor ID from local storage
+      if (!vendorId) {
+        message.error('Vendor not found. Please log in again.');
         setLoading(false);
         return;
       }
-  
+
       try {
-        const response = await fetch(`http://localhost:5272/api/CustomerSubscriptions/user/${userId}`);
-        if (!response.ok) {
+        // Fetch Subscription Plans
+        const planResponse = await fetch(`http://localhost:5272/api/SubscriptionPlans/vendor/${vendorId}`);
+        if (!planResponse.ok) {
+          throw new Error('Failed to fetch subscription plans');
+        }
+        const planData = await planResponse.json();
+
+        // Create a map for plans
+        const fetchedPlans = {};
+        planData.forEach((plan) => {
+          fetchedPlans[plan.plan_Id] = plan.plan_Name;
+        });
+
+        // Fetch Subscriptions
+        const userId = localStorage.getItem('user_Id'); // Retrieve user ID from local storage
+        const subscriptionResponse = await fetch(`http://localhost:5272/api/CustomerSubscriptions/user/${userId}`);
+        if (!subscriptionResponse.ok) {
           throw new Error('Failed to fetch subscriptions');
         }
-        const data = await response.json();
-  
-        // Assuming a separate endpoint or predefined object for plan names
-        const fetchedPlans = {
-          1: "Basic Plan",
-          2: "Standard Plan",
-          3: "Premium Plan",
-        };
-  
-        // Format the data with plan names
-        const formattedData = data.map((subscription) => ({
+        const subscriptionData = await subscriptionResponse.json();
+
+        // Format the subscriptions data
+        const formattedData = subscriptionData.map((subscription) => ({
           id: subscription.subscription_Id,
-          subscriptionName: fetchedPlans[subscription.plan_Id] || 'Unknown Plan', // Show plan name
-          planName: fetchedPlans[subscription.plan_Id] || 'Unknown Plan', // Plan name displayed in both places
+          subscriptionName: fetchedPlans[subscription.plan_Id] || 'Unknown Plan',
+          planName: fetchedPlans[subscription.plan_Id] || 'Unknown Plan',
           duration: `${new Date(subscription.start_Date).toLocaleDateString()} to ${new Date(
             subscription.end_Date
           ).toLocaleDateString()}`,
@@ -55,116 +64,87 @@ const AllSubscriptionsPage = () => {
           createdAt: new Date(subscription.created_At).toLocaleDateString(),
           updatedAt: new Date(subscription.updated_At).toLocaleDateString(),
         }));
-  
-        setPlans(fetchedPlans); // Store the fetched plans
+
+        setPlans(fetchedPlans);
         setSubscriptions(formattedData);
       } catch (error) {
-        console.error('Error fetching subscriptions:', error);
-        message.error('Failed to load subscriptions. Please try again later.');
+        console.error('Error fetching data:', error);
+        message.error('Failed to load data. Please try again later.');
       } finally {
         setLoading(false);
       }
     };
-  
-    fetchSubscriptions();
-  }, []);
-  
-  
 
-  const handleDownloadInvoice = async (subscriptionId) => {
+    fetchPlanAndSubscriptionData();
+  }, []);
+
+  
+  const handleDownloadInvoice = async (paymentId) => {
     try {
-      console.log(`Fetching payment details for Subscription ID: ${subscriptionId}`);
-      
-      const response = await fetch(`http://localhost:5272/api/Payments/${subscriptionId}`);
-      if (!response.ok) {
-        throw new Error(`Failed to fetch payment details: ${response.statusText}`);
+      const userId = localStorage.getItem('user_Id'); // Get user ID from local storage
+      if (!userId) {
+        message.error('User not found. Please log in again.');
+        return;
       }
   
-      const paymentData = await response.json();
+      // Fetch payment data using the paymentId
+      const response = await fetch(`http://localhost:5272/api/Payments/${paymentId}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch payment data');
+      }
   
-      console.log('Fetched payment data:', paymentData);
+      const payment = await response.json();
   
-      // Create PDF using jsPDF
+      // Log the payment data to check its structure
+      console.log("Payment Data:", payment);
+  
+      // Prepare invoice details from payment data
+      const invoiceId = payment.transaction_Id || `INV-${payment.payment_Id}`;
+      const date = new Date(payment.payment_Date).toLocaleDateString();
+      const paymentMethod = payment.payment_Method || 'N/A';
+      const amountPaid = `₹${payment.amount || 0}`;
+      const paymentStatus = payment.payment_Status || 'N/A';
+  
+      // Initialize jsPDF for PDF creation
       const doc = new jsPDF();
-      doc.setDrawColor(0, 56, 114); // Dark Blue
-      doc.setLineWidth(1);
-      doc.rect(5, 5, 200, 287); // Border around the entire document
-      const logoUrl = 'src/assets/SMSLOGORound.jpg'; // Path to your logo image
-      doc.addImage(logoUrl, 'JPEG', 80, 15, 50, 50);  // Adjust the logo size as needed
-
-      doc.setFont('Times', 'bold');
-      doc.setFontSize(24);
-      doc.setTextColor(0, 56, 114);  // Dark Blue Color
-      doc.text('SubMaster', 105, 80, null, null, 'center');
-      
-      doc.setFontSize(18);
-      doc.text('Invoice', 105, 90, null, null, 'center');
   
-      doc.setLineWidth(0.5);
-      doc.setDrawColor(0, 56, 114);  // Dark Blue Color
-      doc.line(14, 95, 196, 95);
-
-      doc.setFont('Helvetica', 'normal');
+      // Add Invoice Header
+      doc.setFontSize(18);
+      doc.text("Invoice", 14, 20);
       doc.setFontSize(12);
-      
-      const tableStartY = 105;
-      const cellPadding = 5;
-      doc.setTextColor(0, 0, 0);  // Black text for table
-      doc.setFont('Helvetica', 'bold');
-      doc.rect(14, tableStartY, 180, 10, 'S'); // Table header background box
-      doc.text('Payment ID', 18, tableStartY + 7);
-      doc.text('User ID', 60, tableStartY + 7);
-      doc.text('Amount', 110, tableStartY + 7);
-      doc.text('Payment Date', 160, tableStartY + 7);
-      
-      doc.setFont('Helvetica', 'normal');
-      const formattedAmount = `₹ ${paymentData.amount.toLocaleString()}`; // Format the amount as INR
-      doc.text(paymentData.payment_Id.toString(), 18, tableStartY + 20);
-      doc.text(paymentData.user_Id.toString(), 60, tableStartY + 20);
-      doc.text(formattedAmount, 110, tableStartY + 20);
-      doc.text(new Date(paymentData.payment_Date).toLocaleString(), 160, tableStartY + 20);
-
-      const row2Y = tableStartY + 30;
-      doc.rect(14, row2Y, 180, 10, 'S'); // Table row background box
-      doc.text('Plan ID', 18, row2Y + 7);
-      doc.text('Payment Method', 60, row2Y + 7);
-      doc.text('Transaction ID', 110, row2Y + 7);
-      doc.text('Payment Status', 160, row2Y + 7);
-
-      doc.setFont('Helvetica', 'normal');
-      doc.text(paymentData.plan_Id.toString(), 18, row2Y + 20);
-      doc.text(paymentData.payment_Method, 60, row2Y + 20);
-      doc.text(paymentData.transaction_Id.toString(), 110, row2Y + 20);
-      doc.text(paymentData.payment_Status, 160, row2Y + 20);
-
-      const messageY = row2Y + 35;
-      doc.setFont('Helvetica', 'italic');
+      doc.text(`Invoice ID: ${invoiceId}`, 14, 30);
+      doc.text(`Date: ${date}`, 14, 40);
+  
+      // Add Payment Details Table
+      const tableData = [
+        { key: "Payment Method", value: paymentMethod },
+        { key: "Amount Paid", value: amountPaid },
+        { key: "Payment Status", value: paymentStatus },
+      ];
+  
       doc.setFontSize(14);
-      doc.setTextColor(0, 102, 204);  // Blue text for message
-      doc.text('Thank you for choosing SubMaster!', 14, messageY);
-
-      const signatureY = messageY + 25;
-      doc.setFontSize(12);
-      doc.setTextColor(0, 0, 0);  // Black text for signature
-      doc.text('Signature:', 14, signatureY);
-      doc.line(50, signatureY + 2, 150, signatureY + 2);  // Line for signature
-
-      const footerY = 270;
-      doc.setLineWidth(0.5);
-      doc.setDrawColor(0, 56, 114);  // Dark Blue Color
-      doc.line(14, footerY, 196, footerY);
-
-      doc.setFontSize(10);
-      doc.setTextColor(100, 100, 100); // Gray color for footer
-      doc.text('SubMaster | Address: 123 Business Ave, City, Country | Phone: (123) 456-7890', 14, footerY + 10);
-      doc.text('Email: contact@submaster.com | www.submaster.com', 14, footerY + 15);
-
-      doc.save(`Invoice_${paymentData.payment_Id}.pdf`);
+      doc.text("Payment Summary", 14, 50);
+  
+      // Generate Table using autoTable
+      doc.autoTable({
+        startY: 60,
+        head: [["Detail", "Value"]],
+        body: tableData.map((row) => [row.key, row.value]),
+        theme: "grid",
+        headStyles: { fillColor: [22, 160, 133] }, // Custom header color
+        bodyStyles: { textColor: [0, 0, 0] }, // Custom body text color
+        alternateRowStyles: { fillColor: [240, 240, 240] }, // Alternate row colors
+      });
+  
+      // Save PDF
+      doc.save(`Invoice_${paymentId}.pdf`);
+      message.success("Invoice downloaded successfully.");
     } catch (error) {
-      console.error('Error in handleDownloadInvoice:', error);
-      message.error('Failed to download the invoice. Please try again.');
+      console.error("Error in handleDownloadInvoice:", error);
+      message.error("Failed to download the invoice. Please try again.");
     }
   };
+  
 
   if (loading) {
     return <Spin size="large" style={{ display: 'block', margin: '50px auto' }} />;
@@ -178,7 +158,7 @@ const AllSubscriptionsPage = () => {
           <Col span={24} sm={12} md={8} lg={6} key={subscription.id}>
             <Card
               hoverable
-              title={`${subscription.subscriptionName} - ${subscription.planName}`} // Display both subscription and plan name
+              title={subscription.subscriptionName}
               bordered={false}
               extra={
                 <Tag color={subscription.status === 'active' ? 'green' : 'volcano'}>
@@ -186,15 +166,16 @@ const AllSubscriptionsPage = () => {
                 </Tag>
               }
               className="subscription-card"
-              actions={[<Button
+              actions={[
+                <Button
                   type="link"
                   onClick={() => handleDownloadInvoice(subscription.id)}
                   icon={<CreditCardOutlined />}
                   size="small"
                 >
                   Download Invoice
-                </Button>]}
-
+                </Button>,
+              ]}
             >
               <Space direction="vertical" size={8}>
                 <Text>
@@ -204,13 +185,11 @@ const AllSubscriptionsPage = () => {
                   <strong>Payment Method:</strong> {subscription.plan}
                 </Text>
                 <Text>
-                  <strong>Discount:</strong> {subscription.discount}% 
+                  <strong>Discount:</strong> {subscription.discount}%
                 </Text>
               </Space>
               <Space size={12} style={{ marginTop: '15px' }}>
-                <Tag
-                  color={subscription.paymentStatus === 'pending' ? 'orange' : 'green'}
-                >
+                <Tag color={subscription.paymentStatus === 'pending' ? 'orange' : 'green'}>
                   {subscription.paymentStatus === 'pending' ? (
                     <>
                       <CloseCircleOutlined /> Pending
@@ -226,9 +205,16 @@ const AllSubscriptionsPage = () => {
           </Col>
         ))}
       </Row>
+      
+      {/* Footer with Static Data */}
+      <div className="footer" style={{ textAlign: 'center', padding: '20px', marginTop: '50px' }}>
+        <Text strong>Company Name: Info Web Solution</Text><br />
+        <Text strong>Software Name: SubMaster</Text><br />
+        <Text strong>Contact No: 6353918120</Text><br />
+        <Text strong>Address: Vesu, Surat</Text>
+      </div>
     </div>
   );
 };
 
 export default AllSubscriptionsPage;
- 

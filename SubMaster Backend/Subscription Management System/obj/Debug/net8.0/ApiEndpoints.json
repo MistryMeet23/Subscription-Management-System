@@ -613,6 +613,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Subscription_Management_System.Controllers.PaymentsController",
+    "Method": "GetPaymentsByUserId",
+    "RelativePath": "api/Payments/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Subscription_Management_System.Models.Payment, Subscription Management System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Subscription_Management_System.Controllers.PromotionsController",
     "Method": "GetPromotions",
     "RelativePath": "api/Promotions",

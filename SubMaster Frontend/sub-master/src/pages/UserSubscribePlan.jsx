@@ -123,36 +123,36 @@ const UserSubscribePlan = () => {
   };
 
   // Function to generate PDF
-  const generatePDF = (plan) => {
-    const doc = new jsPDF();
-    const discount = (plan?.price * 5) / 100;
-    const totalAmount = plan?.price - discount;
+  // const generatePDF = (plan) => {
+  //   const doc = new jsPDF();
+  //   const discount = (plan?.price * 5) / 100;
+  //   const totalAmount = plan?.price - discount;
 
-    // Set font size and add text
-    doc.setFontSize(12);
-    doc.text(`Plan Name: ${plan?.plan_Name}`, 20, 90);
-    doc.text(`Price: ₹${plan?.price}`, 20, 110);
-    doc.text(`Discount Applied: ₹${discount}`, 20, 130);
-    doc.text(`Total: ₹${totalAmount}`, 20, 150);
-    doc.text(`Duration: ${plan?.duration_In_Days} days`, 20, 170);
-    doc.text(`Description: ${plan?.description || 'No description available'}`, 20, 190);
+  //   // Set font size and add text
+  //   doc.setFontSize(12);
+  //   doc.text(`Plan Name: ${plan?.plan_Name}`, 20, 90);
+  //   doc.text(`Price: ₹${plan?.price}`, 20, 110);
+  //   doc.text(`Discount Applied: ₹${discount}`, 20, 130);
+  //   doc.text(`Total: ₹${totalAmount}`, 20, 150);
+  //   doc.text(`Duration: ${plan?.duration_In_Days} days`, 20, 170);
+  //   doc.text(`Description: ${plan?.description || 'No description available'}`, 20, 190);
 
-    // Add other details like vendor, features, etc. (if required)
-    doc.text(`Features: ${plan?.features || 'No features available'}`, 20, 210);
+  //   // Add other details like vendor, features, etc. (if required)
+  //   doc.text(`Features: ${plan?.features || 'No features available'}`, 20, 210);
 
-    if (plan?.vendor_Id) {
-      doc.text(`Vendor: ${plan?.vendor_Name}`, 20, 230);
-    }
+  //   if (plan?.vendor_Id) {
+  //     doc.text(`Vendor: ${plan?.vendor_Name}`, 20, 230);
+  //   }
 
-    // Get user's first name from localStorage or state
-    const firstName = localStorage.getItem('firstName') || 'User';
+  //   // Get user's first name from localStorage or state
+  //   const firstName = localStorage.getItem('firstName') || 'User';
 
-    // Generate the PDF file name based on user's first name
-    const fileName = `${firstName}_submaster_invoice.pdf`;
+  //   // Generate the PDF file name based on user's first name
+  //   const fileName = `${firstName}_submaster_invoice.pdf`;
 
-    // Save the PDF
-    doc.save(fileName);
-  };
+  //   // Save the PDF
+  //   doc.save(fileName);
+  // };
 
   return (
     <div className="subscribe-container">

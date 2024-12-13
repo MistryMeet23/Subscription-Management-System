@@ -84,6 +84,21 @@ namespace Subscription_Management_System.Controllers
             return CreatedAtAction("GetPayment", new { id = payment.Payment_Id }, payment);
         }
 
+        // GET: api/Payments/user/{userId}
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<IEnumerable<Payment>>> GetPaymentsByUserId(int userId)
+        {
+            var payments = await _context.Payments.Where(p => p.User_Id == userId).ToListAsync();
+
+            if (payments == null || payments.Count == 0)
+            {
+                return NotFound($"No payments found for user with ID {userId}");
+            }
+
+            return payments;
+        }
+
+
         // DELETE: api/Payments/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePayment(int id)
