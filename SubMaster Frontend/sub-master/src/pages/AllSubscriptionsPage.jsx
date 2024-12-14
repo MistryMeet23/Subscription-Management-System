@@ -205,14 +205,6 @@ const AllSubscriptionsPage = () => {
           </Col>
         ))}
       </Row>
-      
-      {/* Footer with Static Data */}
-      <div className="footer" style={{ textAlign: 'center', padding: '20px', marginTop: '50px' }}>
-        <Text strong>Company Name: Info Web Solution</Text><br />
-        <Text strong>Software Name: SubMaster</Text><br />
-        <Text strong>Contact No: 6353918120</Text><br />
-        <Text strong>Address: Vesu, Surat</Text>
-      </div>
     </div>
   );
 };
