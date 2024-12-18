@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MPj82BVsrOs=",
+  "dgSpecHash": "h8DPJlcjoYo=",
   "success": true,
-  "projectFilePath": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Subscription Management System.csproj",
+  "projectFilePath": "F:\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\Subscription Management System.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mistr\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\mistr\\.nuget\\packages\\bouncycastle.cryptography\\2.5.0\\bouncycastle.cryptography.2.5.0.nupkg.sha512",

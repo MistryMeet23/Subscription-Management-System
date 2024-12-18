@@ -1,0 +1,2 @@
+wwwroot\images\defaultProfilePicture.jpg
+wwwroot\images\SMSLOGORound.png

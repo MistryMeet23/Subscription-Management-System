@@ -1,0 +1,28 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/Subscription Management System/images/defaultProfilePicture.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\defaultProfilePicture.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-epcVxU2v2E2lygj\u002BtSIQ8E\u002BzoIkqsJbE\u002Bz/ZIiTDZAw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1472054"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022epcVxU2v2E2lygj\u002BtSIQ8E\u002BzoIkqsJbE\u002Bz/ZIiTDZAw=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Dec 2024 06:22:26 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Subscription Management System/images/defaultProfilePicture.u2iova53y7.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\defaultProfilePicture.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"u2iova53y7"},{"Name":"integrity","Value":"sha256-epcVxU2v2E2lygj\u002BtSIQ8E\u002BzoIkqsJbE\u002Bz/ZIiTDZAw="},{"Name":"label","Value":"_content/Subscription Management System/images/defaultProfilePicture.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1472054"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022epcVxU2v2E2lygj\u002BtSIQ8E\u002BzoIkqsJbE\u002Bz/ZIiTDZAw=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Dec 2024 06:22:26 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Subscription Management System/images/SMSLOGORound.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\SMSLOGORound.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-BkbczSuRigxFb3AGB5MLyK1qXzqcESsa3ewXWtoC6sY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"40959"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022BkbczSuRigxFb3AGB5MLyK1qXzqcESsa3ewXWtoC6sY=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Dec 2024 06:22:26 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Subscription Management System/images/SMSLOGORound.qbqb0j8x32.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\SMSLOGORound.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"qbqb0j8x32"},{"Name":"integrity","Value":"sha256-BkbczSuRigxFb3AGB5MLyK1qXzqcESsa3ewXWtoC6sY="},{"Name":"label","Value":"_content/Subscription Management System/images/SMSLOGORound.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"40959"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022BkbczSuRigxFb3AGB5MLyK1qXzqcESsa3ewXWtoC6sY=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Dec 2024 06:22:26 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

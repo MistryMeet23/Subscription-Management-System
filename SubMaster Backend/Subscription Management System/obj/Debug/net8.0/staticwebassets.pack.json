@@ -1,12 +1,16 @@
 {
   "Files": [
     {
-      "Id": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\images\\SMSLOGORound.png",
+      "Id": "F:\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\images\\SMSLOGORound.png",
       "PackagePath": "staticwebassets\\images\\SMSLOGORound.png"
     },
     {
-      "Id": "D:\\Sem 3 Project\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\images\\defaultProfilePicture.jpg",
+      "Id": "F:\\Subscription-Management-System\\SubMaster Backend\\Subscription Management System\\wwwroot\\images\\defaultProfilePicture.jpg",
       "PackagePath": "staticwebassets\\images\\defaultProfilePicture.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Subscription Management System.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Subscription Management System.Microsoft.AspNetCore.StaticWebAssets.props",
